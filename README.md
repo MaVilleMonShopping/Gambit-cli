@@ -1,2 +1,1 @@
-# Gambit
-A new cicd tool for flutter projects
+A simple command-line application.
