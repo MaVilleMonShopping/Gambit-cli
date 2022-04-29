@@ -63,6 +63,9 @@ abstract class GambitCommand extends Command {
 
   @override
   @mustCallSuper
+
+  /// Run command
+  /// Check verbose mode
   void run() {
     verboseEnabled = argResults!["verbose"] ?? false;
   }

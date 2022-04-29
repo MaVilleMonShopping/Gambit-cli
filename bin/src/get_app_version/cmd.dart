@@ -28,11 +28,13 @@ class GetAppVersionCmd extends GambitCommand {
     printDebug('Seaching pubspec into: ${currentDirectory.absolute.path}');
 
     try {
-      final pubspecPath = currentDirectory
-          .listSync()
-          .singleWhere((element) => basename(element.path) == "pubspec.yaml");
-      printDebug("Pubspec found !");
-      return pubspecPath.path;
+      String pubspecPath = find(
+        "pubspec.yaml",
+        workingDirectory: currentDirectory.absolute.path,
+        recursive: true,
+        types: [FileSystemEntityType.file],
+      ).toList().first;
+      return pubspecPath;
     } on StateError catch (_) {
       printError(red("pubspec.yaml not found in ${currentDirectory.path}"));
       exit(1);
