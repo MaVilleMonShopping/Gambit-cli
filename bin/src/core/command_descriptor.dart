@@ -21,12 +21,14 @@ class CommandOption {
   final String? abbr;
   final String? help;
   final String? defaultValue;
+  final bool mandatory;
 
   CommandOption({
     required this.name,
     this.abbr,
     this.help,
     this.defaultValue,
+    this.mandatory = false,
   });
 }
 

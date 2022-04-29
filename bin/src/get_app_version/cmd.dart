@@ -1,34 +1,11 @@
 import 'dart:io';
-
-import 'package:args/command_runner.dart';
 import 'package:dcli/dcli.dart';
 
-import '../command_descriptor.dart';
-import 'cm_description.dart';
+import '../core/gambit_command.dart';
+import 'descriptor.dart';
 
-class GetAppVersionCmd extends Command {
-  final GetAppVersionCommandDescriptor descriptor;
-  late bool verboseEnabled;
-
-  GetAppVersionCmd({required this.descriptor}) {
-    for (final option in descriptor.options) {
-      argParser.addOption(
-        option.name,
-        abbr: option.abbr,
-        help: option.help,
-        defaultsTo: option.defaultValue,
-      );
-    }
-
-    for (final flag in descriptor.flags) {
-      argParser.addFlag(
-        flag.name,
-        abbr: flag.abbr,
-        help: flag.help,
-        negatable: flag.negatable,
-      );
-    }
-  }
+class GetAppVersionCmd extends GambitCommand {
+  GetAppVersionCmd() : super(GetAppVersionCommandDescriptor());
 
   @override
   run() async {
@@ -62,28 +39,6 @@ class GetAppVersionCmd extends Command {
     }
   }
 
-  printDebug(String message) {
-    if (verboseEnabled) {
-      print(message);
-    }
-  }
-
-  printSuccess(
-    String message, {
-    String verbosePrefix = "",
-    String verboseSuffix = "",
-  }) {
-    if (verboseEnabled) {
-      print(green("$verbosePrefix $message $verboseSuffix".trim()));
-    } else {
-      print(message);
-    }
-  }
-
-  printError(String message) {
-    printerr(red(message));
-  }
-
   Future<String> _parseYaml(String pubspec) async {
     final yaml = PubSpec.fromFile(pubspec);
     if (!yaml.dependencies.containsKey("flutter")) {
@@ -101,10 +56,4 @@ class GetAppVersionCmd extends Command {
       yaml.version!.patch,
     ].join(".");
   }
-
-  @override
-  String get description => descriptor.commandDescription;
-
-  @override
-  String get name => descriptor.commandName;
 }

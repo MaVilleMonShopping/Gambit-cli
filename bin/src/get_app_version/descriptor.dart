@@ -1,6 +1,6 @@
 import 'package:dcli/dcli.dart';
 
-import '../command_descriptor.dart';
+import '../core/command_descriptor.dart';
 
 class GetAppVersionCommandDescriptor extends CommandDescriptor {
   static final String projectPathArgName = "folder";
