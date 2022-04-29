@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:args/command_runner.dart';
-import 'package:dcli/dcli.dart';
 import 'src/apple/provisioning_profiles/cmd.dart';
 import 'src/get_app_version/cmd.dart';
 

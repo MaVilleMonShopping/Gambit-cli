@@ -9,7 +9,7 @@ class GetAppVersionCmd extends GambitCommand {
 
   @override
   run() async {
-    verboseEnabled = argResults?["verbose"] ?? false;
+    super.run();
     final pubspec = _findFlutterPubspec(
       argResults![GetAppVersionCommandDescriptor.projectPathArgName],
     );

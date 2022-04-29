@@ -1,5 +1,6 @@
 import 'package:args/command_runner.dart';
 import 'package:dcli/dcli.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'command_descriptor.dart';
 
@@ -34,9 +35,13 @@ abstract class GambitCommand extends Command {
     }
   }
 
-  printDebug(String message) {
+  printDebug(
+    String message, {
+    String verbosePrefix = "",
+    String verboseSuffix = "",
+  }) {
     if (verboseEnabled) {
-      print(message);
+      print("$verbosePrefix $message $verboseSuffix".trim());
     }
   }
 
@@ -57,7 +62,8 @@ abstract class GambitCommand extends Command {
   }
 
   @override
+  @mustCallSuper
   void run() {
-    throw UnimplementedError();
+    verboseEnabled = argResults!["verbose"] ?? false;
   }
 }
