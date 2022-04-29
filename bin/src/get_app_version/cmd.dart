@@ -3,31 +3,11 @@ import 'dart:io';
 import 'package:args/command_runner.dart';
 import 'package:dcli/dcli.dart';
 
-import 'command_descriptor.dart';
-
-String _folderArgName = "folder";
-
-class GetAppVersionDescriptorBuilder {
-  static CommandDescriptor build() {
-    return CommandDescriptor(
-      commandName: "get-app-version",
-      commandDescription: "Read flutter app semantic version from pubspec.",
-      options: [
-        CommandOption(
-          name: _folderArgName,
-          abbr: "f",
-          help: """
-Path to flutter app root folder,
-  if not set will try to find flutter pubspec.yaml in current path.""",
-          defaultValue: pwd,
-        )
-      ],
-    );
-  }
-}
+import '../command_descriptor.dart';
+import 'cm_description.dart';
 
 class GetAppVersionCmd extends Command {
-  final CommandDescriptor descriptor;
+  final GetAppVersionCommandDescriptor descriptor;
   late bool verboseEnabled;
 
   GetAppVersionCmd({required this.descriptor}) {
@@ -53,7 +33,9 @@ class GetAppVersionCmd extends Command {
   @override
   run() async {
     verboseEnabled = argResults?["verbose"] ?? false;
-    final pubspec = _findFlutterPubspec(argResults![_folderArgName]);
+    final pubspec = _findFlutterPubspec(
+      argResults![GetAppVersionCommandDescriptor.projectPathArgName],
+    );
     final version = await _parseYaml(pubspec);
     printSuccess(version, verbosePrefix: "Version:");
     exit(0);
