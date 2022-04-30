@@ -5,6 +5,7 @@ import 'package:dcli/dcli.dart';
 import 'package:dio/dio.dart';
 import 'package:jose/jose.dart';
 
+import 'ios_build.object.dart';
 import 'provisioning_profile.object.dart';
 
 const listProvisioningProfiles =
@@ -39,66 +40,65 @@ class AppStoreConnectClient {
     required this.apiKeyId,
     required this.issuerId,
   }) {
-    bearerToken = _generateToken(
+    bearerToken = Utils.appleClientSecret(
       privateKey: apiPrivateKey,
       keyId: apiKeyId,
       issuerId: issuerId,
     );
-  }
 
-  bool _isTokenValid() {
-    if (bearerToken.isNotEmpty) {
-      final _jwt = JsonWebToken.unverified(bearerToken);
-      if (_jwt.claims.expiry == null) {
-        return true;
-      }
-      if (_jwt.claims.expiry!.compareTo(DateTime.now()) > 0) {
-        return true;
-      }
-    }
-    return false;
-  }
-
-  String _generateToken({
-    required String privateKey,
-    required String keyId,
-    required String issuerId,
-  }) {
-    if (_isTokenValid()) return bearerToken;
-
-    return Utils.appleClientSecret(
-      privateKey: privateKey,
-      keyId: keyId,
-      issuerId: issuerId,
-    );
+    _dio.options.headers[HttpHeaders.authorizationHeader] =
+        "Bearer $bearerToken";
   }
 
   Future<List<ProvisioningProfile>> listProfiles({
     Map<String, String>? queryParameters,
   }) async {
-    _dio.options.headers[HttpHeaders.authorizationHeader] =
-        "Bearer $bearerToken";
     final _response =
         await _dio.get("/profiles", queryParameters: queryParameters);
-    return ProvisioningProfileListResponse.fromJson(_response.data).profiles;
+    return AppstoreConnectApiResponse.fromJson(_response.data)
+        .data
+        .map((e) => ProvisioningProfile.fromJson(e))
+        .toList();
   }
 
   Future getProfile({
     Map<String, String>? queryParameters,
     required String profileId,
   }) async {
-    _dio.options.headers[HttpHeaders.authorizationHeader] =
-        "Bearer $bearerToken";
     final _response = await _dio.get("/profiles/$profileId/bundleId",
         queryParameters: queryParameters);
     return _response;
+  }
+
+  Future<String> getLastTestflightBuildNumber({
+    required String appId,
+    String? preReleaseVersion,
+  }) async {
+    final queryParameters = <String, dynamic>{};
+    queryParameters["filter[app]"] = appId;
+    queryParameters["sort"] = "-version";
+    queryParameters["limit"] = 1;
+
+    if (preReleaseVersion != null) {
+      queryParameters["filter[preReleaseVersion.version]"] = preReleaseVersion;
+    }
+
+    final response =
+        await _dio.get("/builds", queryParameters: queryParameters);
+
+    return AppstoreConnectApiResponse.fromJson(response.data)
+        .data
+        .map((e) => IOSBuild.fromJson(e))
+        .first
+        .attributes
+        .version;
   }
 }
 
 class Utils {
   static const audience = 'appstoreconnect-v1';
   static const algorithm = 'ES256';
-  static const validDuration = 300;
+  static const validDuration = 1200;
 
   // Getting project folder using introspection instead of Platform.script
   // so that it works with unit testing as well

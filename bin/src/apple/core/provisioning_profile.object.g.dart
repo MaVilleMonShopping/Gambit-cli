@@ -6,18 +6,16 @@ part of 'provisioning_profile.object.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ProvisioningProfileListResponse _$$_ProvisioningProfileListResponseFromJson(
+_$_AppstoreConnectApiResponse _$$_AppstoreConnectApiResponseFromJson(
         Map<String, dynamic> json) =>
-    _$_ProvisioningProfileListResponse(
-      profiles: (json['data'] as List<dynamic>)
-          .map((e) => ProvisioningProfile.fromJson(e as Map<String, dynamic>))
-          .toList(),
+    _$_AppstoreConnectApiResponse(
+      data: json['data'] as List<dynamic>,
     );
 
-Map<String, dynamic> _$$_ProvisioningProfileListResponseToJson(
-        _$_ProvisioningProfileListResponse instance) =>
+Map<String, dynamic> _$$_AppstoreConnectApiResponseToJson(
+        _$_AppstoreConnectApiResponse instance) =>
     <String, dynamic>{
-      'data': instance.profiles,
+      'data': instance.data,
     };
 
 _$_ProvisioningProfile _$$_ProvisioningProfileFromJson(

@@ -14,158 +14,146 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-ProvisioningProfileListResponse _$ProvisioningProfileListResponseFromJson(
+AppstoreConnectApiResponse _$AppstoreConnectApiResponseFromJson(
     Map<String, dynamic> json) {
-  return _ProvisioningProfileListResponse.fromJson(json);
+  return _AppstoreConnectApiResponse.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ProvisioningProfileListResponse {
-  @JsonKey(name: "data")
-  List<ProvisioningProfile> get profiles => throw _privateConstructorUsedError;
+mixin _$AppstoreConnectApiResponse {
+  List<dynamic> get data => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ProvisioningProfileListResponseCopyWith<ProvisioningProfileListResponse>
+  $AppstoreConnectApiResponseCopyWith<AppstoreConnectApiResponse>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ProvisioningProfileListResponseCopyWith<$Res> {
-  factory $ProvisioningProfileListResponseCopyWith(
-          ProvisioningProfileListResponse value,
-          $Res Function(ProvisioningProfileListResponse) then) =
-      _$ProvisioningProfileListResponseCopyWithImpl<$Res>;
-  $Res call({@JsonKey(name: "data") List<ProvisioningProfile> profiles});
+abstract class $AppstoreConnectApiResponseCopyWith<$Res> {
+  factory $AppstoreConnectApiResponseCopyWith(AppstoreConnectApiResponse value,
+          $Res Function(AppstoreConnectApiResponse) then) =
+      _$AppstoreConnectApiResponseCopyWithImpl<$Res>;
+  $Res call({List<dynamic> data});
 }
 
 /// @nodoc
-class _$ProvisioningProfileListResponseCopyWithImpl<$Res>
-    implements $ProvisioningProfileListResponseCopyWith<$Res> {
-  _$ProvisioningProfileListResponseCopyWithImpl(this._value, this._then);
+class _$AppstoreConnectApiResponseCopyWithImpl<$Res>
+    implements $AppstoreConnectApiResponseCopyWith<$Res> {
+  _$AppstoreConnectApiResponseCopyWithImpl(this._value, this._then);
 
-  final ProvisioningProfileListResponse _value;
+  final AppstoreConnectApiResponse _value;
   // ignore: unused_field
-  final $Res Function(ProvisioningProfileListResponse) _then;
+  final $Res Function(AppstoreConnectApiResponse) _then;
 
   @override
   $Res call({
-    Object? profiles = freezed,
+    Object? data = freezed,
   }) {
     return _then(_value.copyWith(
-      profiles: profiles == freezed
-          ? _value.profiles
-          : profiles // ignore: cast_nullable_to_non_nullable
-              as List<ProvisioningProfile>,
+      data: data == freezed
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as List<dynamic>,
     ));
   }
 }
 
 /// @nodoc
-abstract class _$ProvisioningProfileListResponseCopyWith<$Res>
-    implements $ProvisioningProfileListResponseCopyWith<$Res> {
-  factory _$ProvisioningProfileListResponseCopyWith(
-          _ProvisioningProfileListResponse value,
-          $Res Function(_ProvisioningProfileListResponse) then) =
-      __$ProvisioningProfileListResponseCopyWithImpl<$Res>;
+abstract class _$AppstoreConnectApiResponseCopyWith<$Res>
+    implements $AppstoreConnectApiResponseCopyWith<$Res> {
+  factory _$AppstoreConnectApiResponseCopyWith(
+          _AppstoreConnectApiResponse value,
+          $Res Function(_AppstoreConnectApiResponse) then) =
+      __$AppstoreConnectApiResponseCopyWithImpl<$Res>;
   @override
-  $Res call({@JsonKey(name: "data") List<ProvisioningProfile> profiles});
+  $Res call({List<dynamic> data});
 }
 
 /// @nodoc
-class __$ProvisioningProfileListResponseCopyWithImpl<$Res>
-    extends _$ProvisioningProfileListResponseCopyWithImpl<$Res>
-    implements _$ProvisioningProfileListResponseCopyWith<$Res> {
-  __$ProvisioningProfileListResponseCopyWithImpl(
-      _ProvisioningProfileListResponse _value,
-      $Res Function(_ProvisioningProfileListResponse) _then)
-      : super(_value, (v) => _then(v as _ProvisioningProfileListResponse));
+class __$AppstoreConnectApiResponseCopyWithImpl<$Res>
+    extends _$AppstoreConnectApiResponseCopyWithImpl<$Res>
+    implements _$AppstoreConnectApiResponseCopyWith<$Res> {
+  __$AppstoreConnectApiResponseCopyWithImpl(_AppstoreConnectApiResponse _value,
+      $Res Function(_AppstoreConnectApiResponse) _then)
+      : super(_value, (v) => _then(v as _AppstoreConnectApiResponse));
 
   @override
-  _ProvisioningProfileListResponse get _value =>
-      super._value as _ProvisioningProfileListResponse;
+  _AppstoreConnectApiResponse get _value =>
+      super._value as _AppstoreConnectApiResponse;
 
   @override
   $Res call({
-    Object? profiles = freezed,
+    Object? data = freezed,
   }) {
-    return _then(_ProvisioningProfileListResponse(
-      profiles: profiles == freezed
-          ? _value.profiles
-          : profiles // ignore: cast_nullable_to_non_nullable
-              as List<ProvisioningProfile>,
+    return _then(_AppstoreConnectApiResponse(
+      data: data == freezed
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as List<dynamic>,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$_ProvisioningProfileListResponse
-    implements _ProvisioningProfileListResponse {
-  const _$_ProvisioningProfileListResponse(
-      {@JsonKey(name: "data")
-          required final List<ProvisioningProfile> profiles})
-      : _profiles = profiles;
+class _$_AppstoreConnectApiResponse implements _AppstoreConnectApiResponse {
+  const _$_AppstoreConnectApiResponse({required final List<dynamic> data})
+      : _data = data;
 
-  factory _$_ProvisioningProfileListResponse.fromJson(
-          Map<String, dynamic> json) =>
-      _$$_ProvisioningProfileListResponseFromJson(json);
+  factory _$_AppstoreConnectApiResponse.fromJson(Map<String, dynamic> json) =>
+      _$$_AppstoreConnectApiResponseFromJson(json);
 
-  @JsonKey(name: "data")
-  final List<ProvisioningProfile> _profiles;
+  final List<dynamic> _data;
   @override
-  @JsonKey(name: "data")
-  List<ProvisioningProfile> get profiles {
+  List<dynamic> get data {
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_profiles);
+    return EqualUnmodifiableListView(_data);
   }
 
   @override
   String toString() {
-    return 'ProvisioningProfileListResponse(profiles: $profiles)';
+    return 'AppstoreConnectApiResponse(data: $data)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ProvisioningProfileListResponse &&
-            const DeepCollectionEquality().equals(other.profiles, profiles));
+            other is _AppstoreConnectApiResponse &&
+            const DeepCollectionEquality().equals(other.data, data));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(profiles));
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
 
   @JsonKey(ignore: true)
   @override
-  _$ProvisioningProfileListResponseCopyWith<_ProvisioningProfileListResponse>
-      get copyWith => __$ProvisioningProfileListResponseCopyWithImpl<
-          _ProvisioningProfileListResponse>(this, _$identity);
+  _$AppstoreConnectApiResponseCopyWith<_AppstoreConnectApiResponse>
+      get copyWith => __$AppstoreConnectApiResponseCopyWithImpl<
+          _AppstoreConnectApiResponse>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ProvisioningProfileListResponseToJson(this);
+    return _$$_AppstoreConnectApiResponseToJson(this);
   }
 }
 
-abstract class _ProvisioningProfileListResponse
-    implements ProvisioningProfileListResponse {
-  const factory _ProvisioningProfileListResponse(
-          {@JsonKey(name: "data")
-              required final List<ProvisioningProfile> profiles}) =
-      _$_ProvisioningProfileListResponse;
+abstract class _AppstoreConnectApiResponse
+    implements AppstoreConnectApiResponse {
+  const factory _AppstoreConnectApiResponse(
+      {required final List<dynamic> data}) = _$_AppstoreConnectApiResponse;
 
-  factory _ProvisioningProfileListResponse.fromJson(Map<String, dynamic> json) =
-      _$_ProvisioningProfileListResponse.fromJson;
+  factory _AppstoreConnectApiResponse.fromJson(Map<String, dynamic> json) =
+      _$_AppstoreConnectApiResponse.fromJson;
 
   @override
-  @JsonKey(name: "data")
-  List<ProvisioningProfile> get profiles => throw _privateConstructorUsedError;
+  List<dynamic> get data => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$ProvisioningProfileListResponseCopyWith<_ProvisioningProfileListResponse>
+  _$AppstoreConnectApiResponseCopyWith<_AppstoreConnectApiResponse>
       get copyWith => throw _privateConstructorUsedError;
 }
 

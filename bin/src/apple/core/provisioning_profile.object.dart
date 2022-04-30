@@ -6,12 +6,12 @@ part 'provisioning_profile.object.freezed.dart';
 part 'provisioning_profile.object.g.dart';
 
 @freezed
-class ProvisioningProfileListResponse with _$ProvisioningProfileListResponse {
-  const factory ProvisioningProfileListResponse({
-    @JsonKey(name: "data") required List<ProvisioningProfile> profiles,
-  }) = _ProvisioningProfileListResponse;
-  factory ProvisioningProfileListResponse.fromJson(Map<String, dynamic> json) =>
-      _$ProvisioningProfileListResponseFromJson(json);
+class AppstoreConnectApiResponse with _$AppstoreConnectApiResponse {
+  const factory AppstoreConnectApiResponse({
+    required List<dynamic> data,
+  }) = _AppstoreConnectApiResponse;
+  factory AppstoreConnectApiResponse.fromJson(Map<String, dynamic> json) =>
+      _$AppstoreConnectApiResponseFromJson(json);
 }
 
 @freezed
