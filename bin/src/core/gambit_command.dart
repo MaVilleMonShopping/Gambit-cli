@@ -21,6 +21,7 @@ abstract class GambitCommand extends Command {
         help: option.help,
         defaultsTo: option.defaultValue,
         mandatory: option.mandatory,
+        allowed: option.allowed,
       );
     }
 

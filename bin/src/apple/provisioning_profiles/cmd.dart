@@ -3,6 +3,7 @@ import 'dart:io';
 import 'dart:math';
 import 'dart:typed_data';
 
+import 'package:args/command_runner.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dcli/dcli.dart';
 import 'package:dio/dio.dart';
@@ -14,6 +15,14 @@ import '../core/provisioning_profile.object.dart';
 part 'descriptor.dart';
 
 class AppleProvisioninProfileCmd extends GambitCommand {
+  late bool downloadAll;
+  late String apiPrivateKey;
+  late String apiKeyId;
+  late String issuerId;
+  late String? bundleId;
+  late String profileType;
+  late AppStoreConnectClient _appStoreConnectClient;
+
   final Directory provisioningProfileDirectory = Directory(
       "${Platform.environment['HOME']}/Library/MobileDevice/Provisioning Profiles");
   AppleProvisioninProfileCmd()
@@ -23,65 +32,83 @@ class AppleProvisioninProfileCmd extends GambitCommand {
 
   @override
   void run() async {
-    super.run();
-    await _buildJwtToken().bind(_listProfiles).run();
+    checkVerboseMode();
+    await _init()
+        .bind(_listProfiles)
+        .bind(_filterProfiles)
+        .bind(_saveProfiles)
+        .run();
   }
 
-  Task<String> _buildJwtToken() => Task<String>(() async {
-        final token = Utils.appleClientSecret(
-          privateKey:
-              argResults![_ProvisoningProfileDescriptor.apiPrivateKeyArgName],
-          keyId: argResults![_ProvisoningProfileDescriptor.apiKeyIdArgName],
-          issuerId: argResults![_ProvisoningProfileDescriptor.issuerIdArgName],
+  Task<void> _init() => Task<void>(() async {
+        downloadAll =
+            argResults![_ProvisoningProfileDescriptor.alldArgName] ?? false;
+        apiPrivateKey =
+            argResults![_ProvisoningProfileDescriptor.apiPrivateKeyArgName];
+        apiKeyId = argResults![_ProvisoningProfileDescriptor.apiKeyIdArgName];
+        issuerId = argResults![_ProvisoningProfileDescriptor.issuerIdArgName];
+        bundleId = argResults![_ProvisoningProfileDescriptor.bundleIdArgName];
+        profileType =
+            argResults![_ProvisoningProfileDescriptor.profileTypeArgName];
+
+        if (downloadAll) {
+          printDebug(yellow("Downloading all profiles"));
+        } else if (bundleId == null) {
+          throw UsageException(red("Use bundle-id argument or --all"), usage);
+        } else {
+          printDebug(yellow("Downloading profile for $bundleId"));
+        }
+
+        _appStoreConnectClient = AppStoreConnectClient(
+          apiPrivateKey: apiPrivateKey,
+          apiKeyId: apiKeyId,
+          issuerId: issuerId,
         );
-        printDebug("\n$token\n", verbosePrefix: "token:");
-        return token;
       });
 
-  Task<void> _listProfiles(String token) => Task<void>(() async {
-        final _dio = Dio(
-          BaseOptions(
-            baseUrl: "https://api.appstoreconnect.apple.com/",
-            headers: {
-              HttpHeaders.authorizationHeader: "Bearer $token",
-            },
-          ),
-        );
-        List profiles = [];
+  Task<List<ProvisioningProfile>> _listProfiles(void _) =>
+      Task<List<ProvisioningProfile>>(() async {
         try {
-          final response = await _dio.get("v1/profiles", queryParameters: {
-            "filter[profileType]":
-                argResults![_ProvisoningProfileDescriptor.profileTypeArgName]
+          return await _appStoreConnectClient.listProfiles(queryParameters: {
+            "filter[profileType]": profileType,
           });
-          profiles =
-              ProvisioningProfileListResponse.fromJson(response.data).profiles;
         } on DioError catch (ex) {
           printError("Can't retrieve profiles: ${ex.response}");
           exit(1);
         }
-        ProvisioningProfile? _goodProfile;
+      });
+
+  Task<List<ProvisioningProfile>> _filterProfiles(
+          List<ProvisioningProfile> profiles) =>
+      Task<List<ProvisioningProfile>>(() async {
+        if (downloadAll) {
+          return profiles;
+        } else if (bundleId == null) {
+          printError("Use bundle-id argument or --all");
+          exit(64);
+        }
+
         for (final prof in profiles) {
           final bundleResponse =
-              await _dio.get("/v1/profiles/${prof.id}/bundleId");
+              await _appStoreConnectClient.getProfile(profileId: prof.id);
           if (bundleResponse.data["data"]["attributes"]["identifier"] ==
-              argResults![_ProvisoningProfileDescriptor.bundleIdArgName]) {
+              bundleId) {
             printDebug("Provisioning profile found !");
-            _goodProfile = prof;
-            break;
+            return [prof];
           }
         }
 
-        if (_goodProfile == null) {
-          printError(
-              "No profile found for ${argResults![_ProvisoningProfileDescriptor.bundleIdArgName]}");
-          exit(1);
-        }
-        if (!provisioningProfileDirectory.existsSync()) {
-          provisioningProfileDirectory.createSync();
-        }
+        printError("No profile fond for bundleId: $bundleId");
+        exit(1);
+      });
+
+  Task<void> _saveProfiles(List<ProvisioningProfile> toSave) =>
+      Task<void>(() async {
         printDebug(yellow(
-            "Saving profile in: ${provisioningProfileDirectory.absolute.path}"));
-        await _writeFile(_goodProfile);
+            "Saving profiles in: ${provisioningProfileDirectory.absolute.path}"));
+        for (final profile in toSave) {
+          await _writeFile(profile);
+        }
       });
 
   Future<void> _writeFile(ProvisioningProfile profile) async {
@@ -98,7 +125,7 @@ class AppleProvisioninProfileCmd extends GambitCommand {
           "Profile saved: ${file.absolute.path} ${await _getFileSize(file, 2)}");
     } catch (ex) {
       printError(ex.toString());
-      exit(0);
+      exit(1);
     }
   }
 

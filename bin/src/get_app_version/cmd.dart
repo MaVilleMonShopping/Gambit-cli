@@ -7,12 +7,12 @@ import 'descriptor.dart';
 
 class GetAppVersionCmd extends GambitCommand {
   late String flutterProjectPath;
+
   GetAppVersionCmd() : super(GetAppVersionCommandDescriptor());
 
   @override
   run() async {
     checkVerboseMode();
-
     flutterProjectPath =
         argResults![GetAppVersionCommandDescriptor.projectPathArgName];
 

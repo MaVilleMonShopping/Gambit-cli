@@ -2,7 +2,10 @@ import 'dart:io';
 import 'dart:mirrors';
 
 import 'package:dcli/dcli.dart';
+import 'package:dio/dio.dart';
 import 'package:jose/jose.dart';
+
+import 'provisioning_profile.object.dart';
 
 const listProvisioningProfiles =
     "https://api.appstoreconnect.apple.com/v1/profiles";
@@ -16,6 +19,79 @@ extension SecondsSinceEpoch on DateTime {
 
   DateTime fromSecondsSinceEpoch(int seconds) {
     return DateTime.fromMillisecondsSinceEpoch(seconds * 1000);
+  }
+}
+
+class AppStoreConnectClient {
+  final Dio _dio = Dio(
+    BaseOptions(
+      baseUrl: "https://api.appstoreconnect.apple.com/v1",
+    ),
+  );
+
+  final String apiPrivateKey;
+  final String apiKeyId;
+  final String issuerId;
+  String bearerToken = "";
+
+  AppStoreConnectClient({
+    required this.apiPrivateKey,
+    required this.apiKeyId,
+    required this.issuerId,
+  }) {
+    bearerToken = _generateToken(
+      privateKey: apiPrivateKey,
+      keyId: apiKeyId,
+      issuerId: issuerId,
+    );
+  }
+
+  bool _isTokenValid() {
+    if (bearerToken.isNotEmpty) {
+      final _jwt = JsonWebToken.unverified(bearerToken);
+      if (_jwt.claims.expiry == null) {
+        return true;
+      }
+      if (_jwt.claims.expiry!.compareTo(DateTime.now()) > 0) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  String _generateToken({
+    required String privateKey,
+    required String keyId,
+    required String issuerId,
+  }) {
+    if (_isTokenValid()) return bearerToken;
+
+    return Utils.appleClientSecret(
+      privateKey: privateKey,
+      keyId: keyId,
+      issuerId: issuerId,
+    );
+  }
+
+  Future<List<ProvisioningProfile>> listProfiles({
+    Map<String, String>? queryParameters,
+  }) async {
+    _dio.options.headers[HttpHeaders.authorizationHeader] =
+        "Bearer $bearerToken";
+    final _response =
+        await _dio.get("/profiles", queryParameters: queryParameters);
+    return ProvisioningProfileListResponse.fromJson(_response.data).profiles;
+  }
+
+  Future getProfile({
+    Map<String, String>? queryParameters,
+    required String profileId,
+  }) async {
+    _dio.options.headers[HttpHeaders.authorizationHeader] =
+        "Bearer $bearerToken";
+    final _response = await _dio.get("/profiles/$profileId/bundleId",
+        queryParameters: queryParameters);
+    return _response;
   }
 }
 
