@@ -9,8 +9,8 @@ import 'package:dio/dio.dart';
 
 import '../../core/command_descriptor.dart';
 import '../../core/gambit_command.dart';
-import 'appstore_connect_utils.dart';
-import 'provisioning_profile.object.dart';
+import '../core/appstore_connect_utils.dart';
+import '../core/provisioning_profile.object.dart';
 part 'descriptor.dart';
 
 class AppleProvisioninProfileCmd extends GambitCommand {

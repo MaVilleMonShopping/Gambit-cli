@@ -1,6 +1,5 @@
 import 'package:args/command_runner.dart';
 import 'package:dcli/dcli.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'command_descriptor.dart';
 
@@ -61,12 +60,7 @@ abstract class GambitCommand extends Command {
     printerr(red(message));
   }
 
-  @override
-  @mustCallSuper
-
-  /// Run command
-  /// Check verbose mode
-  void run() {
+  void checkVerboseMode() {
     verboseEnabled = argResults!["verbose"] ?? false;
   }
 }
