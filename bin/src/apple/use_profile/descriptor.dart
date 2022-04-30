@@ -14,18 +14,18 @@ class AppleUseProfileDescriptor extends CommandDescriptor {
       : super(
             commandName: "ios-use-profile",
             commandDescription:
-                "Download, Apply provisioning profile and generate export_options.plist",
+                "Auto select provisioning profile and generate export_options.plist.",
             options: [
               CommandOption(
                 name: outputArgName,
                 abbr: "o",
                 defaultValue: pwd,
-                help: "Path folder to save generated export_options.plist",
+                help: "Path folder to save generated export_options.plist.",
               ),
               CommandOption(
                 name: projectPathArgName,
                 abbr: "f",
-                help: "Path to flutter app root folder",
+                help: "Path to flutter app root folder.",
                 defaultValue: pwd,
               ),
             ]);

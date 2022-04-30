@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'ios_build.object.freezed.dart';
-part 'ios_build.object.g.dart';
+part 'ios_build.freezed.dart';
+part 'ios_build.g.dart';
 
 @freezed
 class IOSBuild with _$IOSBuild {

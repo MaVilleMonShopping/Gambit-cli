@@ -11,24 +11,25 @@ class _ProvisoningProfileDescriptor extends CommandDescriptor {
   _ProvisoningProfileDescriptor()
       : super(
             commandName: "get-provisioning-profiles",
-            commandDescription: "Retrieve provisioning profiles",
+            commandDescription:
+                "Download provisioning profiles from AppStore Connect.",
             options: [
               CommandOption(
                 name: issuerIdArgName,
-                help: "Apple AppStore Connect issuer id",
+                help: "Apple AppStore Connect issuer id.",
                 abbr: "i",
                 mandatory: true,
               ),
               CommandOption(
                 name: apiKeyIdArgName,
                 abbr: "a",
-                help: "Apple AppStore Connect key id",
+                help: "Apple AppStore Connect key id.",
                 mandatory: true,
               ),
               CommandOption(
                 name: apiPrivateKeyArgName,
                 abbr: "p",
-                help: "Apple AppStore Connect private key",
+                help: "Apple AppStore Connect private key.",
                 mandatory: true,
               ),
               CommandOption(
@@ -36,7 +37,7 @@ class _ProvisoningProfileDescriptor extends CommandDescriptor {
                 abbr: "b",
                 help: """
 Application bundle id (com.example.app)
-Ignored if --all""",
+Ignored if --all.""",
               ),
               CommandOption(
                   name: profileTypeArgName,
@@ -57,7 +58,7 @@ Ignored if --all""",
                     "MAC_CATALYST_APP_STORE",
                     "MAC_CATALYST_APP_DIRECT"
                   ],
-                  help: "Provisioning profile type",
+                  help: "Provisioning profile type.",
                   mandatory: false,
                   defaultValue: "IOS_APP_STORE")
             ],

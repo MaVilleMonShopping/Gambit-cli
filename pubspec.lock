@@ -43,13 +43,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.9.0"
-  auth_header:
-    dependency: transitive
-    description:
-      name: auth_header
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "3.0.1"
   basic_utils:
     dependency: transitive
     description:
@@ -268,7 +261,7 @@ packages:
     source: hosted
     version: "2.0.2"
   freezed_annotation:
-    dependency: "direct main"
+    dependency: "direct dev"
     description:
       name: freezed_annotation
       url: "https://pub.dartlang.org"
@@ -337,13 +330,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.3"
-  jaguar_jwt:
-    dependency: "direct main"
-    description:
-      name: jaguar_jwt
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "3.0.0"
   jose:
     dependency: "direct main"
     description:

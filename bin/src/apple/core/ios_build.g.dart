@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'ios_build.object.dart';
+part of 'ios_build.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator

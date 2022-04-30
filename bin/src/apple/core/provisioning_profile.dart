@@ -2,8 +2,8 @@
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'provisioning_profile.object.freezed.dart';
-part 'provisioning_profile.object.g.dart';
+part 'provisioning_profile.freezed.dart';
+part 'provisioning_profile.g.dart';
 
 @freezed
 class AppstoreConnectApiResponse with _$AppstoreConnectApiResponse {

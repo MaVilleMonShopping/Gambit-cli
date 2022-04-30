@@ -1,12 +1,11 @@
 import 'dart:io';
-import 'dart:mirrors';
 
 import 'package:dcli/dcli.dart';
 import 'package:dio/dio.dart';
 import 'package:jose/jose.dart';
 
-import 'ios_build.object.dart';
-import 'provisioning_profile.object.dart';
+import 'ios_build.dart';
+import 'provisioning_profile.dart';
 
 const listProvisioningProfiles =
     "https://api.appstoreconnect.apple.com/v1/profiles";
@@ -99,14 +98,6 @@ class Utils {
   static const audience = 'appstoreconnect-v1';
   static const algorithm = 'ES256';
   static const validDuration = 1200;
-
-  // Getting project folder using introspection instead of Platform.script
-  // so that it works with unit testing as well
-  static String get projectFolder {
-    final mirrorPath = reflectClass(Utils).owner as LibraryMirror;
-    final utilsClassFolder = dirname(mirrorPath.uri.path);
-    return Directory.fromUri(Uri.parse(utilsClassFolder)).absolute.parent.path;
-  }
 
   static String appleClientSecret({
     required String privateKey,
