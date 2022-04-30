@@ -10,7 +10,7 @@ class AppleUseProfile extends GambitCommand {
 
   @override
   void run() {
-    super.run();
+    checkVerboseMode();
     printDebug(
         "Generating ${argResults![AppleUseProfileDescriptor.outputArgName]}");
 
