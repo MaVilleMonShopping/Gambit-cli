@@ -33,6 +33,10 @@ abstract class GambitCommand extends Command {
         negatable: flag.negatable,
       );
     }
+
+    for (final sub in commandDescriptor.subCommands) {
+      addSubcommand(sub);
+    }
   }
 
   printDebug(

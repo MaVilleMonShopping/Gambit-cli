@@ -1,3 +1,5 @@
+import 'gambit_command.dart';
+
 class CommandDescriptor {
   final String commandName;
   final String commandDescription;
@@ -6,11 +8,14 @@ class CommandDescriptor {
     _verboseFlag,
   ];
 
+  final List<GambitCommand> subCommands;
+
   CommandDescriptor({
     required this.commandName,
     required this.commandDescription,
     this.options = const [],
     List<CommandFlag> additionalFlags = const [],
+    this.subCommands = const [],
   }) {
     flags.addAll(additionalFlags);
   }

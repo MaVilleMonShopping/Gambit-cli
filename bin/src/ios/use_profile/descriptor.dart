@@ -1,18 +1,17 @@
-import 'package:dcli/dcli.dart';
+part of 'cmd.dart';
 
-import '../../core/command_descriptor.dart';
+const String outputArgName = "output";
+const String projectPathArgName = "flutter_app_folder";
+const String issuerIdArgName = "issuer-id";
+const String apiKeyIdArgName = "api-key-id";
+const String apiPrivateKeyArgName = "api-private-key";
+const String profileTypeArgName = "profile-type";
+const String bundleIdArgName = "bundle-id";
 
 class AppleUseProfileDescriptor extends CommandDescriptor {
-  static String outputArgName = "output";
-  static String projectPathArgName = "flutter_app_folder";
-  static String issuerIdArgName = "issuer-id";
-  static String apiKeyIdArgName = "api-key-id";
-  static String apiPrivateKeyArgName = "api-private-key";
-  static String profileTypeArgName = "profile-type";
-  static String bundleIdArgName = "bundle-id";
   AppleUseProfileDescriptor()
       : super(
-            commandName: "ios-use-profile",
+            commandName: "use-profile",
             commandDescription:
                 "Auto select provisioning profile and generate export_options.plist.",
             options: [

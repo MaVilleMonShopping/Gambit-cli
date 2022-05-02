@@ -14,7 +14,7 @@ import '../core/appstore_connect_utils.dart';
 import '../core/provisioning_profile.dart';
 part 'descriptor.dart';
 
-class AppleProvisioninProfileCmd extends GambitCommand {
+class GetProvisioninProfile extends GambitCommand {
   late bool downloadAll;
   late String apiPrivateKey;
   late String apiKeyId;
@@ -25,9 +25,9 @@ class AppleProvisioninProfileCmd extends GambitCommand {
 
   final Directory provisioningProfileDirectory = Directory(
       "${Platform.environment['HOME']}/Library/MobileDevice/Provisioning Profiles");
-  AppleProvisioninProfileCmd()
+  GetProvisioninProfile()
       : super(
-          _ProvisoningProfileDescriptor(),
+          _GetProvisoningProfileDescriptor(),
         );
 
   @override
@@ -41,15 +41,12 @@ class AppleProvisioninProfileCmd extends GambitCommand {
   }
 
   Task<void> _init() => Task<void>(() async {
-        downloadAll =
-            argResults![_ProvisoningProfileDescriptor.alldArgName] ?? false;
-        apiPrivateKey =
-            argResults![_ProvisoningProfileDescriptor.apiPrivateKeyArgName];
-        apiKeyId = argResults![_ProvisoningProfileDescriptor.apiKeyIdArgName];
-        issuerId = argResults![_ProvisoningProfileDescriptor.issuerIdArgName];
-        bundleId = argResults![_ProvisoningProfileDescriptor.bundleIdArgName];
-        profileType =
-            argResults![_ProvisoningProfileDescriptor.profileTypeArgName];
+        downloadAll = argResults![alldArgName] ?? false;
+        apiPrivateKey = argResults![apiPrivateKeyArgName];
+        apiKeyId = argResults![apiKeyIdArgName];
+        issuerId = argResults![issuerIdArgName];
+        bundleId = argResults![bundleIdArgName];
+        profileType = argResults![profileTypeArgName];
 
         if (downloadAll) {
           printDebug(yellow("Downloading all profiles"));

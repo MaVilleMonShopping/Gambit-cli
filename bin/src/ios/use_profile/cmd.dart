@@ -1,32 +1,28 @@
 import 'dart:io';
-
 import 'package:dcli/dcli.dart';
-
+import '../../core/command_descriptor.dart';
 import '../../core/gambit_command.dart';
-import 'descriptor.dart';
+part 'descriptor.dart';
 
-class AppleUseProfile extends GambitCommand {
-  AppleUseProfile() : super(AppleUseProfileDescriptor());
+class UseProfile extends GambitCommand {
+  UseProfile() : super(AppleUseProfileDescriptor());
 
   @override
   void run() {
     checkVerboseMode();
-    printDebug(
-        "Generating ${argResults![AppleUseProfileDescriptor.outputArgName]}");
+    printDebug("Generating ${argResults![outputArgName]}");
 
-    Directory output =
-        Directory(argResults![AppleUseProfileDescriptor.outputArgName]);
+    Directory output = Directory(argResults![outputArgName]);
 
     printDebug(blue("Output set to ${output.absolute.path}"));
     String xcodeprojPath;
     try {
       printDebug(blue(
-          "Searching xcodeproj recursively in ${argResults![AppleUseProfileDescriptor.projectPathArgName]}"));
+          "Searching xcodeproj recursively in ${argResults![projectPathArgName]}"));
 
       xcodeprojPath = find(
         '*.xcodeproj',
-        workingDirectory:
-            "${argResults![AppleUseProfileDescriptor.projectPathArgName]}",
+        workingDirectory: "${argResults![projectPathArgName]}",
         recursive: true,
         types: [Find.directory, Find.file],
         caseSensitive: false,
@@ -44,9 +40,9 @@ class AppleUseProfile extends GambitCommand {
 
     String xcodeCommand = "xcode-project use-profiles";
     xcodeCommand +=
-        ' --export-options-plist "${join(argResults![AppleUseProfileDescriptor.outputArgName], "export_options.plist")}"';
+        ' --export-options-plist "${join(argResults![outputArgName], "export_options.plist")}"';
     xcodeCommand +=
-        ' --project "${join(argResults![AppleUseProfileDescriptor.projectPathArgName], "**/*.xcodeproj")}"';
+        ' --project "${join(argResults![projectPathArgName], "**/*.xcodeproj")}"';
     xcodeCommand.run;
   }
 }

@@ -1,14 +1,14 @@
 part of 'cmd.dart';
 
-class _ProvisoningProfileDescriptor extends CommandDescriptor {
-  static String issuerIdArgName = "issuer-id";
-  static String apiKeyIdArgName = "api-key-id";
-  static String apiPrivateKeyArgName = "api-private-key";
-  static String profileTypeArgName = "profile-type";
-  static String bundleIdArgName = "bundle-id";
-  static String alldArgName = "all";
+const String issuerIdArgName = "issuer-id";
+const String apiKeyIdArgName = "api-key-id";
+const String apiPrivateKeyArgName = "api-private-key";
+const String profileTypeArgName = "profile-type";
+const String bundleIdArgName = "bundle-id";
+const String alldArgName = "all";
 
-  _ProvisoningProfileDescriptor()
+class _GetProvisoningProfileDescriptor extends CommandDescriptor {
+  _GetProvisoningProfileDescriptor()
       : super(
             commandName: "get-provisioning-profiles",
             commandDescription:
