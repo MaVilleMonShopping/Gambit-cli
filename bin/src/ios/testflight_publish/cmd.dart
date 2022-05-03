@@ -114,7 +114,8 @@ class TestflightPublish extends GambitCommand {
             uploaded = true;
             break;
           } catch (ex) {
-            printError("Error while uploading, retry (${i + 1})");
+            printError("Error while uploading, retry ($i)");
+            uploaded = false;
           }
         }
 
@@ -125,7 +126,9 @@ class TestflightPublish extends GambitCommand {
       });
 
   Task<void> _removePrivateKey(_) => Task<void>(() async {
-        privateKey.deleteSync();
-        print(yellow("Private key deleted"));
+        try {
+          privateKey.deleteSync();
+          print(yellow("Private key deleted"));
+        } catch (_) {}
       });
 }
