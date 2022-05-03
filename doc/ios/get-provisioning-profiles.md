@@ -1,7 +1,12 @@
 # get-provisioning-profiles
+
+Only available on MacOS
+
+```bash
+gambit get-provisioning-profiles -h
+```
  
- ```
- gambit get-provisioning-profiles -h
+ ```bash
 Option issuer-id is mandatory.
 
 Usage: gambit get-provisioning-profiles [arguments]
@@ -20,4 +25,13 @@ Usage: gambit get-provisioning-profiles [arguments]
 Run "gambit help" to see global options.
 ```
 
-WIP
+## Arguments
+
+| Argument | abbr | required | default |Description |
+|---|---|---| --- |---|
+| --issuer-id | -i | true | |Apple AppStore Connect issuer id.|
+| --api-key-id | -a | true | |Apple AppStore Connect key id. |
+| --api-private-key | -p | true | |Apple AppStore Connect private key. **.p8 file content |
+| --bundle-id | -b | false if --all used |  | Application bundle id (com.example.app) |
+| --all | | false if --bundle-id used | | Download all profiles from AppStore Connect.|
+| --verbose | -v | false | | Verbose mode, use only for debug.|
