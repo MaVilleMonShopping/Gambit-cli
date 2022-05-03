@@ -18,7 +18,7 @@ WIP
 ## CLI Usage
 
 ```bash
-gambit <command> <subcommand> <arguments> --help
+gambit <command> <subcommand> [arguments] --help
 ```
 
 ```bash
