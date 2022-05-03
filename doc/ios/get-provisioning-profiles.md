@@ -3,13 +3,13 @@
 Only available on MacOS
 
 ```bash
-gambit get-provisioning-profiles -h
+gambit help ios get-provisioning-profiles
 ```
  
  ```bash
-Option issuer-id is mandatory.
+Download provisioning profiles from AppStore Connect.
 
-Usage: gambit get-provisioning-profiles [arguments]
+Usage: gambit ios get-provisioning-profiles [arguments]
 -h, --help                           Print this usage information.
 -i, --issuer-id (mandatory)          Apple AppStore Connect issuer id.
 -a, --api-key-id (mandatory)         Apple AppStore Connect key id.
