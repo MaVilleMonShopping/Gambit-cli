@@ -3,7 +3,7 @@
 All you need for iOS Flutter app.
 
 ```bash
-gambit ios --help
+gambit help ios
 ```
 
 ```bash
