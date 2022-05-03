@@ -1,11 +1,38 @@
-import '../../core/command_descriptor.dart';
+part of 'cmd.dart';
 
 class TestflightPublishDescriptor extends CommandDescriptor {
-  TestflightPublishDescriptor({
-    required String commandName,
-    required String commandDescription,
-  }) : super(
-          commandName: commandName,
-          commandDescription: commandDescription,
-        );
+  TestflightPublishDescriptor()
+      : super(
+            commandName: "testflight-publish",
+            commandDescription: "Validate & Upload ipa to Testflight.",
+            options: [
+              CommandOption(
+                name: issuerIdArgName,
+                help: "Apple AppStore Connect issuer id.",
+                abbr: "i",
+                mandatory: true,
+              ),
+              CommandOption(
+                name: apiKeyIdArgName,
+                abbr: "a",
+                help: "Apple AppStore Connect key id.",
+                mandatory: true,
+              ),
+              CommandOption(
+                name: apiPrivateKeyArgName,
+                abbr: "p",
+                help: "Apple AppStore Connect private key.",
+                mandatory: true,
+              ),
+              CommandOption(
+                name: ipPathArgName,
+                help: "Path to ipa file.",
+                mandatory: true,
+              ),
+              CommandOption(
+                name: maxTryArgName,
+                help: "Max upload try",
+                defaultValue: "1",
+              ),
+            ]);
 }

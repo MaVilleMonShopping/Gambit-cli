@@ -1,13 +1,5 @@
 part of 'cmd.dart';
 
-const String outputArgName = "output";
-const String projectPathArgName = "flutter_app_folder";
-const String issuerIdArgName = "issuer-id";
-const String apiKeyIdArgName = "api-key-id";
-const String apiPrivateKeyArgName = "api-private-key";
-const String profileTypeArgName = "profile-type";
-const String bundleIdArgName = "bundle-id";
-
 class AppleUseProfileDescriptor extends CommandDescriptor {
   AppleUseProfileDescriptor()
       : super(

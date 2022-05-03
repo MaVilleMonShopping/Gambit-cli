@@ -1,9 +1,10 @@
 # use-profile
 
 Only available on MacOS
+Auto select provisioning profile and generate export_options.plist.
 
 ```bash
-gambit ios use-profile -h
+gambit help ios use-profile
 ```
  
  ```bash

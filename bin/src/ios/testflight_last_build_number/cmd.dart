@@ -4,6 +4,7 @@ import 'package:dartz/dartz.dart';
 
 import '../../core/gambit_command.dart';
 import '../core/appstore_connect_utils.dart';
+import '../core/args_consts.dart';
 import 'descriptor.dart';
 
 class TestflightLastBuildNumberCmd extends GambitCommand {
@@ -27,15 +28,11 @@ class TestflightLastBuildNumberCmd extends GambitCommand {
 
   Task<void> _initialize() => Task<void>(() async {
         checkVerboseMode();
-        apiPrivateKey = argResults![
-            TestflightLastBuildNumberDescriptor.apiPrivateKeyArgName];
-        apiKeyId =
-            argResults![TestflightLastBuildNumberDescriptor.apiKeyIdArgName];
-        issuerId =
-            argResults![TestflightLastBuildNumberDescriptor.issuerIdArgName];
-        appId = argResults![TestflightLastBuildNumberDescriptor.appIdArgName];
-        preReleaseVersion = argResults![
-            TestflightLastBuildNumberDescriptor.preReleaseVersionArgName];
+        apiPrivateKey = argResults![apiPrivateKeyArgName];
+        apiKeyId = argResults![apiKeyIdArgName];
+        issuerId = argResults![issuerIdArgName];
+        appId = argResults![appIdArgName];
+        preReleaseVersion = argResults![preReleaseVersionArgName];
 
         _appStoreConnectClient = AppStoreConnectClient(
           apiPrivateKey: apiPrivateKey,

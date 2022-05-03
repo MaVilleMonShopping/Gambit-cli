@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:dcli/dcli.dart';
 import '../../core/command_descriptor.dart';
 import '../../core/gambit_command.dart';
+import '../core/args_consts.dart';
 part 'descriptor.dart';
 
 class UseProfile extends GambitCommand {

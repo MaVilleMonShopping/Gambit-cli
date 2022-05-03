@@ -1,6 +1,7 @@
 import '../core/command_descriptor.dart';
 import 'get_provisioning_profiles/cmd.dart';
 import 'testflight_last_build_number/cmd.dart';
+import 'testflight_publish/cmd.dart';
 import 'use_profile/cmd.dart';
 
 class IOSDescriptor extends CommandDescriptor {
@@ -11,7 +12,8 @@ class IOSDescriptor extends CommandDescriptor {
           subCommands: [
             GetProvisioninProfile(),
             UseProfile(),
-            TestflightLastBuildNumberCmd()
+            TestflightLastBuildNumberCmd(),
+            TestflightPublish(),
           ],
         );
 }

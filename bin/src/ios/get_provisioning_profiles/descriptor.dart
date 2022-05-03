@@ -1,12 +1,5 @@
 part of 'cmd.dart';
 
-const String issuerIdArgName = "issuer-id";
-const String apiKeyIdArgName = "api-key-id";
-const String apiPrivateKeyArgName = "api-private-key";
-const String profileTypeArgName = "profile-type";
-const String bundleIdArgName = "bundle-id";
-const String alldArgName = "all";
-
 class _GetProvisoningProfileDescriptor extends CommandDescriptor {
   _GetProvisoningProfileDescriptor()
       : super(

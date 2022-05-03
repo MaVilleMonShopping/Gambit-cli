@@ -26,5 +26,5 @@ Run "gambit help" to see global options.
 |---|---|
 | [get-provisioning-profiles](get-provisioning-profiles.md) | Download provisioning profiles from AppStore Connect.|
 | [use-profile](use-profile.md)| Auto select provisioning profile and generate export_options.plist. |
-| testflight-last-build-number | Get last build number from Testflight.|
-| testflight-publish | Validate & Upload ipa to Testflight.|
+| [testflight-last-build-number](testflight-last-build-number.md) | Get last build number from Testflight.|
+| [testflight-publish](testflight-publish.md) | Validate & Upload ipa to Testflight.|

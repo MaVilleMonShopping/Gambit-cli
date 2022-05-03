@@ -1,12 +1,7 @@
 import '../../core/command_descriptor.dart';
+import '../core/args_consts.dart';
 
 class TestflightLastBuildNumberDescriptor extends CommandDescriptor {
-  static String issuerIdArgName = "issuer-id";
-  static String apiKeyIdArgName = "api-key-id";
-  static String apiPrivateKeyArgName = "api-private-key";
-  static String appIdArgName = "app-id";
-  static String preReleaseVersionArgName = "pre-release-version";
-
   TestflightLastBuildNumberDescriptor()
       : super(
             commandName: "testflight-last-build-number",
@@ -34,8 +29,7 @@ class TestflightLastBuildNumberDescriptor extends CommandDescriptor {
               ),
               CommandOption(
                 name: preReleaseVersionArgName,
-                help:
-                    "Only for pre-release version (like 1.0.0), will ignore others pre-release versions.",
+                help: "Filter on pre-release version (like 1.0.0)",
                 mandatory: false,
               ),
             ]);
