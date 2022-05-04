@@ -4,9 +4,7 @@ class CommandDescriptor {
   final String commandName;
   final String commandDescription;
   final List<CommandOption> options;
-  final List<CommandFlag> flags = [
-    _verboseFlag,
-  ];
+  final List<CommandFlag> flags;
 
   final List<GambitCommand> subCommands;
 
@@ -14,11 +12,9 @@ class CommandDescriptor {
     required this.commandName,
     required this.commandDescription,
     this.options = const [],
-    List<CommandFlag> additionalFlags = const [],
+    this.flags = const [],
     this.subCommands = const [],
-  }) {
-    flags.addAll(additionalFlags);
-  }
+  });
 }
 
 class CommandOption {
@@ -28,6 +24,7 @@ class CommandOption {
   final String? defaultValue;
   final bool mandatory;
   final Iterable<String>? allowed;
+  final bool hide;
 
   CommandOption({
     required this.name,
@@ -36,6 +33,7 @@ class CommandOption {
     this.defaultValue,
     this.mandatory = false,
     this.allowed,
+    this.hide = false,
   });
 }
 
@@ -44,18 +42,24 @@ class CommandFlag {
   final String? abbr;
   final String? help;
   final bool negatable;
+  final bool hide;
+  final bool? defaultTo;
 
   const CommandFlag({
     required this.name,
     this.abbr,
     this.help,
     this.negatable = false,
+    this.hide = false,
+    this.defaultTo = false,
   });
 }
 
-const CommandFlag _verboseFlag = CommandFlag(
-  name: "verbose",
-  abbr: "v",
-  help: "Verbose mode, use only for debug",
-  negatable: false,
-);
+CommandFlag verboseFlag({bool hide = false, bool? defaultValue}) => CommandFlag(
+      name: "verbose",
+      abbr: "v",
+      help: "Verbose mode, use only for debug",
+      negatable: false,
+      hide: hide,
+      defaultTo: defaultValue,
+    );

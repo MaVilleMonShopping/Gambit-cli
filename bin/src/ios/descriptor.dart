@@ -8,7 +8,9 @@ class IOSDescriptor extends CommandDescriptor {
   IOSDescriptor()
       : super(
           commandName: "ios",
-          commandDescription: "All you need for iOS Flutter app.",
+          commandDescription: """
+All you need for iOS Flutter app.
+Only available on MacOS.""",
           subCommands: [
             GetProvisioninProfile(),
             UseProfile(),

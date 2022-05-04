@@ -22,6 +22,7 @@ abstract class GambitCommand extends Command {
         defaultsTo: option.defaultValue,
         mandatory: option.mandatory,
         allowed: option.allowed,
+        hide: option.hide,
       );
     }
 
@@ -31,6 +32,8 @@ abstract class GambitCommand extends Command {
         abbr: flag.abbr,
         help: flag.help,
         negatable: flag.negatable,
+        defaultsTo: flag.defaultTo,
+        hide: flag.hide,
       );
     }
 

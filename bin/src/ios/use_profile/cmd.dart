@@ -6,11 +6,17 @@ import '../core/args_consts.dart';
 part 'descriptor.dart';
 
 class UseProfile extends GambitCommand {
-  UseProfile() : super(AppleUseProfileDescriptor());
+  UseProfile() : super(AppleUseProfileDescriptor()) {
+    verboseEnabled = true;
+  }
 
   @override
   void run() {
-    checkVerboseMode();
+    if (!Platform.isMacOS) {
+      printError(
+          "Only avalaible on MacOS, your are running gambit on ${Platform.operatingSystem}");
+      exit(1);
+    }
     printDebug("Generating ${argResults![outputArgName]}");
 
     Directory output = Directory(argResults![outputArgName]);
@@ -45,5 +51,6 @@ class UseProfile extends GambitCommand {
     xcodeCommand +=
         ' --project "${join(argResults![projectPathArgName], "**/*.xcodeproj")}"';
     xcodeCommand.run;
+    exit(0);
   }
 }

@@ -2,7 +2,9 @@ import 'dart:io';
 import 'package:dartz/dartz.dart';
 import 'package:dcli/dcli.dart';
 
+import '../core/exceptions.dart';
 import '../core/gambit_command.dart';
+import '../core/tasks.extensions.dart';
 import 'descriptor.dart';
 
 class GetAppVersionCmd extends GambitCommand {
@@ -12,44 +14,75 @@ class GetAppVersionCmd extends GambitCommand {
 
   @override
   run() async {
-    checkVerboseMode();
     flutterProjectPath =
         argResults![GetAppVersionCommandDescriptor.projectPathArgName];
 
-    await _getFlutterPubspec().bind(_getSemanticVersion).run();
+    final _runResult = await _checkFlutterFolder()
+        .bindRight(_getFlutterPubspec)
+        .bindRight(_getSemanticVersion)
+        .run();
 
-    exit(0);
+    _runResult.fold(
+      (_failure) {
+        printError(_failure.cause);
+        exit(_failure.exitCode);
+      },
+      (semanticVersion) {
+        printSuccess(semanticVersion, verbosePrefix: "Version:");
+        exit(0);
+      },
+    );
   }
 
-  Task<String> _getFlutterPubspec() => Task<String>(() async {
+  Task<GCTaskResult<Directory>> _checkFlutterFolder() =>
+      Task<GCTaskResult<Directory>>(() async {
         final currentDirectory = Directory(flutterProjectPath);
         if (!currentDirectory.existsSync()) {
-          printError("No directory found at ${currentDirectory.absolute.path}");
-          exit(1);
+          return left(
+            CommandFailure(
+              cause: "No directory found at ${currentDirectory.absolute.path}",
+              exitCode: 1,
+            ),
+          );
         }
+        return right(currentDirectory);
+      });
 
-        printDebug(
-            yellow('Seaching pubspec into: ${currentDirectory.absolute.path}'));
+  Task<GCTaskResult<String>> _getFlutterPubspec(
+          Directory flutterProjectDirectory) =>
+      Task<GCTaskResult<String>>(() async {
+        printDebug(yellow(
+            'Seaching pubspec into: ${flutterProjectDirectory.absolute.path}'));
 
         try {
           String pubspecPath = find(
             "pubspec.yaml",
-            workingDirectory: currentDirectory.absolute.path,
+            workingDirectory: flutterProjectDirectory.absolute.path,
             recursive: true,
             types: [FileSystemEntityType.file],
           ).toList().first;
-          return pubspecPath;
+          return right(pubspecPath);
         } on StateError catch (_) {
-          printError(red("pubspec.yaml not found in ${currentDirectory.path}"));
-          exit(1);
+          return left(
+            CommandFailure(
+              cause:
+                  "pubspec.yaml not found in ${flutterProjectDirectory.path}",
+              exitCode: 1,
+            ),
+          );
         }
       });
 
-  Task<void> _getSemanticVersion(String pubspec) => Task<void>(() async {
-        final yaml = PubSpec.fromFile(pubspec);
+  Task<GCTaskResult<String>> _getSemanticVersion(String pubspecPath) =>
+      Task<GCTaskResult<String>>(() async {
+        final yaml = PubSpec.fromFile(pubspecPath);
         if (!yaml.dependencies.containsKey("flutter")) {
-          printError(red("This pubspec is not flutter's pubspec."));
-          exit(1);
+          return left(
+            CommandFailure(
+              cause: "This pubspec is not flutter's pubspec.",
+              exitCode: 1,
+            ),
+          );
         }
 
         final semanticVersion = [
@@ -57,6 +90,6 @@ class GetAppVersionCmd extends GambitCommand {
           yaml.version!.minor,
           yaml.version!.patch,
         ].join(".");
-        printSuccess(semanticVersion, verbosePrefix: "Version:");
+        return right(semanticVersion);
       });
 }
