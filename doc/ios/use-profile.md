@@ -9,14 +9,14 @@ gambit help ios use-profile
  
  ```bash
 Auto select provisioning profile and generate export_options.plist.
+Only available on MacOS.
 
 Usage: gambit ios use-profile [arguments]
 -h, --help                  Print this usage information.
 -o, --output                Path folder to save generated export_options.plist.
-                            (defaults to "<workingDirectory>")
+                            (defaults to "/Users/arnauddasilva/Dev/Arnaud DA SILVA/gambit")
 -f, --flutter_app_folder    Path to flutter app root folder.
-                            (defaults to "<workingDirectory>")
--v, --verbose               Verbose mode, use only for debug
+                            (defaults to "/Users/arnauddasilva/Dev/Arnaud DA SILVA/gambit")
 
 Run "gambit help" to see global options.
 ```

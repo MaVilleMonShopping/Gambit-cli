@@ -3,15 +3,15 @@
 All you need for iOS Flutter app.
 
 ```bash
-gambit help ios
+gambit ios -h
 ```
 
 ```bash
 All you need for iOS Flutter app.
+Only available on MacOS.
 
 Usage: gambit ios <subcommand> [arguments]
--h, --help       Print this usage information.
--v, --verbose    Verbose mode, use only for debug
+-h, --help    Print this usage information.
 
 Available subcommands:
   get-provisioning-profiles      Download provisioning profiles from AppStore Connect.

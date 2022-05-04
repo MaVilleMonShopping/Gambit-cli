@@ -8,6 +8,7 @@ gambit help ios testflight-publish
  
  ```bash
 Validate & Upload ipa to Testflight.
+Only available on MacOS.
 
 Usage: gambit ios testflight-publish [arguments]
 -h, --help                           Print this usage information.

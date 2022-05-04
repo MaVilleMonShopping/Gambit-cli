@@ -18,10 +18,6 @@ WIP
 ## CLI Usage
 
 ```bash
-gambit <command> <subcommand> [arguments] --help
-```
-
-```bash
 You helpfull tool for flutter cicd
 
 Usage: gambit <command> [arguments]

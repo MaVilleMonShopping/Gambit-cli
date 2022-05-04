@@ -15,7 +15,7 @@ Usage: gambit ios testflight-last-build-number [arguments]
     --api-key-id (mandatory)         Apple AppStore Connect key id.
     --api-private-key (mandatory)    Apple AppStore Connect private key.
     --app-id (mandatory)             Targeted app id in AppStore.
-    --pre-release-version            Filter on pre-release version (like 1.0.0).
+    --pre-release-version            Filter on pre-release version (like 1.0.0)
 -v, --verbose                        Verbose mode, use only for debug
 
 Run "gambit help" to see global options.
