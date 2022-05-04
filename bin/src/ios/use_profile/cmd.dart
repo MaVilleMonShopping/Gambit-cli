@@ -6,7 +6,9 @@ import '../core/args_consts.dart';
 part 'descriptor.dart';
 
 class UseProfile extends GambitCommand {
-  UseProfile() : super(AppleUseProfileDescriptor());
+  UseProfile() : super(AppleUseProfileDescriptor()) {
+    verboseEnabled = true;
+  }
 
   @override
   void run() {
