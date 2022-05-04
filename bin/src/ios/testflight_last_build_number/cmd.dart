@@ -27,7 +27,6 @@ class TestflightLastBuildNumberCmd extends GambitCommand {
   }
 
   Task<void> _initialize() => Task<void>(() async {
-        checkVerboseMode();
         apiPrivateKey = argResults![apiPrivateKeyArgName];
         apiKeyId = argResults![apiKeyIdArgName];
         issuerId = argResults![issuerIdArgName];

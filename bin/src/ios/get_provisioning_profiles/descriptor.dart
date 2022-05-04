@@ -55,7 +55,7 @@ Ignored if --all.""",
                   mandatory: false,
                   defaultValue: "IOS_APP_STORE")
             ],
-            additionalFlags: [
+            flags: [
               CommandFlag(
                 name: alldArgName,
                 help: """

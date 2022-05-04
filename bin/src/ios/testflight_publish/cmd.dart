@@ -22,18 +22,23 @@ class TestflightPublish extends GambitCommand {
 
   @override
   void run() async {
-    checkVerboseMode();
     if (!Platform.isMacOS) {
       printError(
           "Only avalaible on MacOS, your are running gambit on ${Platform.operatingSystem}");
     }
 
+// TODO: Revoir l chainage pour gérer les erreurs
     await _configure()
         .bind(_installPrivateKey)
         .bind(_validate)
         .bind(_upload)
         .bind(_removePrivateKey)
-        .run();
+        .run()
+        .catchError((error) async {
+      printError(error.toString());
+      // await _removePrivateKey().run();
+      exit(1);
+    });
 
     exit(0);
   }
@@ -65,7 +70,7 @@ class TestflightPublish extends GambitCommand {
         apiPrivateKeyFilename = "AuthKey_$apiKeyId.p8";
         privateKey = File(
           join(
-            HOME,
+            Directory.current.absolute.path,
             "private_keys",
             apiPrivateKeyFilename,
           ),
@@ -89,8 +94,7 @@ class TestflightPublish extends GambitCommand {
         try {
           xcodeCommand.run;
         } catch (ex) {
-          printError("Validation failed");
-          exit(1);
+          throw "Validation failed";
         }
       });
 
@@ -120,8 +124,7 @@ class TestflightPublish extends GambitCommand {
         }
 
         if (!uploaded) {
-          printError("Can't upload ipa.");
-          exit(1);
+          throw "Can't upload ipa.";
         }
       });
 

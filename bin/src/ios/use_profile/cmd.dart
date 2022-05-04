@@ -10,7 +10,6 @@ class UseProfile extends GambitCommand {
 
   @override
   void run() {
-    checkVerboseMode();
     printDebug("Generating ${argResults![outputArgName]}");
 
     Directory output = Directory(argResults![outputArgName]);

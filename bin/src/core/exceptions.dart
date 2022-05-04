@@ -11,7 +11,7 @@ class DirectoryNotFound implements Exception {
 class CommandFailure {
   final String cause;
   final StackTrace? stackTrace;
-  final int? exitCode;
+  final int exitCode;
 
-  CommandFailure({required this.cause, this.stackTrace, this.exitCode});
+  CommandFailure({required this.cause, this.stackTrace, this.exitCode = 1});
 }

@@ -9,7 +9,9 @@ import 'package:dcli/dcli.dart';
 import 'package:dio/dio.dart';
 
 import '../../core/command_descriptor.dart';
+import '../../core/exceptions.dart';
 import '../../core/gambit_command.dart';
+import '../../core/tasks.extensions.dart';
 import '../core/appstore_connect_utils.dart';
 import '../core/args_consts.dart';
 import '../core/provisioning_profile.dart';
@@ -33,15 +35,26 @@ class GetProvisioninProfile extends GambitCommand {
 
   @override
   void run() async {
-    checkVerboseMode();
-    await _init()
-        .bind(_listProfiles)
-        .bind(_filterProfiles)
-        .bind(_saveProfiles)
+    verboseEnabled = true;
+    final runResult = await _init()
+        .bindRight(_listProfiles)
+        .bindRight(_filterProfiles)
+        .bindRight(_saveProfiles)
         .run();
+
+    runResult.fold(
+      (_fail) {
+        printError(_fail.cause);
+        exit(_fail.exitCode);
+      },
+      (_success) {
+        printSuccess("${_success.length} Provisioning profile(s) saved !");
+        exit(0);
+      },
+    );
   }
 
-  Task<void> _init() => Task<void>(() async {
+  Task<GCTaskResult<Unit>> _init() => Task<GCTaskResult<Unit>>(() async {
         downloadAll = argResults![alldArgName] ?? false;
         apiPrivateKey = argResults![apiPrivateKeyArgName];
         apiKeyId = argResults![apiKeyIdArgName];
@@ -62,28 +75,31 @@ class GetProvisioninProfile extends GambitCommand {
           apiKeyId: apiKeyId,
           issuerId: issuerId,
         );
+
+        return right(unit);
       });
 
-  Task<List<ProvisioningProfile>> _listProfiles(void _) =>
-      Task<List<ProvisioningProfile>>(() async {
+  Task<GCTaskResult<List<ProvisioningProfile>>> _listProfiles(Unit _) =>
+      Task<GCTaskResult<List<ProvisioningProfile>>>(() async {
         try {
-          return await _appStoreConnectClient.listProfiles(queryParameters: {
+          final profiles =
+              await _appStoreConnectClient.listProfiles(queryParameters: {
             "filter[profileType]": profileType,
           });
+          return right(profiles);
         } on DioError catch (ex) {
-          printError("Can't retrieve profiles: ${ex.response}");
-          exit(1);
+          return left(
+            CommandFailure(
+                cause: "Can't retrieve profiles: ${ex.response}", exitCode: 1),
+          );
         }
       });
 
-  Task<List<ProvisioningProfile>> _filterProfiles(
+  Task<GCTaskResult<List<ProvisioningProfile>>> _filterProfiles(
           List<ProvisioningProfile> profiles) =>
-      Task<List<ProvisioningProfile>>(() async {
+      Task<GCTaskResult<List<ProvisioningProfile>>>(() async {
         if (downloadAll) {
-          return profiles;
-        } else if (bundleId == null) {
-          printError("Use bundle-id argument or --all");
-          exit(64);
+          return right(profiles);
         }
 
         for (final prof in profiles) {
@@ -92,39 +108,55 @@ class GetProvisioninProfile extends GambitCommand {
           if (bundleResponse.data["data"]["attributes"]["identifier"] ==
               bundleId) {
             printDebug("Provisioning profile found !");
-            return [prof];
+            return right([prof]);
+          }
+        }
+        return left(
+          CommandFailure(
+            cause: "No profile fond for bundleId: $bundleId",
+            exitCode: 1,
+          ),
+        );
+      });
+
+  Task<GCTaskResult<List<String>>> _saveProfiles(
+          List<ProvisioningProfile> toSave) =>
+      Task<GCTaskResult<List<String>>>(() async {
+        printDebug(yellow(
+            "Saving profiles in: ${provisioningProfileDirectory.absolute.path}"));
+
+        final filesPaths = <String>[];
+        for (final profile in toSave) {
+          try {
+            filesPaths.add(
+              await _writeFile(profile),
+            );
+          } catch (ex) {
+            return left(
+              CommandFailure(
+                cause: "An error occured saving profile ${profile.fileName}",
+                exitCode: 1,
+              ),
+            );
           }
         }
 
-        printError("No profile fond for bundleId: $bundleId");
-        exit(1);
+        return right(filesPaths);
       });
 
-  Task<void> _saveProfiles(List<ProvisioningProfile> toSave) =>
-      Task<void>(() async {
-        printDebug(yellow(
-            "Saving profiles in: ${provisioningProfileDirectory.absolute.path}"));
-        for (final profile in toSave) {
-          await _writeFile(profile);
-        }
-      });
-
-  Future<void> _writeFile(ProvisioningProfile profile) async {
+  Future<String> _writeFile(ProvisioningProfile profile) async {
     final encodedString = profile.attributes.profileContent;
     Uint8List bytes = base64Decode(encodedString);
     File file = File(
         join(provisioningProfileDirectory.absolute.path, profile.fileName));
-    try {
-      await file.writeAsBytes(
-        bytes,
-        mode: FileMode.write,
-      );
-      printSuccess(
-          "Profile saved: ${file.absolute.path} ${await _getFileSize(file, 2)}");
-    } catch (ex) {
-      printError(ex.toString());
-      exit(1);
-    }
+    await file.writeAsBytes(
+      bytes,
+      mode: FileMode.write,
+    );
+    print(blue(
+        "Profile saved: ${file.absolute.path} ${await _getFileSize(file, 2)}"));
+
+    return file.absolute.path;
   }
 
   Future<String> _getFileSize(File file, int decimals) async {

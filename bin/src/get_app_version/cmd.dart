@@ -14,7 +14,6 @@ class GetAppVersionCmd extends GambitCommand {
 
   @override
   run() async {
-    checkVerboseMode();
     flutterProjectPath =
         argResults![GetAppVersionCommandDescriptor.projectPathArgName];
 
@@ -26,7 +25,7 @@ class GetAppVersionCmd extends GambitCommand {
     _runResult.fold(
       (_failure) {
         printError(_failure.cause);
-        exit(_failure.exitCode ?? 1);
+        exit(_failure.exitCode);
       },
       (semanticVersion) {
         printSuccess(semanticVersion, verbosePrefix: "Version:");
