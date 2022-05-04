@@ -35,8 +35,8 @@ class GetAppVersionCmd extends GambitCommand {
     );
   }
 
-  Task<Either<CommandFailure, Directory>> _checkFlutterFolder() =>
-      Task<Either<CommandFailure, Directory>>(() async {
+  Task<GCTaskResult<Directory>> _checkFlutterFolder() =>
+      Task<GCTaskResult<Directory>>(() async {
         final currentDirectory = Directory(flutterProjectPath);
         if (!currentDirectory.existsSync()) {
           return left(
@@ -49,9 +49,9 @@ class GetAppVersionCmd extends GambitCommand {
         return right(currentDirectory);
       });
 
-  Task<Either<CommandFailure, String>> _getFlutterPubspec(
+  Task<GCTaskResult<String>> _getFlutterPubspec(
           Directory flutterProjectDirectory) =>
-      Task<Either<CommandFailure, String>>(() async {
+      Task<GCTaskResult<String>>(() async {
         printDebug(yellow(
             'Seaching pubspec into: ${flutterProjectDirectory.absolute.path}'));
 
@@ -74,9 +74,8 @@ class GetAppVersionCmd extends GambitCommand {
         }
       });
 
-  Task<Either<CommandFailure, String>> _getSemanticVersion(
-          String pubspecPath) =>
-      Task<Either<CommandFailure, String>>(() async {
+  Task<GCTaskResult<String>> _getSemanticVersion(String pubspecPath) =>
+      Task<GCTaskResult<String>>(() async {
         final yaml = PubSpec.fromFile(pubspecPath);
         if (!yaml.dependencies.containsKey("flutter")) {
           return left(
