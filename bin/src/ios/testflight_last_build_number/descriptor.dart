@@ -32,5 +32,8 @@ class TestflightLastBuildNumberDescriptor extends CommandDescriptor {
                 help: "Filter on pre-release version (like 1.0.0)",
                 mandatory: false,
               ),
+            ],
+            flags: [
+              verboseFlag()
             ]);
 }
