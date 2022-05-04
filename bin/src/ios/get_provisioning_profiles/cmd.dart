@@ -55,6 +55,11 @@ class GetProvisioninProfile extends GambitCommand {
   }
 
   Task<GCTaskResult<Unit>> _init() => Task<GCTaskResult<Unit>>(() async {
+        if (!Platform.isMacOS) {
+          return left(CommandFailure(
+              cause:
+                  "Only avalaible on MacOS, your are running gambit on ${Platform.operatingSystem}"));
+        }
         downloadAll = argResults![alldArgName] ?? false;
         apiPrivateKey = argResults![apiPrivateKeyArgName];
         apiKeyId = argResults![apiKeyIdArgName];

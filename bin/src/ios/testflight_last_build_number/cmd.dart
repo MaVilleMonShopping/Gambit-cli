@@ -37,6 +37,11 @@ class TestflightLastBuildNumberCmd extends GambitCommand {
   }
 
   Task<GCTaskResult<Unit>> _initialize() => Task<GCTaskResult<Unit>>(() async {
+        if (!Platform.isMacOS) {
+          return left(CommandFailure(
+              cause:
+                  "Only avalaible on MacOS, your are running gambit on ${Platform.operatingSystem}"));
+        }
         checkVerboseMode();
         apiPrivateKey = argResults![apiPrivateKeyArgName];
         apiKeyId = argResults![apiKeyIdArgName];

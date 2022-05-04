@@ -4,8 +4,9 @@ class AppleUseProfileDescriptor extends CommandDescriptor {
   AppleUseProfileDescriptor()
       : super(
           commandName: "use-profile",
-          commandDescription:
-              "Auto select provisioning profile and generate export_options.plist.",
+          commandDescription: """
+Auto select provisioning profile and generate export_options.plist.
+Only available on MacOS.""",
           options: [
             CommandOption(
               name: outputArgName,
