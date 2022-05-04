@@ -34,5 +34,8 @@ class TestflightPublishDescriptor extends CommandDescriptor {
                 help: "Max upload try",
                 defaultValue: "1",
               ),
+            ],
+            flags: [
+              verboseFlag(),
             ]);
 }
