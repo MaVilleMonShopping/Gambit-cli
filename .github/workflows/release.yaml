@@ -22,4 +22,4 @@ jobs:
 
       - name: Compile
         run: |
-          dart compile exe bin/gambit.dart - build/macos/gambit
+          dart compile exe bin/gambit.dart -o build/macos/gambit
