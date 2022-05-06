@@ -31,8 +31,8 @@ jobs:
       - name: Pub get
         run: |
           dart pub get
-          
+
       - name: Compile
         run: |
-          run: mkdir -p build/macos
+          mkdir -p build/linux
           dart compile exe bin/gambit.dart -o build/macos/gambit
