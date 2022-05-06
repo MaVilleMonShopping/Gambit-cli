@@ -1,0 +1,17 @@
+name: "Compile"
+description: "Compile gambit binary"
+inputs:
+  os:
+    description: 'targeted os [macos, linux]'
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: Compile
+      run: |
+        asdf install
+        dart pub get
+        mkdir -p build/${{inputs.os}}
+        dart compile exe bin/gambit.dart -o build/linux/gambit
+      shell: bash
