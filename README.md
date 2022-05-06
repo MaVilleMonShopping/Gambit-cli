@@ -1,11 +1,11 @@
-# Gambit
+# Gambit-cli
 
 Your usefull cli tool for flutter cicd automation.
 Written in Dart.
 
 Inspired by [Codemagic cli tools](https://github.com/codemagic-ci-cd/cli-tools) && [Fastlane](https://fastlane.tools/)
 
-Gambit can be used on Linux & MacOS.
+Gambit-cli can be used on Linux & MacOS.
 
 Some features refering ios builds are disabled on Linux.
 

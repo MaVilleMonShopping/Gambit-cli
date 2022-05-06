@@ -116,21 +116,17 @@ class TestflightPublish extends GambitCommand {
       });
 
   Task<GCTaskResult<Unit>> _upload(_) => Task<GCTaskResult<Unit>>(() async {
-        bool uploaded = false;
         for (int i = 1; i <= maxRetry; i++) {
           print(yellow("Uploading ipa... (try $i/$maxRetry)"));
           try {
             await _uploadIpa();
-            uploaded = true;
+            return right(unit);
           } catch (ex) {
             printError("Error while uploading, retry...");
           }
         }
 
-        if (!uploaded) {
-          return left(CommandFailure(cause: "Can't upload ipa."));
-        }
-        return right(unit);
+        return left(CommandFailure(cause: "Can't upload ipa."));
       });
 
   Task<GCTaskResult<Unit>> _removePrivateKey(GCTaskResult<Unit> result) =>
