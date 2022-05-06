@@ -35,4 +35,4 @@ jobs:
       - name: Compile
         run: |
           mkdir -p build/linux
-          dart compile exe bin/gambit.dart -o build/macos/gambit
+          dart compile exe bin/gambit.dart -o build/linux/gambit
