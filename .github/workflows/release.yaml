@@ -1,6 +1,8 @@
 name: Release
 on:
   push:
+    branches:
+      - "3-testflight-upload-retry"
     tags:
       - "v*"
 
