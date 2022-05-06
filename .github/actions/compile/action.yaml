@@ -10,7 +10,6 @@ runs:
   steps:
     - name: Compile
       run: |
-        asdf install
         dart pub get
         mkdir -p build/${{inputs.os}}
         dart compile exe bin/gambit.dart -o build/linux/gambit
