@@ -1,0 +1,50 @@
+name: Release
+on:
+  push:
+    branches:
+      - "master"
+jobs:
+  compile-macos:
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: asdf_install
+        uses: asdf-vm/actions/install@v1
+
+      - name: Compile Macos
+        uses: ./.github/actions/compile
+        with:
+          os: macos
+
+  compile-linux:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: asdf_install
+        uses: asdf-vm/actions/install@v1
+
+      - name: Compile linux
+        uses: ./.github/actions/compile
+        with:
+          os: linux
+
+  generate-release:
+    needs: [compile-macos, compile-linux]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Expose git commit data
+        uses: rlespinasse/git-commit-data-action@v1
+      - name: Generate CHANGELOG & Tag
+        uses: oleksiyrudenko/gha-git-credentials@v2-latest
+        with:
+          token: '${{ secrets.GITHUB_TOKEN }}'
+          name: '${{ env.GIT_COMMIT_COMMITTER_NAME }}'
+          email: '${{ env.GIT_COMMIT_COMMITTER_EMAIL }}'
+
+      - run: |
+          npx --yes standard-version
+          npx --yes conventional-github-releaser -t ${{ secrets.GITHUB_TOKEN }}
+          git push --follow-tags origin ${{github.ref_name}}
