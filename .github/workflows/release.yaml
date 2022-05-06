@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - "main"
+      - "master"
 jobs:
   compile-macos:
     runs-on: macos-latest
