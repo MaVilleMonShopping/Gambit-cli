@@ -12,5 +12,5 @@ runs:
       run: |
         dart pub get
         mkdir -p build/${{inputs.os}}
-        dart compile exe bin/gambit.dart -o build/linux/gambit
+        dart compile exe bin/gambit.dart -o build/${{inputs.os}}/gambit
       shell: bash
