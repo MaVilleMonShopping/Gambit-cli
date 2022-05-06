@@ -17,9 +17,22 @@ jobs:
         run: |
           dart pub get
 
-      - name: Make buil folder
-        run: mkdir -p build/macos
-
       - name: Compile
         run: |
+          mkdir -p build/macos
+          dart compile exe bin/gambit.dart -o build/macos/gambit
+
+  compile-linux:
+    runs-on: [self-hosted, linux, dart]
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Pub get
+        run: |
+          dart pub get
+          
+      - name: Compile
+        run: |
+          run: mkdir -p build/macos
           dart compile exe bin/gambit.dart -o build/macos/gambit
