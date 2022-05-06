@@ -46,7 +46,7 @@ jobs:
           token: '${{ secrets.GITHUB_TOKEN }}'
           name: '${{ env.GIT_COMMIT_COMMITTER_NAME }}'
           email: '${{ env.GIT_COMMIT_COMMITTER_EMAIL }}'
-        run: |
+      - run: |
           npx --yes standard-version
           npx --yes conventional-github-releaser -t ${{ secrets.GITHUB_TOKEN }}
           git push --follow-tags origin ${{github.ref_name}}
