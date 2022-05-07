@@ -17,4 +17,4 @@
 
 # This example catches duplicate Signed-off-by lines.
 
-npx --yes commitlint --edit $1
+npx commitlint --edit $1
