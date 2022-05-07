@@ -1,0 +1,24 @@
+name: gambit_cli
+description: A simple command-line application.
+# We do not use pubspec app version
+# Gambit version is auto generated
+version: 0.0.0
+# homepage: https://www.example.com
+environment:
+  sdk: ">=2.16.0 <3.0.0"
+
+dependencies:
+  args: ^2.3.0
+  dartz: ^0.10.1
+  dcli: ^1.30.2
+  dio: ^4.0.6
+  jose: ^0.3.2
+  pubspec_parse: ^1.2.0
+  yaml: ^3.1.0
+  json_annotation: ^4.5.0
+dev_dependencies:
+  freezed_annotation: ^2.0.1
+  build_runner: ^2.1.10
+  freezed: ^2.0.2
+  json_serializable: ^6.2.0
+  lints: ^1.0.0
