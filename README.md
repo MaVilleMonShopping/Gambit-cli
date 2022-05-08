@@ -36,6 +36,7 @@ Run "gambit help <command>" for more information about a command.
 |---|---|
 | help <command> <subcommand> | Show help |
 | [iOS](doc/ios/ios.md) | iOS related commands. |
+| [firebase](doc/firebase.md) | All you need for Firebase. |
 | [get-app-version](doc/get-app-version.md) | Read flutter app semantic version from pubspec. |
 
 
