@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Features
 
-* **appdistribution:** get last build number ([8262d6b](https://github.com/Danaru87/Gambit-cli/commit/8262d6bcd37cb5fceb31798de34b100b8760e7d1))
+* **appdistribution:** get last build number ([15d4418](https://github.com/Danaru87/Gambit-cli/commit/15d4418a3640cbaba04c84b2dac2e078d0cc9809))
 
 ## 1.0.0 (2022-05-07)
 
