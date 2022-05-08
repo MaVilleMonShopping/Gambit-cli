@@ -1,0 +1,9 @@
+First release.
+
+Available commands:
+
+- ios get-provisioning-profiles
+- ios use-profile
+- ios testflight-last-build-number
+- ios testflight-publish
+- get-app-version
