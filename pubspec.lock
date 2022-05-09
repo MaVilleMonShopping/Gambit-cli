@@ -256,12 +256,10 @@ packages:
   firebaseapis:
     dependency: "direct main"
     description:
-      path: "generated/firebaseapis"
-      ref: update_apis
-      resolved-ref: f393bca4f85d16257604596d76640a911a9f9427
-      url: "https://github.com/Danaru87/dart_firebase_apis.git"
-    source: git
-    version: "0.1.1"
+      name: firebaseapis
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.2"
   fixnum:
     dependency: transitive
     description:
