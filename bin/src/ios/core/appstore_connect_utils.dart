@@ -84,12 +84,13 @@ class AppStoreConnectClient {
     final response =
         await _dio.get("/builds", queryParameters: queryParameters);
 
-    return AppstoreConnectApiResponse.fromJson(response.data)
+    final builds = AppstoreConnectApiResponse.fromJson(response.data)
         .data
-        .map((e) => IOSBuild.fromJson(e))
-        .first
-        .attributes
-        .version;
+        .map((e) => IOSBuild.fromJson(e));
+    if (builds.isEmpty) {
+      return "0";
+    }
+    return builds.first.attributes.version;
   }
 }
 
