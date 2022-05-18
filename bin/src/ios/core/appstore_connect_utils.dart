@@ -48,14 +48,14 @@ class AppStoreConnectClient {
         "Bearer $bearerToken";
   }
 
-  Future<List<ProvisioningProfile>> listProfiles({
+  Future<List<APIProvisioningProfile>> listProfiles({
     Map<String, String>? queryParameters,
   }) async {
     final _response =
         await _dio.get("/profiles", queryParameters: queryParameters);
     return AppstoreConnectApiResponse.fromJson(_response.data)
         .data
-        .map((e) => ProvisioningProfile.fromJson(e))
+        .map((e) => APIProvisioningProfile.fromJson(e))
         .toList();
   }
 

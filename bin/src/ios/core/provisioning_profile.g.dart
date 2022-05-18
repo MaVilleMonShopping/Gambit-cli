@@ -18,33 +18,71 @@ Map<String, dynamic> _$$_AppstoreConnectApiResponseToJson(
       'data': instance.data,
     };
 
-_$_ProvisioningProfile _$$_ProvisioningProfileFromJson(
+_$_APIProvisioningProfile _$$_APIProvisioningProfileFromJson(
         Map<String, dynamic> json) =>
-    _$_ProvisioningProfile(
+    _$_APIProvisioningProfile(
       type: json['type'] as String?,
       id: json['id'] as String,
-      attributes: ProvisioningProfileAttributes.fromJson(
+      attributes: APIProvisioningProfileAttributes.fromJson(
           json['attributes'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_ProvisioningProfileToJson(
-        _$_ProvisioningProfile instance) =>
+Map<String, dynamic> _$$_APIProvisioningProfileToJson(
+        _$_APIProvisioningProfile instance) =>
     <String, dynamic>{
       'type': instance.type,
       'id': instance.id,
       'attributes': instance.attributes,
     };
 
-_$_ProvisioningProfileAttributes _$$_ProvisioningProfileAttributesFromJson(
-        Map<String, dynamic> json) =>
-    _$_ProvisioningProfileAttributes(
-      profileContent: json['profileContent'] as String,
-      uuid: json['uuid'] as String,
-    );
+_$_APIProvisioningProfileAttributes
+    _$$_APIProvisioningProfileAttributesFromJson(Map<String, dynamic> json) =>
+        _$_APIProvisioningProfileAttributes(
+          profileContent: json['profileContent'] as String,
+          uuid: json['uuid'] as String,
+        );
 
-Map<String, dynamic> _$$_ProvisioningProfileAttributesToJson(
-        _$_ProvisioningProfileAttributes instance) =>
+Map<String, dynamic> _$$_APIProvisioningProfileAttributesToJson(
+        _$_APIProvisioningProfileAttributes instance) =>
     <String, dynamic>{
       'profileContent': instance.profileContent,
       'uuid': instance.uuid,
+    };
+
+_$_ProvisioningProfile _$$_ProvisioningProfileFromJson(
+        Map<String, dynamic> json) =>
+    _$_ProvisioningProfile(
+      appIdName: json['AppIDName'] as String,
+      applicationIdentifierPrefixs:
+          (json['ApplicationIdentifierPrefix'] as List<dynamic>?)
+                  ?.map((e) => e as String)
+                  .toList() ??
+              const [],
+      creationDate: dateTimeFromPlist(json['CreationDate']),
+      expirationDate: dateTimeFromPlist(json['ExpirationDate']),
+      platforms: (json['Platform'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          const [],
+      name: json['Name'] as String,
+      teamIdentifiers: (json['TeamIdentifier'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          const [],
+      teamName: json['TeamName'] as String,
+      uuid: json['UUID'] as String,
+    );
+
+Map<String, dynamic> _$$_ProvisioningProfileToJson(
+        _$_ProvisioningProfile instance) =>
+    <String, dynamic>{
+      'AppIDName': instance.appIdName,
+      'ApplicationIdentifierPrefix': instance.applicationIdentifierPrefixs,
+      'CreationDate': instance.creationDate.toIso8601String(),
+      'ExpirationDate': instance.expirationDate.toIso8601String(),
+      'Platform': instance.platforms,
+      'Name': instance.name,
+      'TeamIdentifier': instance.teamIdentifiers,
+      'TeamName': instance.teamName,
+      'UUID': instance.uuid,
     };

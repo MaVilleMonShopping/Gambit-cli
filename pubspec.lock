@@ -428,6 +428,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.8.1"
+  petitparser:
+    dependency: transitive
+    description:
+      name: petitparser
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "5.0.0"
+  plist_parser:
+    dependency: "direct main"
+    description:
+      name: plist_parser
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.9"
   pointycastle:
     dependency: transitive
     description:
@@ -652,6 +666,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.2.2"
+  xml:
+    dependency: transitive
+    description:
+      name: xml
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "6.0.1"
   yaml:
     dependency: "direct main"
     description:
