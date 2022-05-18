@@ -84,8 +84,8 @@ class GetProvisioninProfile extends GambitCommand {
         return right(unit);
       });
 
-  Task<GCTaskResult<List<ProvisioningProfile>>> _listProfiles(Unit _) =>
-      Task<GCTaskResult<List<ProvisioningProfile>>>(() async {
+  Task<GCTaskResult<List<APIProvisioningProfile>>> _listProfiles(Unit _) =>
+      Task<GCTaskResult<List<APIProvisioningProfile>>>(() async {
         try {
           final profiles =
               await _appStoreConnectClient.listProfiles(queryParameters: {
@@ -100,9 +100,9 @@ class GetProvisioninProfile extends GambitCommand {
         }
       });
 
-  Task<GCTaskResult<List<ProvisioningProfile>>> _filterProfiles(
-          List<ProvisioningProfile> profiles) =>
-      Task<GCTaskResult<List<ProvisioningProfile>>>(() async {
+  Task<GCTaskResult<List<APIProvisioningProfile>>> _filterProfiles(
+          List<APIProvisioningProfile> profiles) =>
+      Task<GCTaskResult<List<APIProvisioningProfile>>>(() async {
         if (downloadAll) {
           return right(profiles);
         }
@@ -125,7 +125,7 @@ class GetProvisioninProfile extends GambitCommand {
       });
 
   Task<GCTaskResult<List<String>>> _saveProfiles(
-          List<ProvisioningProfile> toSave) =>
+          List<APIProvisioningProfile> toSave) =>
       Task<GCTaskResult<List<String>>>(() async {
         printDebug(yellow(
             "Saving profiles in: ${provisioningProfileDirectory.absolute.path}"));
@@ -149,7 +149,7 @@ class GetProvisioninProfile extends GambitCommand {
         return right(filesPaths);
       });
 
-  Future<String> _writeFile(ProvisioningProfile profile) async {
+  Future<String> _writeFile(APIProvisioningProfile profile) async {
     final encodedString = profile.attributes.profileContent;
     Uint8List bytes = base64Decode(encodedString);
     File file = File(

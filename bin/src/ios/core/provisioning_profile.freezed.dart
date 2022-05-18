@@ -157,42 +157,43 @@ abstract class _AppstoreConnectApiResponse
       get copyWith => throw _privateConstructorUsedError;
 }
 
-ProvisioningProfile _$ProvisioningProfileFromJson(Map<String, dynamic> json) {
-  return _ProvisioningProfile.fromJson(json);
+APIProvisioningProfile _$APIProvisioningProfileFromJson(
+    Map<String, dynamic> json) {
+  return _APIProvisioningProfile.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ProvisioningProfile {
+mixin _$APIProvisioningProfile {
   String? get type => throw _privateConstructorUsedError;
   String get id => throw _privateConstructorUsedError;
-  ProvisioningProfileAttributes get attributes =>
+  APIProvisioningProfileAttributes get attributes =>
       throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ProvisioningProfileCopyWith<ProvisioningProfile> get copyWith =>
+  $APIProvisioningProfileCopyWith<APIProvisioningProfile> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ProvisioningProfileCopyWith<$Res> {
-  factory $ProvisioningProfileCopyWith(
-          ProvisioningProfile value, $Res Function(ProvisioningProfile) then) =
-      _$ProvisioningProfileCopyWithImpl<$Res>;
+abstract class $APIProvisioningProfileCopyWith<$Res> {
+  factory $APIProvisioningProfileCopyWith(APIProvisioningProfile value,
+          $Res Function(APIProvisioningProfile) then) =
+      _$APIProvisioningProfileCopyWithImpl<$Res>;
   $Res call(
-      {String? type, String id, ProvisioningProfileAttributes attributes});
+      {String? type, String id, APIProvisioningProfileAttributes attributes});
 
-  $ProvisioningProfileAttributesCopyWith<$Res> get attributes;
+  $APIProvisioningProfileAttributesCopyWith<$Res> get attributes;
 }
 
 /// @nodoc
-class _$ProvisioningProfileCopyWithImpl<$Res>
-    implements $ProvisioningProfileCopyWith<$Res> {
-  _$ProvisioningProfileCopyWithImpl(this._value, this._then);
+class _$APIProvisioningProfileCopyWithImpl<$Res>
+    implements $APIProvisioningProfileCopyWith<$Res> {
+  _$APIProvisioningProfileCopyWithImpl(this._value, this._then);
 
-  final ProvisioningProfile _value;
+  final APIProvisioningProfile _value;
   // ignore: unused_field
-  final $Res Function(ProvisioningProfile) _then;
+  final $Res Function(APIProvisioningProfile) _then;
 
   @override
   $Res call({
@@ -212,13 +213,13 @@ class _$ProvisioningProfileCopyWithImpl<$Res>
       attributes: attributes == freezed
           ? _value.attributes
           : attributes // ignore: cast_nullable_to_non_nullable
-              as ProvisioningProfileAttributes,
+              as APIProvisioningProfileAttributes,
     ));
   }
 
   @override
-  $ProvisioningProfileAttributesCopyWith<$Res> get attributes {
-    return $ProvisioningProfileAttributesCopyWith<$Res>(_value.attributes,
+  $APIProvisioningProfileAttributesCopyWith<$Res> get attributes {
+    return $APIProvisioningProfileAttributesCopyWith<$Res>(_value.attributes,
         (value) {
       return _then(_value.copyWith(attributes: value));
     });
@@ -226,29 +227,29 @@ class _$ProvisioningProfileCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$ProvisioningProfileCopyWith<$Res>
-    implements $ProvisioningProfileCopyWith<$Res> {
-  factory _$ProvisioningProfileCopyWith(_ProvisioningProfile value,
-          $Res Function(_ProvisioningProfile) then) =
-      __$ProvisioningProfileCopyWithImpl<$Res>;
+abstract class _$APIProvisioningProfileCopyWith<$Res>
+    implements $APIProvisioningProfileCopyWith<$Res> {
+  factory _$APIProvisioningProfileCopyWith(_APIProvisioningProfile value,
+          $Res Function(_APIProvisioningProfile) then) =
+      __$APIProvisioningProfileCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? type, String id, ProvisioningProfileAttributes attributes});
+      {String? type, String id, APIProvisioningProfileAttributes attributes});
 
   @override
-  $ProvisioningProfileAttributesCopyWith<$Res> get attributes;
+  $APIProvisioningProfileAttributesCopyWith<$Res> get attributes;
 }
 
 /// @nodoc
-class __$ProvisioningProfileCopyWithImpl<$Res>
-    extends _$ProvisioningProfileCopyWithImpl<$Res>
-    implements _$ProvisioningProfileCopyWith<$Res> {
-  __$ProvisioningProfileCopyWithImpl(
-      _ProvisioningProfile _value, $Res Function(_ProvisioningProfile) _then)
-      : super(_value, (v) => _then(v as _ProvisioningProfile));
+class __$APIProvisioningProfileCopyWithImpl<$Res>
+    extends _$APIProvisioningProfileCopyWithImpl<$Res>
+    implements _$APIProvisioningProfileCopyWith<$Res> {
+  __$APIProvisioningProfileCopyWithImpl(_APIProvisioningProfile _value,
+      $Res Function(_APIProvisioningProfile) _then)
+      : super(_value, (v) => _then(v as _APIProvisioningProfile));
 
   @override
-  _ProvisioningProfile get _value => super._value as _ProvisioningProfile;
+  _APIProvisioningProfile get _value => super._value as _APIProvisioningProfile;
 
   @override
   $Res call({
@@ -256,7 +257,7 @@ class __$ProvisioningProfileCopyWithImpl<$Res>
     Object? id = freezed,
     Object? attributes = freezed,
   }) {
-    return _then(_ProvisioningProfile(
+    return _then(_APIProvisioningProfile(
       type: type == freezed
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -268,38 +269,38 @@ class __$ProvisioningProfileCopyWithImpl<$Res>
       attributes: attributes == freezed
           ? _value.attributes
           : attributes // ignore: cast_nullable_to_non_nullable
-              as ProvisioningProfileAttributes,
+              as APIProvisioningProfileAttributes,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$_ProvisioningProfile extends _ProvisioningProfile {
-  const _$_ProvisioningProfile(
+class _$_APIProvisioningProfile extends _APIProvisioningProfile {
+  const _$_APIProvisioningProfile(
       {this.type, required this.id, required this.attributes})
       : super._();
 
-  factory _$_ProvisioningProfile.fromJson(Map<String, dynamic> json) =>
-      _$$_ProvisioningProfileFromJson(json);
+  factory _$_APIProvisioningProfile.fromJson(Map<String, dynamic> json) =>
+      _$$_APIProvisioningProfileFromJson(json);
 
   @override
   final String? type;
   @override
   final String id;
   @override
-  final ProvisioningProfileAttributes attributes;
+  final APIProvisioningProfileAttributes attributes;
 
   @override
   String toString() {
-    return 'ProvisioningProfile(type: $type, id: $id, attributes: $attributes)';
+    return 'APIProvisioningProfile(type: $type, id: $id, attributes: $attributes)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ProvisioningProfile &&
+            other is _APIProvisioningProfile &&
             const DeepCollectionEquality().equals(other.type, type) &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality()
@@ -316,73 +317,73 @@ class _$_ProvisioningProfile extends _ProvisioningProfile {
 
   @JsonKey(ignore: true)
   @override
-  _$ProvisioningProfileCopyWith<_ProvisioningProfile> get copyWith =>
-      __$ProvisioningProfileCopyWithImpl<_ProvisioningProfile>(
+  _$APIProvisioningProfileCopyWith<_APIProvisioningProfile> get copyWith =>
+      __$APIProvisioningProfileCopyWithImpl<_APIProvisioningProfile>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ProvisioningProfileToJson(this);
+    return _$$_APIProvisioningProfileToJson(this);
   }
 }
 
-abstract class _ProvisioningProfile extends ProvisioningProfile {
-  const factory _ProvisioningProfile(
+abstract class _APIProvisioningProfile extends APIProvisioningProfile {
+  const factory _APIProvisioningProfile(
           {final String? type,
           required final String id,
-          required final ProvisioningProfileAttributes attributes}) =
-      _$_ProvisioningProfile;
-  const _ProvisioningProfile._() : super._();
+          required final APIProvisioningProfileAttributes attributes}) =
+      _$_APIProvisioningProfile;
+  const _APIProvisioningProfile._() : super._();
 
-  factory _ProvisioningProfile.fromJson(Map<String, dynamic> json) =
-      _$_ProvisioningProfile.fromJson;
+  factory _APIProvisioningProfile.fromJson(Map<String, dynamic> json) =
+      _$_APIProvisioningProfile.fromJson;
 
   @override
   String? get type => throw _privateConstructorUsedError;
   @override
   String get id => throw _privateConstructorUsedError;
   @override
-  ProvisioningProfileAttributes get attributes =>
+  APIProvisioningProfileAttributes get attributes =>
       throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$ProvisioningProfileCopyWith<_ProvisioningProfile> get copyWith =>
+  _$APIProvisioningProfileCopyWith<_APIProvisioningProfile> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
-ProvisioningProfileAttributes _$ProvisioningProfileAttributesFromJson(
+APIProvisioningProfileAttributes _$APIProvisioningProfileAttributesFromJson(
     Map<String, dynamic> json) {
-  return _ProvisioningProfileAttributes.fromJson(json);
+  return _APIProvisioningProfileAttributes.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ProvisioningProfileAttributes {
+mixin _$APIProvisioningProfileAttributes {
   String get profileContent => throw _privateConstructorUsedError;
   String get uuid => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ProvisioningProfileAttributesCopyWith<ProvisioningProfileAttributes>
+  $APIProvisioningProfileAttributesCopyWith<APIProvisioningProfileAttributes>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ProvisioningProfileAttributesCopyWith<$Res> {
-  factory $ProvisioningProfileAttributesCopyWith(
-          ProvisioningProfileAttributes value,
-          $Res Function(ProvisioningProfileAttributes) then) =
-      _$ProvisioningProfileAttributesCopyWithImpl<$Res>;
+abstract class $APIProvisioningProfileAttributesCopyWith<$Res> {
+  factory $APIProvisioningProfileAttributesCopyWith(
+          APIProvisioningProfileAttributes value,
+          $Res Function(APIProvisioningProfileAttributes) then) =
+      _$APIProvisioningProfileAttributesCopyWithImpl<$Res>;
   $Res call({String profileContent, String uuid});
 }
 
 /// @nodoc
-class _$ProvisioningProfileAttributesCopyWithImpl<$Res>
-    implements $ProvisioningProfileAttributesCopyWith<$Res> {
-  _$ProvisioningProfileAttributesCopyWithImpl(this._value, this._then);
+class _$APIProvisioningProfileAttributesCopyWithImpl<$Res>
+    implements $APIProvisioningProfileAttributesCopyWith<$Res> {
+  _$APIProvisioningProfileAttributesCopyWithImpl(this._value, this._then);
 
-  final ProvisioningProfileAttributes _value;
+  final APIProvisioningProfileAttributes _value;
   // ignore: unused_field
-  final $Res Function(ProvisioningProfileAttributes) _then;
+  final $Res Function(APIProvisioningProfileAttributes) _then;
 
   @override
   $Res call({
@@ -403,35 +404,35 @@ class _$ProvisioningProfileAttributesCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$ProvisioningProfileAttributesCopyWith<$Res>
-    implements $ProvisioningProfileAttributesCopyWith<$Res> {
-  factory _$ProvisioningProfileAttributesCopyWith(
-          _ProvisioningProfileAttributes value,
-          $Res Function(_ProvisioningProfileAttributes) then) =
-      __$ProvisioningProfileAttributesCopyWithImpl<$Res>;
+abstract class _$APIProvisioningProfileAttributesCopyWith<$Res>
+    implements $APIProvisioningProfileAttributesCopyWith<$Res> {
+  factory _$APIProvisioningProfileAttributesCopyWith(
+          _APIProvisioningProfileAttributes value,
+          $Res Function(_APIProvisioningProfileAttributes) then) =
+      __$APIProvisioningProfileAttributesCopyWithImpl<$Res>;
   @override
   $Res call({String profileContent, String uuid});
 }
 
 /// @nodoc
-class __$ProvisioningProfileAttributesCopyWithImpl<$Res>
-    extends _$ProvisioningProfileAttributesCopyWithImpl<$Res>
-    implements _$ProvisioningProfileAttributesCopyWith<$Res> {
-  __$ProvisioningProfileAttributesCopyWithImpl(
-      _ProvisioningProfileAttributes _value,
-      $Res Function(_ProvisioningProfileAttributes) _then)
-      : super(_value, (v) => _then(v as _ProvisioningProfileAttributes));
+class __$APIProvisioningProfileAttributesCopyWithImpl<$Res>
+    extends _$APIProvisioningProfileAttributesCopyWithImpl<$Res>
+    implements _$APIProvisioningProfileAttributesCopyWith<$Res> {
+  __$APIProvisioningProfileAttributesCopyWithImpl(
+      _APIProvisioningProfileAttributes _value,
+      $Res Function(_APIProvisioningProfileAttributes) _then)
+      : super(_value, (v) => _then(v as _APIProvisioningProfileAttributes));
 
   @override
-  _ProvisioningProfileAttributes get _value =>
-      super._value as _ProvisioningProfileAttributes;
+  _APIProvisioningProfileAttributes get _value =>
+      super._value as _APIProvisioningProfileAttributes;
 
   @override
   $Res call({
     Object? profileContent = freezed,
     Object? uuid = freezed,
   }) {
-    return _then(_ProvisioningProfileAttributes(
+    return _then(_APIProvisioningProfileAttributes(
       profileContent: profileContent == freezed
           ? _value.profileContent
           : profileContent // ignore: cast_nullable_to_non_nullable
@@ -446,14 +447,14 @@ class __$ProvisioningProfileAttributesCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ProvisioningProfileAttributes
-    implements _ProvisioningProfileAttributes {
-  const _$_ProvisioningProfileAttributes(
+class _$_APIProvisioningProfileAttributes
+    implements _APIProvisioningProfileAttributes {
+  const _$_APIProvisioningProfileAttributes(
       {required this.profileContent, required this.uuid});
 
-  factory _$_ProvisioningProfileAttributes.fromJson(
+  factory _$_APIProvisioningProfileAttributes.fromJson(
           Map<String, dynamic> json) =>
-      _$$_ProvisioningProfileAttributesFromJson(json);
+      _$$_APIProvisioningProfileAttributesFromJson(json);
 
   @override
   final String profileContent;
@@ -462,14 +463,14 @@ class _$_ProvisioningProfileAttributes
 
   @override
   String toString() {
-    return 'ProvisioningProfileAttributes(profileContent: $profileContent, uuid: $uuid)';
+    return 'APIProvisioningProfileAttributes(profileContent: $profileContent, uuid: $uuid)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ProvisioningProfileAttributes &&
+            other is _APIProvisioningProfileAttributes &&
             const DeepCollectionEquality()
                 .equals(other.profileContent, profileContent) &&
             const DeepCollectionEquality().equals(other.uuid, uuid));
@@ -484,24 +485,24 @@ class _$_ProvisioningProfileAttributes
 
   @JsonKey(ignore: true)
   @override
-  _$ProvisioningProfileAttributesCopyWith<_ProvisioningProfileAttributes>
-      get copyWith => __$ProvisioningProfileAttributesCopyWithImpl<
-          _ProvisioningProfileAttributes>(this, _$identity);
+  _$APIProvisioningProfileAttributesCopyWith<_APIProvisioningProfileAttributes>
+      get copyWith => __$APIProvisioningProfileAttributesCopyWithImpl<
+          _APIProvisioningProfileAttributes>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ProvisioningProfileAttributesToJson(this);
+    return _$$_APIProvisioningProfileAttributesToJson(this);
   }
 }
 
-abstract class _ProvisioningProfileAttributes
-    implements ProvisioningProfileAttributes {
-  const factory _ProvisioningProfileAttributes(
+abstract class _APIProvisioningProfileAttributes
+    implements APIProvisioningProfileAttributes {
+  const factory _APIProvisioningProfileAttributes(
       {required final String profileContent,
-      required final String uuid}) = _$_ProvisioningProfileAttributes;
+      required final String uuid}) = _$_APIProvisioningProfileAttributes;
 
-  factory _ProvisioningProfileAttributes.fromJson(Map<String, dynamic> json) =
-      _$_ProvisioningProfileAttributes.fromJson;
+  factory _APIProvisioningProfileAttributes.fromJson(
+      Map<String, dynamic> json) = _$_APIProvisioningProfileAttributes.fromJson;
 
   @override
   String get profileContent => throw _privateConstructorUsedError;
@@ -509,6 +510,403 @@ abstract class _ProvisioningProfileAttributes
   String get uuid => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$ProvisioningProfileAttributesCopyWith<_ProvisioningProfileAttributes>
+  _$APIProvisioningProfileAttributesCopyWith<_APIProvisioningProfileAttributes>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+ProvisioningProfile _$ProvisioningProfileFromJson(Map<String, dynamic> json) {
+  return _ProvisioningProfile.fromJson(json);
+}
+
+/// @nodoc
+mixin _$ProvisioningProfile {
+  @JsonKey(name: "AppIDName")
+  String get appIdName => throw _privateConstructorUsedError;
+  @JsonKey(name: "ApplicationIdentifierPrefix")
+  List<String> get applicationIdentifierPrefixs =>
+      throw _privateConstructorUsedError;
+  @JsonKey(name: "CreationDate", fromJson: dateTimeFromPlist)
+  DateTime get creationDate => throw _privateConstructorUsedError;
+  @JsonKey(name: "ExpirationDate", fromJson: dateTimeFromPlist)
+  DateTime get expirationDate => throw _privateConstructorUsedError;
+  @JsonKey(name: "Platform")
+  List<String> get platforms => throw _privateConstructorUsedError;
+  @JsonKey(name: "Name")
+  String get name => throw _privateConstructorUsedError;
+  @JsonKey(name: "TeamIdentifier")
+  List<String> get teamIdentifiers => throw _privateConstructorUsedError;
+  @JsonKey(name: "TeamName")
+  String get teamName => throw _privateConstructorUsedError;
+  @JsonKey(name: "UUID")
+  String get uuid => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ProvisioningProfileCopyWith<ProvisioningProfile> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ProvisioningProfileCopyWith<$Res> {
+  factory $ProvisioningProfileCopyWith(
+          ProvisioningProfile value, $Res Function(ProvisioningProfile) then) =
+      _$ProvisioningProfileCopyWithImpl<$Res>;
+  $Res call(
+      {@JsonKey(name: "AppIDName")
+          String appIdName,
+      @JsonKey(name: "ApplicationIdentifierPrefix")
+          List<String> applicationIdentifierPrefixs,
+      @JsonKey(name: "CreationDate", fromJson: dateTimeFromPlist)
+          DateTime creationDate,
+      @JsonKey(name: "ExpirationDate", fromJson: dateTimeFromPlist)
+          DateTime expirationDate,
+      @JsonKey(name: "Platform")
+          List<String> platforms,
+      @JsonKey(name: "Name")
+          String name,
+      @JsonKey(name: "TeamIdentifier")
+          List<String> teamIdentifiers,
+      @JsonKey(name: "TeamName")
+          String teamName,
+      @JsonKey(name: "UUID")
+          String uuid});
+}
+
+/// @nodoc
+class _$ProvisioningProfileCopyWithImpl<$Res>
+    implements $ProvisioningProfileCopyWith<$Res> {
+  _$ProvisioningProfileCopyWithImpl(this._value, this._then);
+
+  final ProvisioningProfile _value;
+  // ignore: unused_field
+  final $Res Function(ProvisioningProfile) _then;
+
+  @override
+  $Res call({
+    Object? appIdName = freezed,
+    Object? applicationIdentifierPrefixs = freezed,
+    Object? creationDate = freezed,
+    Object? expirationDate = freezed,
+    Object? platforms = freezed,
+    Object? name = freezed,
+    Object? teamIdentifiers = freezed,
+    Object? teamName = freezed,
+    Object? uuid = freezed,
+  }) {
+    return _then(_value.copyWith(
+      appIdName: appIdName == freezed
+          ? _value.appIdName
+          : appIdName // ignore: cast_nullable_to_non_nullable
+              as String,
+      applicationIdentifierPrefixs: applicationIdentifierPrefixs == freezed
+          ? _value.applicationIdentifierPrefixs
+          : applicationIdentifierPrefixs // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      creationDate: creationDate == freezed
+          ? _value.creationDate
+          : creationDate // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      expirationDate: expirationDate == freezed
+          ? _value.expirationDate
+          : expirationDate // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      platforms: platforms == freezed
+          ? _value.platforms
+          : platforms // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      teamIdentifiers: teamIdentifiers == freezed
+          ? _value.teamIdentifiers
+          : teamIdentifiers // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      teamName: teamName == freezed
+          ? _value.teamName
+          : teamName // ignore: cast_nullable_to_non_nullable
+              as String,
+      uuid: uuid == freezed
+          ? _value.uuid
+          : uuid // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$ProvisioningProfileCopyWith<$Res>
+    implements $ProvisioningProfileCopyWith<$Res> {
+  factory _$ProvisioningProfileCopyWith(_ProvisioningProfile value,
+          $Res Function(_ProvisioningProfile) then) =
+      __$ProvisioningProfileCopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {@JsonKey(name: "AppIDName")
+          String appIdName,
+      @JsonKey(name: "ApplicationIdentifierPrefix")
+          List<String> applicationIdentifierPrefixs,
+      @JsonKey(name: "CreationDate", fromJson: dateTimeFromPlist)
+          DateTime creationDate,
+      @JsonKey(name: "ExpirationDate", fromJson: dateTimeFromPlist)
+          DateTime expirationDate,
+      @JsonKey(name: "Platform")
+          List<String> platforms,
+      @JsonKey(name: "Name")
+          String name,
+      @JsonKey(name: "TeamIdentifier")
+          List<String> teamIdentifiers,
+      @JsonKey(name: "TeamName")
+          String teamName,
+      @JsonKey(name: "UUID")
+          String uuid});
+}
+
+/// @nodoc
+class __$ProvisioningProfileCopyWithImpl<$Res>
+    extends _$ProvisioningProfileCopyWithImpl<$Res>
+    implements _$ProvisioningProfileCopyWith<$Res> {
+  __$ProvisioningProfileCopyWithImpl(
+      _ProvisioningProfile _value, $Res Function(_ProvisioningProfile) _then)
+      : super(_value, (v) => _then(v as _ProvisioningProfile));
+
+  @override
+  _ProvisioningProfile get _value => super._value as _ProvisioningProfile;
+
+  @override
+  $Res call({
+    Object? appIdName = freezed,
+    Object? applicationIdentifierPrefixs = freezed,
+    Object? creationDate = freezed,
+    Object? expirationDate = freezed,
+    Object? platforms = freezed,
+    Object? name = freezed,
+    Object? teamIdentifiers = freezed,
+    Object? teamName = freezed,
+    Object? uuid = freezed,
+  }) {
+    return _then(_ProvisioningProfile(
+      appIdName: appIdName == freezed
+          ? _value.appIdName
+          : appIdName // ignore: cast_nullable_to_non_nullable
+              as String,
+      applicationIdentifierPrefixs: applicationIdentifierPrefixs == freezed
+          ? _value.applicationIdentifierPrefixs
+          : applicationIdentifierPrefixs // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      creationDate: creationDate == freezed
+          ? _value.creationDate
+          : creationDate // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      expirationDate: expirationDate == freezed
+          ? _value.expirationDate
+          : expirationDate // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      platforms: platforms == freezed
+          ? _value.platforms
+          : platforms // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      teamIdentifiers: teamIdentifiers == freezed
+          ? _value.teamIdentifiers
+          : teamIdentifiers // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      teamName: teamName == freezed
+          ? _value.teamName
+          : teamName // ignore: cast_nullable_to_non_nullable
+              as String,
+      uuid: uuid == freezed
+          ? _value.uuid
+          : uuid // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_ProvisioningProfile implements _ProvisioningProfile {
+  const _$_ProvisioningProfile(
+      {@JsonKey(name: "AppIDName")
+          required this.appIdName,
+      @JsonKey(name: "ApplicationIdentifierPrefix")
+          final List<String> applicationIdentifierPrefixs = const [],
+      @JsonKey(name: "CreationDate", fromJson: dateTimeFromPlist)
+          required this.creationDate,
+      @JsonKey(name: "ExpirationDate", fromJson: dateTimeFromPlist)
+          required this.expirationDate,
+      @JsonKey(name: "Platform")
+          final List<String> platforms = const [],
+      @JsonKey(name: "Name")
+          required this.name,
+      @JsonKey(name: "TeamIdentifier")
+          final List<String> teamIdentifiers = const [],
+      @JsonKey(name: "TeamName")
+          required this.teamName,
+      @JsonKey(name: "UUID")
+          required this.uuid})
+      : _applicationIdentifierPrefixs = applicationIdentifierPrefixs,
+        _platforms = platforms,
+        _teamIdentifiers = teamIdentifiers;
+
+  factory _$_ProvisioningProfile.fromJson(Map<String, dynamic> json) =>
+      _$$_ProvisioningProfileFromJson(json);
+
+  @override
+  @JsonKey(name: "AppIDName")
+  final String appIdName;
+  @JsonKey(name: "ApplicationIdentifierPrefix")
+  final List<String> _applicationIdentifierPrefixs;
+  @override
+  @JsonKey(name: "ApplicationIdentifierPrefix")
+  List<String> get applicationIdentifierPrefixs {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_applicationIdentifierPrefixs);
+  }
+
+  @override
+  @JsonKey(name: "CreationDate", fromJson: dateTimeFromPlist)
+  final DateTime creationDate;
+  @override
+  @JsonKey(name: "ExpirationDate", fromJson: dateTimeFromPlist)
+  final DateTime expirationDate;
+  @JsonKey(name: "Platform")
+  final List<String> _platforms;
+  @override
+  @JsonKey(name: "Platform")
+  List<String> get platforms {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_platforms);
+  }
+
+  @override
+  @JsonKey(name: "Name")
+  final String name;
+  @JsonKey(name: "TeamIdentifier")
+  final List<String> _teamIdentifiers;
+  @override
+  @JsonKey(name: "TeamIdentifier")
+  List<String> get teamIdentifiers {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_teamIdentifiers);
+  }
+
+  @override
+  @JsonKey(name: "TeamName")
+  final String teamName;
+  @override
+  @JsonKey(name: "UUID")
+  final String uuid;
+
+  @override
+  String toString() {
+    return 'ProvisioningProfile(appIdName: $appIdName, applicationIdentifierPrefixs: $applicationIdentifierPrefixs, creationDate: $creationDate, expirationDate: $expirationDate, platforms: $platforms, name: $name, teamIdentifiers: $teamIdentifiers, teamName: $teamName, uuid: $uuid)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _ProvisioningProfile &&
+            const DeepCollectionEquality().equals(other.appIdName, appIdName) &&
+            const DeepCollectionEquality().equals(
+                other.applicationIdentifierPrefixs,
+                applicationIdentifierPrefixs) &&
+            const DeepCollectionEquality()
+                .equals(other.creationDate, creationDate) &&
+            const DeepCollectionEquality()
+                .equals(other.expirationDate, expirationDate) &&
+            const DeepCollectionEquality().equals(other.platforms, platforms) &&
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality()
+                .equals(other.teamIdentifiers, teamIdentifiers) &&
+            const DeepCollectionEquality().equals(other.teamName, teamName) &&
+            const DeepCollectionEquality().equals(other.uuid, uuid));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(appIdName),
+      const DeepCollectionEquality().hash(applicationIdentifierPrefixs),
+      const DeepCollectionEquality().hash(creationDate),
+      const DeepCollectionEquality().hash(expirationDate),
+      const DeepCollectionEquality().hash(platforms),
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(teamIdentifiers),
+      const DeepCollectionEquality().hash(teamName),
+      const DeepCollectionEquality().hash(uuid));
+
+  @JsonKey(ignore: true)
+  @override
+  _$ProvisioningProfileCopyWith<_ProvisioningProfile> get copyWith =>
+      __$ProvisioningProfileCopyWithImpl<_ProvisioningProfile>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_ProvisioningProfileToJson(this);
+  }
+}
+
+abstract class _ProvisioningProfile implements ProvisioningProfile {
+  const factory _ProvisioningProfile(
+      {@JsonKey(name: "AppIDName")
+          required final String appIdName,
+      @JsonKey(name: "ApplicationIdentifierPrefix")
+          final List<String> applicationIdentifierPrefixs,
+      @JsonKey(name: "CreationDate", fromJson: dateTimeFromPlist)
+          required final DateTime creationDate,
+      @JsonKey(name: "ExpirationDate", fromJson: dateTimeFromPlist)
+          required final DateTime expirationDate,
+      @JsonKey(name: "Platform")
+          final List<String> platforms,
+      @JsonKey(name: "Name")
+          required final String name,
+      @JsonKey(name: "TeamIdentifier")
+          final List<String> teamIdentifiers,
+      @JsonKey(name: "TeamName")
+          required final String teamName,
+      @JsonKey(name: "UUID")
+          required final String uuid}) = _$_ProvisioningProfile;
+
+  factory _ProvisioningProfile.fromJson(Map<String, dynamic> json) =
+      _$_ProvisioningProfile.fromJson;
+
+  @override
+  @JsonKey(name: "AppIDName")
+  String get appIdName => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(name: "ApplicationIdentifierPrefix")
+  List<String> get applicationIdentifierPrefixs =>
+      throw _privateConstructorUsedError;
+  @override
+  @JsonKey(name: "CreationDate", fromJson: dateTimeFromPlist)
+  DateTime get creationDate => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(name: "ExpirationDate", fromJson: dateTimeFromPlist)
+  DateTime get expirationDate => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(name: "Platform")
+  List<String> get platforms => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(name: "Name")
+  String get name => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(name: "TeamIdentifier")
+  List<String> get teamIdentifiers => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(name: "TeamName")
+  String get teamName => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(name: "UUID")
+  String get uuid => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  _$ProvisioningProfileCopyWith<_ProvisioningProfile> get copyWith =>
+      throw _privateConstructorUsedError;
 }
