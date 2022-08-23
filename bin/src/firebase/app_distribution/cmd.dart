@@ -135,8 +135,8 @@ class AppDistributionCMD extends GambitCommand {
           do {
             await Future.delayed(Duration(seconds: 1));
             final operationStatus = await dioClient.get("/v1/$opeUri");
-            final plop2 = Map<String, dynamic>.from(operationStatus.data);
-            done = plop2["done"] ?? false;
+            final data = Map<String, dynamic>.from(operationStatus.data);
+            done = data["done"] ?? false;
           } while (!done);
           print("Uploaded");
           return right(unit);
