@@ -42,5 +42,3 @@ Run "gambit help <command>" for more information about a command.
 
 
 
-
-
