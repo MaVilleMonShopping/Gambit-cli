@@ -1,0 +1,19 @@
+name: Release
+on: workflow_dispatch
+jobs: 
+  generate-changelog: 
+    name: Generate changelog
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: cedx/setup-dart@v3
+        with:
+          version: 2.17.0
+          release-channel: stable
+      - run: dart --version
+      # - uses: google-github-actions/release-please-action@v3
+      #   with:
+      #     release-type: simple
+      #     package-name: gambit
+      #     default-branch: 21-automation-release-new-version
+
