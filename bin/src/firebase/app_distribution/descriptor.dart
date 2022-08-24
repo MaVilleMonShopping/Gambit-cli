@@ -8,14 +8,15 @@ const String apkPathArgName = "apk";
 class _AppDistributionDescriptor extends CommandDescriptor {
   _AppDistributionDescriptor()
       : super(
-            commandName: "app-distribution",
+            commandName: "distribute",
             commandDescription: "Upload apk to Firebase App Distribution.",
             options: [
               CommandOption(
                 name: serviceAccountFilePathArgName,
                 abbr: "f",
                 mandatory: true,
-                help: "Path to your .json service account file.",
+                help:
+                    "Path to your .json service account file.\nYou need Firebase App Distribution role.",
               ),
               CommandOption(
                 name: apkPathArgName,

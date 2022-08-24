@@ -39,7 +39,7 @@ class AppDistributionCMD extends GambitCommand {
         exit(_fail.exitCode);
       },
       (_success) {
-        printSuccess("done");
+        printSuccess("");
         exit(0);
       },
     );
@@ -91,10 +91,9 @@ class AppDistributionCMD extends GambitCommand {
   Task<Either<CommandFailure, File>> _loadApkFile(_) =>
       Task<Either<CommandFailure, File>>(() async {
         try {
-          printDebug("Loading apk");
+          printDebug("Getting APK");
           apk = File(apkPath);
           if (apk.existsSync()) {
-            print("Apk loaded");
             return right(apk);
           }
           throw FileNotFoundException(apkPath);
@@ -128,14 +127,20 @@ class AppDistributionCMD extends GambitCommand {
           final responseData = Map<String, dynamic>.from(resp.data);
           final opeUri = responseData["name"] as String;
           bool done = false;
+          Map<String, dynamic>? error;
+          Map<String, dynamic>? data;
 
           do {
             await Future.delayed(Duration(seconds: 1));
             final operationStatus = await dioClient.get("/v1/$opeUri");
-            final data = Map<String, dynamic>.from(operationStatus.data);
+            data = Map<String, dynamic>.from(operationStatus.data);
             done = data["done"] ?? false;
+            error = data["error"];
           } while (!done);
-          print("Uploaded");
+          if (error != null) {
+            return left(CommandFailure(cause: error.toString()));
+          }
+          printSuccess("APK Uploaded !", verboseSuffix: "\n$data");
           return right(unit);
         } catch (ex) {
           printError(ex.toString());
