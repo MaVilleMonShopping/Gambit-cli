@@ -42,6 +42,7 @@ class LastBuildNumberCMD extends GambitCommand {
 
   Task<Either<CommandFailure, Unit>> _parseArgs() =>
       Task<Either<CommandFailure, Unit>>(() async {
+        checkVerboseMode();
         serviceAccountJsonPath = argResults![serviceAccountFilePathArgName];
         projectId = argResults![projectIdArgName];
         appId = argResults![appIdArgName];
