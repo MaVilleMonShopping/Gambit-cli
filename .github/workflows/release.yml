@@ -14,6 +14,7 @@ jobs:
       - run: dart pub global activate dcli
       - name: Build gambit linux
         run: |
+          export PATH="$PATH":"$HOME/.pub-cache/bin"
           dcli compile bin/gambit.dart
  
       # - uses: google-github-actions/release-please-action@v3
