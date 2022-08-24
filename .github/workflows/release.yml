@@ -1,8 +1,8 @@
 name: Release
 on: workflow_dispatch
 jobs: 
-  generate-changelog: 
-    name: Generate changelog
+  build-linux: 
+    name: Build Linux
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -14,8 +14,36 @@ jobs:
       - run: dart pub global activate dcli
       - name: Build gambit linux
         run: |
+          mkdir -p build/linux
           export PATH="$PATH":"$HOME/.pub-cache/bin"
           dcli compile bin/gambit.dart
+          mv bin/gambit build/linux/gambit
+      # Save artifact
+  
+  build-macos: 
+    name: Build MacOS
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: cedx/setup-dart@v3
+        with:
+          version: 2.17.0
+          release-channel: stable
+      
+      - run: dart pub global activate dcli
+      - name: Build gambit MacOS
+        run: |
+          mkdir -p build/macos
+          export PATH="$PATH":"$HOME/.pub-cache/bin"
+          dcli compile bin/gambit.dart
+          mv bin/gambit build/macos/gambit
+
+      # Save artifact
+
+  generate-release:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Genereate release"
  
       # - uses: google-github-actions/release-please-action@v3
       #   with:
