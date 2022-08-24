@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/MaVilleMonShopping/Gambit-cli/compare/v1.1.1...v1.2.0) (2022-08-24)
+
+
+### Features
+
+* **firebase:** upload apk to firebase app distribution. ([6ffa4e1](https://github.com/MaVilleMonShopping/Gambit-cli/commit/6ffa4e1d182565194218ea1f108349dd04380b55))
+* **firebase:** upload apk to firebase app distribution. ([6d694b2](https://github.com/MaVilleMonShopping/Gambit-cli/commit/6d694b21fb6384ca8a4c43829b163cc6babd173a))
+* **firebase:** upload apk to firebase app distribution. ([c840ad7](https://github.com/MaVilleMonShopping/Gambit-cli/commit/c840ad7d966d6b75ab5dca898a3bacf571bad866))
+* **firebase:** upload apk to firebase app distribution. ([1d1b73f](https://github.com/MaVilleMonShopping/Gambit-cli/commit/1d1b73f3dce2f77f1880d1635968214192b386d5))
+
+
+### Bug Fixes
+
+* **doc:** fix ([998b3a1](https://github.com/MaVilleMonShopping/Gambit-cli/commit/998b3a1d3f634ab19d299ed498a77a1f67e348d5))
+
 ## [1.2.0](https://github.com/MaVilleMonShopping/Gambit-cli/compare/gambit_cli-v1.1.1...gambit_cli-v1.2.0) (2022-08-24)
 
 
