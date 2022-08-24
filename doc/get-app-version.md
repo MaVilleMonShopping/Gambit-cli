@@ -16,4 +16,3 @@ Usage: gambit get-app-version [arguments]
 
 Run "gambit help" to see global options.
 ```
-
