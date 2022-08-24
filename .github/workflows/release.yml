@@ -17,7 +17,12 @@ jobs:
           mkdir -p build/linux
           export PATH="$PATH":"$HOME/.pub-cache/bin"
           dcli compile bin/gambit.dart
-          mv bin/gambit build/linux/gambit
+      
+      - name: Save linux Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: gambit-linux
+          path: bin/gambit
       # Save artifact
   
   build-macos: 
@@ -36,7 +41,12 @@ jobs:
           mkdir -p build/macos
           export PATH="$PATH":"$HOME/.pub-cache/bin"
           dcli compile bin/gambit.dart
-          mv bin/gambit build/macos/gambit
+      
+      - name: Save MacOS Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: gambit-macos
+          path: bin/gambit
 
       # Save artifact
 
