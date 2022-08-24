@@ -10,7 +10,12 @@ jobs:
         with:
           version: 2.17.0
           release-channel: stable
-      - run: dart --version
+      
+      - run: dart pub global activate dcli
+      - name: Build gambit linux
+        run: |
+          dcli compile bin/gambit.dart
+ 
       # - uses: google-github-actions/release-please-action@v3
       #   with:
       #     release-type: simple
