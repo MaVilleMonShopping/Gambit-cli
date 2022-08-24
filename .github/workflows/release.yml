@@ -1,76 +1,72 @@
 name: Release
 on: workflow_dispatch
 jobs: 
-  build-linux: 
-    name: Build Linux
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: cedx/setup-dart@v3
-        with:
-          version: 2.17.0
-          release-channel: stable
+  # build-linux: 
+  #   name: Build Linux
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - uses: cedx/setup-dart@v3
+  #       with:
+  #         version: 2.17.0
+  #         release-channel: stable
       
-      - run: dart pub global activate dcli
-      - name: Build gambit linux
-        run: |
-          mkdir -p build/linux
-          export PATH="$PATH":"$HOME/.pub-cache/bin"
-          dcli compile bin/gambit.dart
+  #     - run: dart pub global activate dcli
+  #     - name: Build gambit linux
+  #       run: |
+  #         mkdir -p build/linux
+  #         export PATH="$PATH":"$HOME/.pub-cache/bin"
+  #         dcli compile bin/gambit.dart
       
-      - name: Save linux Artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: gambit-linux
-          path: bin/gambit
-      # Save artifact
+  #     - name: Save linux Artifact
+  #       uses: actions/upload-artifact@v3
+  #       with:
+  #         name: gambit-linux
+  #         path: bin/gambit
   
-  build-macos: 
-    name: Build MacOS
-    runs-on: macos-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: cedx/setup-dart@v3
-        with:
-          version: 2.17.0
-          release-channel: stable
+  # build-macos: 
+  #   name: Build MacOS
+  #   runs-on: macos-latest
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - uses: cedx/setup-dart@v3
+  #       with:
+  #         version: 2.17.0
+  #         release-channel: stable
       
-      - run: dart pub global activate dcli
-      - name: Build gambit MacOS
-        run: |
-          mkdir -p build/macos
-          export PATH="$PATH":"$HOME/.pub-cache/bin"
-          dcli compile bin/gambit.dart
+  #     - run: dart pub global activate dcli
+  #     - name: Build gambit MacOS
+  #       run: |
+  #         mkdir -p build/macos
+  #         export PATH="$PATH":"$HOME/.pub-cache/bin"
+  #         dcli compile bin/gambit.dart
       
-      - name: Save MacOS Artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: gambit-macos
-          path: bin/gambit
-
-      # Save artifact
+  #     - name: Save MacOS Artifact
+  #       uses: actions/upload-artifact@v3
+  #       with:
+  #         name: gambit-macos
+  #         path: bin/gambit
 
   generate-release:
     runs-on: ubuntu-latest
     needs: [build-linux, build-macos]
     steps:
-      - name: Download linux artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: gambit-linux
-          path: artifacts/linux
-
-      - name: Download macos artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: gambit-macos
-          path: artifacts/macos
-
-      - run: ls -R artifacts
-
-      # - uses: google-github-actions/release-please-action@v3
+      # - name: Download linux artifact
+      #   uses: actions/download-artifact@v3
       #   with:
-      #     release-type: simple
-      #     package-name: gambit
-      #     default-branch: 21-automation-release-new-version
+      #     name: gambit-linux
+      #     path: artifacts/linux
+
+      # - name: Download macos artifact
+      #   uses: actions/download-artifact@v3
+      #   with:
+      #     name: gambit-macos
+      #     path: artifacts/macos
+
+      # - run: ls -R artifacts
+
+      - uses: google-github-actions/release-please-action@v3
+        with:
+          release-type: simple
+          package-name: gambit
 
