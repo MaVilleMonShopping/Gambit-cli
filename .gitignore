@@ -5,3 +5,5 @@
 # Conventional directory for build output.
 build/
 .vscode/
+google-services.json
+gambit-e3b29-firebase-adminsdk-ep6ua-e6833545c1.json
