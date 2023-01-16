@@ -13,6 +13,7 @@ Only available on MacOS.
 Usage: gambit ios get-provisioning-profiles [arguments]
 -h, --help                           Print this usage information.
 -i, --issuer-id (mandatory)          Apple AppStore Connect issuer id.
+-o, --output                         (defaults to "~/Library/MobileDevice/Provisioning Profiles")
 -a, --api-key-id (mandatory)         Apple AppStore Connect key id.
 -p, --api-private-key (mandatory)    Apple AppStore Connect private key.
 -b, --bundle-id                      Application bundle id (com.example.app)
@@ -34,4 +35,5 @@ Run "gambit help" to see global options.
 | --api-private-key | -p | true | |Apple AppStore Connect private key. **.p8 file content |
 | --bundle-id | -b | false if --all used |  | Application bundle id (com.example.app) |
 | --all | | false if --bundle-id used | | Download all profiles from AppStore Connect.|
+| --output | -o | false | ~/Library/MobileDevice/Provisioning Profiles | Folder where to save profiles |
 | --verbose | -v | false | | Verbose mode, use only for debug.|
