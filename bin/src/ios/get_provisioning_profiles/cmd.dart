@@ -24,10 +24,10 @@ class GetProvisioninProfile extends GambitCommand {
   late String issuerId;
   late String? bundleId;
   late String profileType;
+  late String outputFolderPath;
   late AppStoreConnectClient _appStoreConnectClient;
 
-  final Directory provisioningProfileDirectory = Directory(
-      "${Platform.environment['HOME']}/Library/MobileDevice/Provisioning Profiles");
+  late Directory provisioningProfileDirectory;
   GetProvisioninProfile()
       : super(
           _GetProvisoningProfileDescriptor(),
@@ -66,6 +66,9 @@ class GetProvisioninProfile extends GambitCommand {
         issuerId = argResults![issuerIdArgName];
         bundleId = argResults![bundleIdArgName];
         profileType = argResults![profileTypeArgName];
+        outputFolderPath = argResults![outputArgName];
+
+        provisioningProfileDirectory = Directory(outputFolderPath);
 
         if (downloadAll) {
           printDebug(yellow("Downloading all profiles"));
@@ -169,8 +172,6 @@ class GetProvisioninProfile extends GambitCommand {
     if (bytes <= 0) return "0 B";
     const suffixes = ["B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"];
     var i = (log(bytes) / log(1024)).floor();
-    return ((bytes / pow(1024, i)).toStringAsFixed(decimals)) +
-        ' ' +
-        suffixes[i];
+    return '${(bytes / pow(1024, i)).toStringAsFixed(decimals)} ${suffixes[i]}';
   }
 }

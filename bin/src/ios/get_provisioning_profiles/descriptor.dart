@@ -12,6 +12,13 @@ Only available on MacOS.""", options: [
             mandatory: true,
           ),
           CommandOption(
+            name: outputArgName,
+            abbr: "o",
+            mandatory: false,
+            defaultValue:
+                "${Platform.environment['HOME']}/Library/MobileDevice/Provisioning Profiles",
+          ),
+          CommandOption(
             name: apiKeyIdArgName,
             abbr: "a",
             help: "Apple AppStore Connect key id.",
