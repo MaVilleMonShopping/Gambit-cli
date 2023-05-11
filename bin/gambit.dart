@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:args/command_runner.dart';
+import 'src/discord/cmd.dart';
 import 'src/firebase/cmd.dart';
 import 'src/get_app_version/cmd.dart';
 import 'src/ios/cmd.dart';
@@ -12,6 +13,7 @@ void main(List<String> arguments) {
     )
     ..addCommand(IOSCommands())
     ..addCommand(FirebaseCMD())
+    ..addCommand(DiscordCMD())
     ..run(arguments).catchError((error) {
       if (error is! UsageException) throw error;
       print(error);
