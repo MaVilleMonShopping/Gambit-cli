@@ -31,9 +31,9 @@ class TestflightPublish extends GambitCommand {
             .bind(_removePrivateKey)
             .run())
         .fold(
-      (_fail) {
-        printError(_fail.cause);
-        exit(_fail.exitCode);
+      (fail) {
+        printError(fail.cause);
+        exit(fail.exitCode);
       },
       (_) {
         printSuccess("App sent to Testflight");

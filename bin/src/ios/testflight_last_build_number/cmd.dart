@@ -25,9 +25,9 @@ class TestflightLastBuildNumberCmd extends GambitCommand {
   @override
   void run() async {
     (await _initialize().bindRight(_getTestflightLastVersion).run()).fold(
-      (_fail) {
-        printError(_fail.cause);
-        exit(_fail.exitCode);
+      (fail) {
+        printError(fail.cause);
+        exit(fail.exitCode);
       },
       (lastVersion) {
         printSuccess(lastVersion, verbosePrefix: "Last build version:");

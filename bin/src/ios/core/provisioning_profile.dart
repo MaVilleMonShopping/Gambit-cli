@@ -1,5 +1,6 @@
 // ignore_for_file: invalid_annotation_target
 
+// ignore: depend_on_referenced_packages
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'provisioning_profile.freezed.dart';

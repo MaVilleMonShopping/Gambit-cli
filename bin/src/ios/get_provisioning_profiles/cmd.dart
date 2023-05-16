@@ -43,12 +43,12 @@ class GetProvisioninProfile extends GambitCommand {
         .run();
 
     runResult.fold(
-      (_fail) {
-        printError(_fail.cause);
-        exit(_fail.exitCode);
+      (fail) {
+        printError(fail.cause);
+        exit(fail.exitCode);
       },
-      (_success) {
-        printSuccess("${_success.length} Provisioning profile(s) saved !");
+      (success) {
+        printSuccess("${success.length} Provisioning profile(s) saved !");
         exit(0);
       },
     );

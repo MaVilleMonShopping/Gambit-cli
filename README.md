@@ -29,6 +29,8 @@ Global options:
 -h, --help    Print this usage information.
 
 Available commands:
+  discord           discord helper
+  firebase          All you need for Firebase.
   get-app-version   Read flutter app semantic version from pubspec.
   ios               All you need for iOS Flutter app.
 
@@ -38,9 +40,10 @@ Run "gambit help <command>" for more information about a command.
 | command | Description |
 |---|---|
 | help <command> <subcommand> | Show help |
-| [iOS](doc/ios/ios.md) | iOS related commands. |
+| [discord](doc/discord/discord.md) | Interract with Discord
 | [firebase](doc/firebase/firebase.md) | All you need for Firebase. |
 | [get-app-version](doc/get-app-version.md) | Read flutter app semantic version from pubspec. |
+| [iOS](doc/ios/ios.md) | iOS related commands. |
 
 
 

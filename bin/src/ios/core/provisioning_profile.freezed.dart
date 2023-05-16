@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'provisioning_profile.dart';
 
@@ -33,62 +33,67 @@ mixin _$AppstoreConnectApiResponse {
 abstract class $AppstoreConnectApiResponseCopyWith<$Res> {
   factory $AppstoreConnectApiResponseCopyWith(AppstoreConnectApiResponse value,
           $Res Function(AppstoreConnectApiResponse) then) =
-      _$AppstoreConnectApiResponseCopyWithImpl<$Res>;
+      _$AppstoreConnectApiResponseCopyWithImpl<$Res,
+          AppstoreConnectApiResponse>;
+  @useResult
   $Res call({List<dynamic> data});
 }
 
 /// @nodoc
-class _$AppstoreConnectApiResponseCopyWithImpl<$Res>
+class _$AppstoreConnectApiResponseCopyWithImpl<$Res,
+        $Val extends AppstoreConnectApiResponse>
     implements $AppstoreConnectApiResponseCopyWith<$Res> {
   _$AppstoreConnectApiResponseCopyWithImpl(this._value, this._then);
 
-  final AppstoreConnectApiResponse _value;
   // ignore: unused_field
-  final $Res Function(AppstoreConnectApiResponse) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
+    Object? data = null,
   }) {
     return _then(_value.copyWith(
-      data: data == freezed
+      data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as List<dynamic>,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$AppstoreConnectApiResponseCopyWith<$Res>
+abstract class _$$_AppstoreConnectApiResponseCopyWith<$Res>
     implements $AppstoreConnectApiResponseCopyWith<$Res> {
-  factory _$AppstoreConnectApiResponseCopyWith(
-          _AppstoreConnectApiResponse value,
-          $Res Function(_AppstoreConnectApiResponse) then) =
-      __$AppstoreConnectApiResponseCopyWithImpl<$Res>;
+  factory _$$_AppstoreConnectApiResponseCopyWith(
+          _$_AppstoreConnectApiResponse value,
+          $Res Function(_$_AppstoreConnectApiResponse) then) =
+      __$$_AppstoreConnectApiResponseCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({List<dynamic> data});
 }
 
 /// @nodoc
-class __$AppstoreConnectApiResponseCopyWithImpl<$Res>
-    extends _$AppstoreConnectApiResponseCopyWithImpl<$Res>
-    implements _$AppstoreConnectApiResponseCopyWith<$Res> {
-  __$AppstoreConnectApiResponseCopyWithImpl(_AppstoreConnectApiResponse _value,
-      $Res Function(_AppstoreConnectApiResponse) _then)
-      : super(_value, (v) => _then(v as _AppstoreConnectApiResponse));
+class __$$_AppstoreConnectApiResponseCopyWithImpl<$Res>
+    extends _$AppstoreConnectApiResponseCopyWithImpl<$Res,
+        _$_AppstoreConnectApiResponse>
+    implements _$$_AppstoreConnectApiResponseCopyWith<$Res> {
+  __$$_AppstoreConnectApiResponseCopyWithImpl(
+      _$_AppstoreConnectApiResponse _value,
+      $Res Function(_$_AppstoreConnectApiResponse) _then)
+      : super(_value, _then);
 
-  @override
-  _AppstoreConnectApiResponse get _value =>
-      super._value as _AppstoreConnectApiResponse;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
+    Object? data = null,
   }) {
-    return _then(_AppstoreConnectApiResponse(
-      data: data == freezed
-          ? _value.data
+    return _then(_$_AppstoreConnectApiResponse(
+      data: null == data
+          ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
               as List<dynamic>,
     ));
@@ -107,6 +112,7 @@ class _$_AppstoreConnectApiResponse implements _AppstoreConnectApiResponse {
   final List<dynamic> _data;
   @override
   List<dynamic> get data {
+    if (_data is EqualUnmodifiableListView) return _data;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_data);
   }
@@ -120,24 +126,27 @@ class _$_AppstoreConnectApiResponse implements _AppstoreConnectApiResponse {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _AppstoreConnectApiResponse &&
-            const DeepCollectionEquality().equals(other.data, data));
+            other is _$_AppstoreConnectApiResponse &&
+            const DeepCollectionEquality().equals(other._data, _data));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
 
   @JsonKey(ignore: true)
   @override
-  _$AppstoreConnectApiResponseCopyWith<_AppstoreConnectApiResponse>
-      get copyWith => __$AppstoreConnectApiResponseCopyWithImpl<
-          _AppstoreConnectApiResponse>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_AppstoreConnectApiResponseCopyWith<_$_AppstoreConnectApiResponse>
+      get copyWith => __$$_AppstoreConnectApiResponseCopyWithImpl<
+          _$_AppstoreConnectApiResponse>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_AppstoreConnectApiResponseToJson(this);
+    return _$$_AppstoreConnectApiResponseToJson(
+      this,
+    );
   }
 }
 
@@ -150,10 +159,10 @@ abstract class _AppstoreConnectApiResponse
       _$_AppstoreConnectApiResponse.fromJson;
 
   @override
-  List<dynamic> get data => throw _privateConstructorUsedError;
+  List<dynamic> get data;
   @override
   @JsonKey(ignore: true)
-  _$AppstoreConnectApiResponseCopyWith<_AppstoreConnectApiResponse>
+  _$$_AppstoreConnectApiResponseCopyWith<_$_AppstoreConnectApiResponse>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -178,7 +187,8 @@ mixin _$ProvisioningProfile {
 abstract class $ProvisioningProfileCopyWith<$Res> {
   factory $ProvisioningProfileCopyWith(
           ProvisioningProfile value, $Res Function(ProvisioningProfile) then) =
-      _$ProvisioningProfileCopyWithImpl<$Res>;
+      _$ProvisioningProfileCopyWithImpl<$Res, ProvisioningProfile>;
+  @useResult
   $Res call(
       {String? type, String id, ProvisioningProfileAttributes attributes});
 
@@ -186,52 +196,56 @@ abstract class $ProvisioningProfileCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ProvisioningProfileCopyWithImpl<$Res>
+class _$ProvisioningProfileCopyWithImpl<$Res, $Val extends ProvisioningProfile>
     implements $ProvisioningProfileCopyWith<$Res> {
   _$ProvisioningProfileCopyWithImpl(this._value, this._then);
 
-  final ProvisioningProfile _value;
   // ignore: unused_field
-  final $Res Function(ProvisioningProfile) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? type = freezed,
-    Object? id = freezed,
-    Object? attributes = freezed,
+    Object? id = null,
+    Object? attributes = null,
   }) {
     return _then(_value.copyWith(
-      type: type == freezed
+      type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String?,
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      attributes: attributes == freezed
+      attributes: null == attributes
           ? _value.attributes
           : attributes // ignore: cast_nullable_to_non_nullable
               as ProvisioningProfileAttributes,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $ProvisioningProfileAttributesCopyWith<$Res> get attributes {
     return $ProvisioningProfileAttributesCopyWith<$Res>(_value.attributes,
         (value) {
-      return _then(_value.copyWith(attributes: value));
+      return _then(_value.copyWith(attributes: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$ProvisioningProfileCopyWith<$Res>
+abstract class _$$_ProvisioningProfileCopyWith<$Res>
     implements $ProvisioningProfileCopyWith<$Res> {
-  factory _$ProvisioningProfileCopyWith(_ProvisioningProfile value,
-          $Res Function(_ProvisioningProfile) then) =
-      __$ProvisioningProfileCopyWithImpl<$Res>;
+  factory _$$_ProvisioningProfileCopyWith(_$_ProvisioningProfile value,
+          $Res Function(_$_ProvisioningProfile) then) =
+      __$$_ProvisioningProfileCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String? type, String id, ProvisioningProfileAttributes attributes});
 
@@ -240,32 +254,30 @@ abstract class _$ProvisioningProfileCopyWith<$Res>
 }
 
 /// @nodoc
-class __$ProvisioningProfileCopyWithImpl<$Res>
-    extends _$ProvisioningProfileCopyWithImpl<$Res>
-    implements _$ProvisioningProfileCopyWith<$Res> {
-  __$ProvisioningProfileCopyWithImpl(
-      _ProvisioningProfile _value, $Res Function(_ProvisioningProfile) _then)
-      : super(_value, (v) => _then(v as _ProvisioningProfile));
+class __$$_ProvisioningProfileCopyWithImpl<$Res>
+    extends _$ProvisioningProfileCopyWithImpl<$Res, _$_ProvisioningProfile>
+    implements _$$_ProvisioningProfileCopyWith<$Res> {
+  __$$_ProvisioningProfileCopyWithImpl(_$_ProvisioningProfile _value,
+      $Res Function(_$_ProvisioningProfile) _then)
+      : super(_value, _then);
 
-  @override
-  _ProvisioningProfile get _value => super._value as _ProvisioningProfile;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? type = freezed,
-    Object? id = freezed,
-    Object? attributes = freezed,
+    Object? id = null,
+    Object? attributes = null,
   }) {
-    return _then(_ProvisioningProfile(
-      type: type == freezed
+    return _then(_$_ProvisioningProfile(
+      type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String?,
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      attributes: attributes == freezed
+      attributes: null == attributes
           ? _value.attributes
           : attributes // ignore: cast_nullable_to_non_nullable
               as ProvisioningProfileAttributes,
@@ -299,30 +311,29 @@ class _$_ProvisioningProfile extends _ProvisioningProfile {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ProvisioningProfile &&
-            const DeepCollectionEquality().equals(other.type, type) &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality()
-                .equals(other.attributes, attributes));
+            other is _$_ProvisioningProfile &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.attributes, attributes) ||
+                other.attributes == attributes));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(type),
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(attributes));
+  int get hashCode => Object.hash(runtimeType, type, id, attributes);
 
   @JsonKey(ignore: true)
   @override
-  _$ProvisioningProfileCopyWith<_ProvisioningProfile> get copyWith =>
-      __$ProvisioningProfileCopyWithImpl<_ProvisioningProfile>(
+  @pragma('vm:prefer-inline')
+  _$$_ProvisioningProfileCopyWith<_$_ProvisioningProfile> get copyWith =>
+      __$$_ProvisioningProfileCopyWithImpl<_$_ProvisioningProfile>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ProvisioningProfileToJson(this);
+    return _$$_ProvisioningProfileToJson(
+      this,
+    );
   }
 }
 
@@ -338,15 +349,14 @@ abstract class _ProvisioningProfile extends ProvisioningProfile {
       _$_ProvisioningProfile.fromJson;
 
   @override
-  String? get type => throw _privateConstructorUsedError;
+  String? get type;
   @override
-  String get id => throw _privateConstructorUsedError;
+  String get id;
   @override
-  ProvisioningProfileAttributes get attributes =>
-      throw _privateConstructorUsedError;
+  ProvisioningProfileAttributes get attributes;
   @override
   @JsonKey(ignore: true)
-  _$ProvisioningProfileCopyWith<_ProvisioningProfile> get copyWith =>
+  _$$_ProvisioningProfileCopyWith<_$_ProvisioningProfile> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -371,72 +381,76 @@ abstract class $ProvisioningProfileAttributesCopyWith<$Res> {
   factory $ProvisioningProfileAttributesCopyWith(
           ProvisioningProfileAttributes value,
           $Res Function(ProvisioningProfileAttributes) then) =
-      _$ProvisioningProfileAttributesCopyWithImpl<$Res>;
+      _$ProvisioningProfileAttributesCopyWithImpl<$Res,
+          ProvisioningProfileAttributes>;
+  @useResult
   $Res call({String profileContent, String uuid});
 }
 
 /// @nodoc
-class _$ProvisioningProfileAttributesCopyWithImpl<$Res>
+class _$ProvisioningProfileAttributesCopyWithImpl<$Res,
+        $Val extends ProvisioningProfileAttributes>
     implements $ProvisioningProfileAttributesCopyWith<$Res> {
   _$ProvisioningProfileAttributesCopyWithImpl(this._value, this._then);
 
-  final ProvisioningProfileAttributes _value;
   // ignore: unused_field
-  final $Res Function(ProvisioningProfileAttributes) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? profileContent = freezed,
-    Object? uuid = freezed,
+    Object? profileContent = null,
+    Object? uuid = null,
   }) {
     return _then(_value.copyWith(
-      profileContent: profileContent == freezed
+      profileContent: null == profileContent
           ? _value.profileContent
           : profileContent // ignore: cast_nullable_to_non_nullable
               as String,
-      uuid: uuid == freezed
+      uuid: null == uuid
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$ProvisioningProfileAttributesCopyWith<$Res>
+abstract class _$$_ProvisioningProfileAttributesCopyWith<$Res>
     implements $ProvisioningProfileAttributesCopyWith<$Res> {
-  factory _$ProvisioningProfileAttributesCopyWith(
-          _ProvisioningProfileAttributes value,
-          $Res Function(_ProvisioningProfileAttributes) then) =
-      __$ProvisioningProfileAttributesCopyWithImpl<$Res>;
+  factory _$$_ProvisioningProfileAttributesCopyWith(
+          _$_ProvisioningProfileAttributes value,
+          $Res Function(_$_ProvisioningProfileAttributes) then) =
+      __$$_ProvisioningProfileAttributesCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String profileContent, String uuid});
 }
 
 /// @nodoc
-class __$ProvisioningProfileAttributesCopyWithImpl<$Res>
-    extends _$ProvisioningProfileAttributesCopyWithImpl<$Res>
-    implements _$ProvisioningProfileAttributesCopyWith<$Res> {
-  __$ProvisioningProfileAttributesCopyWithImpl(
-      _ProvisioningProfileAttributes _value,
-      $Res Function(_ProvisioningProfileAttributes) _then)
-      : super(_value, (v) => _then(v as _ProvisioningProfileAttributes));
+class __$$_ProvisioningProfileAttributesCopyWithImpl<$Res>
+    extends _$ProvisioningProfileAttributesCopyWithImpl<$Res,
+        _$_ProvisioningProfileAttributes>
+    implements _$$_ProvisioningProfileAttributesCopyWith<$Res> {
+  __$$_ProvisioningProfileAttributesCopyWithImpl(
+      _$_ProvisioningProfileAttributes _value,
+      $Res Function(_$_ProvisioningProfileAttributes) _then)
+      : super(_value, _then);
 
-  @override
-  _ProvisioningProfileAttributes get _value =>
-      super._value as _ProvisioningProfileAttributes;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? profileContent = freezed,
-    Object? uuid = freezed,
+    Object? profileContent = null,
+    Object? uuid = null,
   }) {
-    return _then(_ProvisioningProfileAttributes(
-      profileContent: profileContent == freezed
+    return _then(_$_ProvisioningProfileAttributes(
+      profileContent: null == profileContent
           ? _value.profileContent
           : profileContent // ignore: cast_nullable_to_non_nullable
               as String,
-      uuid: uuid == freezed
+      uuid: null == uuid
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
               as String,
@@ -469,28 +483,28 @@ class _$_ProvisioningProfileAttributes
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ProvisioningProfileAttributes &&
-            const DeepCollectionEquality()
-                .equals(other.profileContent, profileContent) &&
-            const DeepCollectionEquality().equals(other.uuid, uuid));
+            other is _$_ProvisioningProfileAttributes &&
+            (identical(other.profileContent, profileContent) ||
+                other.profileContent == profileContent) &&
+            (identical(other.uuid, uuid) || other.uuid == uuid));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(profileContent),
-      const DeepCollectionEquality().hash(uuid));
+  int get hashCode => Object.hash(runtimeType, profileContent, uuid);
 
   @JsonKey(ignore: true)
   @override
-  _$ProvisioningProfileAttributesCopyWith<_ProvisioningProfileAttributes>
-      get copyWith => __$ProvisioningProfileAttributesCopyWithImpl<
-          _ProvisioningProfileAttributes>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ProvisioningProfileAttributesCopyWith<_$_ProvisioningProfileAttributes>
+      get copyWith => __$$_ProvisioningProfileAttributesCopyWithImpl<
+          _$_ProvisioningProfileAttributes>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ProvisioningProfileAttributesToJson(this);
+    return _$$_ProvisioningProfileAttributesToJson(
+      this,
+    );
   }
 }
 
@@ -504,11 +518,11 @@ abstract class _ProvisioningProfileAttributes
       _$_ProvisioningProfileAttributes.fromJson;
 
   @override
-  String get profileContent => throw _privateConstructorUsedError;
+  String get profileContent;
   @override
-  String get uuid => throw _privateConstructorUsedError;
+  String get uuid;
   @override
   @JsonKey(ignore: true)
-  _$ProvisioningProfileAttributesCopyWith<_ProvisioningProfileAttributes>
+  _$$_ProvisioningProfileAttributesCopyWith<_$_ProvisioningProfileAttributes>
       get copyWith => throw _privateConstructorUsedError;
 }
