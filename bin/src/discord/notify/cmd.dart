@@ -51,7 +51,7 @@ class DiscordNotifyCMD extends GambitCommand {
         title: argResults![titleArgName],
         description: argResults![descriptionArgName],
         author: argResults![authorArgName],
-        color: argResults![colorArgName],
+        color: int.tryParse(argResults![colorArgName]),
       ),
     ]);
   }
