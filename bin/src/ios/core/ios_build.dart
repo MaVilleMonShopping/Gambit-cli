@@ -1,3 +1,4 @@
+// ignore: depend_on_referenced_packages
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'ios_build.freezed.dart';

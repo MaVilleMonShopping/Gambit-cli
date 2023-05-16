@@ -51,9 +51,9 @@ class AppStoreConnectClient {
   Future<List<ProvisioningProfile>> listProfiles({
     Map<String, String>? queryParameters,
   }) async {
-    final _response =
+    final response =
         await _dio.get("/profiles", queryParameters: queryParameters);
-    return AppstoreConnectApiResponse.fromJson(_response.data)
+    return AppstoreConnectApiResponse.fromJson(response.data)
         .data
         .map((e) => ProvisioningProfile.fromJson(e))
         .toList();
@@ -63,9 +63,9 @@ class AppStoreConnectClient {
     Map<String, String>? queryParameters,
     required String profileId,
   }) async {
-    final _response = await _dio.get("/profiles/$profileId/bundleId",
+    final response = await _dio.get("/profiles/$profileId/bundleId",
         queryParameters: queryParameters);
-    return _response;
+    return response;
   }
 
   Future<String> getLastTestflightBuildNumber({

@@ -34,11 +34,11 @@ class AppDistributionCMD extends GambitCommand {
         .run();
 
     runResult.fold(
-      (_fail) {
-        printError(_fail.cause);
-        exit(_fail.exitCode);
+      (fail) {
+        printError(fail.cause);
+        exit(fail.exitCode);
       },
-      (_success) {
+      (success) {
         printSuccess("");
         exit(0);
       },

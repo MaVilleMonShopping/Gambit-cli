@@ -17,15 +17,15 @@ class GetAppVersionCmd extends GambitCommand {
     flutterProjectPath =
         argResults![GetAppVersionCommandDescriptor.projectPathArgName];
 
-    final _runResult = await _checkFlutterFolder()
+    final runResult = await _checkFlutterFolder()
         .bindRight(_getFlutterPubspec)
         .bindRight(_getSemanticVersion)
         .run();
 
-    _runResult.fold(
-      (_failure) {
-        printError(_failure.cause);
-        exit(_failure.exitCode);
+    runResult.fold(
+      (failure) {
+        printError(failure.cause);
+        exit(failure.exitCode);
       },
       (semanticVersion) {
         printSuccess(semanticVersion, verbosePrefix: "Version:");

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'ios_build.dart';
 
@@ -33,55 +33,62 @@ mixin _$IOSBuild {
 /// @nodoc
 abstract class $IOSBuildCopyWith<$Res> {
   factory $IOSBuildCopyWith(IOSBuild value, $Res Function(IOSBuild) then) =
-      _$IOSBuildCopyWithImpl<$Res>;
+      _$IOSBuildCopyWithImpl<$Res, IOSBuild>;
+  @useResult
   $Res call({IOSBuildAttributes attributes, String id, String type});
 
   $IOSBuildAttributesCopyWith<$Res> get attributes;
 }
 
 /// @nodoc
-class _$IOSBuildCopyWithImpl<$Res> implements $IOSBuildCopyWith<$Res> {
+class _$IOSBuildCopyWithImpl<$Res, $Val extends IOSBuild>
+    implements $IOSBuildCopyWith<$Res> {
   _$IOSBuildCopyWithImpl(this._value, this._then);
 
-  final IOSBuild _value;
   // ignore: unused_field
-  final $Res Function(IOSBuild) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? attributes = freezed,
-    Object? id = freezed,
-    Object? type = freezed,
+    Object? attributes = null,
+    Object? id = null,
+    Object? type = null,
   }) {
     return _then(_value.copyWith(
-      attributes: attributes == freezed
+      attributes: null == attributes
           ? _value.attributes
           : attributes // ignore: cast_nullable_to_non_nullable
               as IOSBuildAttributes,
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      type: type == freezed
+      type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $IOSBuildAttributesCopyWith<$Res> get attributes {
     return $IOSBuildAttributesCopyWith<$Res>(_value.attributes, (value) {
-      return _then(_value.copyWith(attributes: value));
+      return _then(_value.copyWith(attributes: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$IOSBuildCopyWith<$Res> implements $IOSBuildCopyWith<$Res> {
-  factory _$IOSBuildCopyWith(_IOSBuild value, $Res Function(_IOSBuild) then) =
-      __$IOSBuildCopyWithImpl<$Res>;
+abstract class _$$_IOSBuildCopyWith<$Res> implements $IOSBuildCopyWith<$Res> {
+  factory _$$_IOSBuildCopyWith(
+          _$_IOSBuild value, $Res Function(_$_IOSBuild) then) =
+      __$$_IOSBuildCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({IOSBuildAttributes attributes, String id, String type});
 
   @override
@@ -89,30 +96,30 @@ abstract class _$IOSBuildCopyWith<$Res> implements $IOSBuildCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$IOSBuildCopyWithImpl<$Res> extends _$IOSBuildCopyWithImpl<$Res>
-    implements _$IOSBuildCopyWith<$Res> {
-  __$IOSBuildCopyWithImpl(_IOSBuild _value, $Res Function(_IOSBuild) _then)
-      : super(_value, (v) => _then(v as _IOSBuild));
+class __$$_IOSBuildCopyWithImpl<$Res>
+    extends _$IOSBuildCopyWithImpl<$Res, _$_IOSBuild>
+    implements _$$_IOSBuildCopyWith<$Res> {
+  __$$_IOSBuildCopyWithImpl(
+      _$_IOSBuild _value, $Res Function(_$_IOSBuild) _then)
+      : super(_value, _then);
 
-  @override
-  _IOSBuild get _value => super._value as _IOSBuild;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? attributes = freezed,
-    Object? id = freezed,
-    Object? type = freezed,
+    Object? attributes = null,
+    Object? id = null,
+    Object? type = null,
   }) {
-    return _then(_IOSBuild(
-      attributes: attributes == freezed
+    return _then(_$_IOSBuild(
+      attributes: null == attributes
           ? _value.attributes
           : attributes // ignore: cast_nullable_to_non_nullable
               as IOSBuildAttributes,
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      type: type == freezed
+      type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
@@ -145,29 +152,28 @@ class _$_IOSBuild implements _IOSBuild {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _IOSBuild &&
-            const DeepCollectionEquality()
-                .equals(other.attributes, attributes) &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.type, type));
+            other is _$_IOSBuild &&
+            (identical(other.attributes, attributes) ||
+                other.attributes == attributes) &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.type, type) || other.type == type));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(attributes),
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(type));
+  int get hashCode => Object.hash(runtimeType, attributes, id, type);
 
   @JsonKey(ignore: true)
   @override
-  _$IOSBuildCopyWith<_IOSBuild> get copyWith =>
-      __$IOSBuildCopyWithImpl<_IOSBuild>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_IOSBuildCopyWith<_$_IOSBuild> get copyWith =>
+      __$$_IOSBuildCopyWithImpl<_$_IOSBuild>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_IOSBuildToJson(this);
+    return _$$_IOSBuildToJson(
+      this,
+    );
   }
 }
 
@@ -180,14 +186,14 @@ abstract class _IOSBuild implements IOSBuild {
   factory _IOSBuild.fromJson(Map<String, dynamic> json) = _$_IOSBuild.fromJson;
 
   @override
-  IOSBuildAttributes get attributes => throw _privateConstructorUsedError;
+  IOSBuildAttributes get attributes;
   @override
-  String get id => throw _privateConstructorUsedError;
+  String get id;
   @override
-  String get type => throw _privateConstructorUsedError;
+  String get type;
   @override
   @JsonKey(ignore: true)
-  _$IOSBuildCopyWith<_IOSBuild> get copyWith =>
+  _$$_IOSBuildCopyWith<_$_IOSBuild> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -210,69 +216,71 @@ mixin _$IOSBuildAttributes {
 abstract class $IOSBuildAttributesCopyWith<$Res> {
   factory $IOSBuildAttributesCopyWith(
           IOSBuildAttributes value, $Res Function(IOSBuildAttributes) then) =
-      _$IOSBuildAttributesCopyWithImpl<$Res>;
+      _$IOSBuildAttributesCopyWithImpl<$Res, IOSBuildAttributes>;
+  @useResult
   $Res call({String version, String processingState});
 }
 
 /// @nodoc
-class _$IOSBuildAttributesCopyWithImpl<$Res>
+class _$IOSBuildAttributesCopyWithImpl<$Res, $Val extends IOSBuildAttributes>
     implements $IOSBuildAttributesCopyWith<$Res> {
   _$IOSBuildAttributesCopyWithImpl(this._value, this._then);
 
-  final IOSBuildAttributes _value;
   // ignore: unused_field
-  final $Res Function(IOSBuildAttributes) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? version = freezed,
-    Object? processingState = freezed,
+    Object? version = null,
+    Object? processingState = null,
   }) {
     return _then(_value.copyWith(
-      version: version == freezed
+      version: null == version
           ? _value.version
           : version // ignore: cast_nullable_to_non_nullable
               as String,
-      processingState: processingState == freezed
+      processingState: null == processingState
           ? _value.processingState
           : processingState // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$IOSBuildAttributesCopyWith<$Res>
+abstract class _$$_IOSBuildAttributesCopyWith<$Res>
     implements $IOSBuildAttributesCopyWith<$Res> {
-  factory _$IOSBuildAttributesCopyWith(
-          _IOSBuildAttributes value, $Res Function(_IOSBuildAttributes) then) =
-      __$IOSBuildAttributesCopyWithImpl<$Res>;
+  factory _$$_IOSBuildAttributesCopyWith(_$_IOSBuildAttributes value,
+          $Res Function(_$_IOSBuildAttributes) then) =
+      __$$_IOSBuildAttributesCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String version, String processingState});
 }
 
 /// @nodoc
-class __$IOSBuildAttributesCopyWithImpl<$Res>
-    extends _$IOSBuildAttributesCopyWithImpl<$Res>
-    implements _$IOSBuildAttributesCopyWith<$Res> {
-  __$IOSBuildAttributesCopyWithImpl(
-      _IOSBuildAttributes _value, $Res Function(_IOSBuildAttributes) _then)
-      : super(_value, (v) => _then(v as _IOSBuildAttributes));
+class __$$_IOSBuildAttributesCopyWithImpl<$Res>
+    extends _$IOSBuildAttributesCopyWithImpl<$Res, _$_IOSBuildAttributes>
+    implements _$$_IOSBuildAttributesCopyWith<$Res> {
+  __$$_IOSBuildAttributesCopyWithImpl(
+      _$_IOSBuildAttributes _value, $Res Function(_$_IOSBuildAttributes) _then)
+      : super(_value, _then);
 
-  @override
-  _IOSBuildAttributes get _value => super._value as _IOSBuildAttributes;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? version = freezed,
-    Object? processingState = freezed,
+    Object? version = null,
+    Object? processingState = null,
   }) {
-    return _then(_IOSBuildAttributes(
-      version: version == freezed
+    return _then(_$_IOSBuildAttributes(
+      version: null == version
           ? _value.version
           : version // ignore: cast_nullable_to_non_nullable
               as String,
-      processingState: processingState == freezed
+      processingState: null == processingState
           ? _value.processingState
           : processingState // ignore: cast_nullable_to_non_nullable
               as String,
@@ -303,27 +311,28 @@ class _$_IOSBuildAttributes implements _IOSBuildAttributes {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _IOSBuildAttributes &&
-            const DeepCollectionEquality().equals(other.version, version) &&
-            const DeepCollectionEquality()
-                .equals(other.processingState, processingState));
+            other is _$_IOSBuildAttributes &&
+            (identical(other.version, version) || other.version == version) &&
+            (identical(other.processingState, processingState) ||
+                other.processingState == processingState));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(version),
-      const DeepCollectionEquality().hash(processingState));
+  int get hashCode => Object.hash(runtimeType, version, processingState);
 
   @JsonKey(ignore: true)
   @override
-  _$IOSBuildAttributesCopyWith<_IOSBuildAttributes> get copyWith =>
-      __$IOSBuildAttributesCopyWithImpl<_IOSBuildAttributes>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_IOSBuildAttributesCopyWith<_$_IOSBuildAttributes> get copyWith =>
+      __$$_IOSBuildAttributesCopyWithImpl<_$_IOSBuildAttributes>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_IOSBuildAttributesToJson(this);
+    return _$$_IOSBuildAttributesToJson(
+      this,
+    );
   }
 }
 
@@ -336,11 +345,11 @@ abstract class _IOSBuildAttributes implements IOSBuildAttributes {
       _$_IOSBuildAttributes.fromJson;
 
   @override
-  String get version => throw _privateConstructorUsedError;
+  String get version;
   @override
-  String get processingState => throw _privateConstructorUsedError;
+  String get processingState;
   @override
   @JsonKey(ignore: true)
-  _$IOSBuildAttributesCopyWith<_IOSBuildAttributes> get copyWith =>
+  _$$_IOSBuildAttributesCopyWith<_$_IOSBuildAttributes> get copyWith =>
       throw _privateConstructorUsedError;
 }

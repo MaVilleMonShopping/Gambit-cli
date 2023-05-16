@@ -5,6 +5,7 @@ const String titleArgName = "title";
 const String descriptionArgName = "description";
 const String authorArgName = "author";
 const String colorArgName = "color-hex";
+const String fileArgName = "file";
 
 class DiscordNotifyDescriptor extends CommandDescriptor {
   DiscordNotifyDescriptor()
@@ -21,28 +22,38 @@ class DiscordNotifyDescriptor extends CommandDescriptor {
             CommandOption(
               name: titleArgName,
               abbr: "t",
-              help: "Embeded Message title",
-              mandatory: true,
+              help: """Embeded Message title
+              Ignored if a json file is used""",
+              mandatory: false,
             ),
             CommandOption(
               name: descriptionArgName,
               abbr: "d",
-              help: "Embeded Message content",
+              help: """Embeded Message content
+              Ignored if a json file is used""",
               mandatory: false,
             ),
             CommandOption(
               name: authorArgName,
               abbr: "a",
-              help: "Embeded Message author",
+              help: """Embeded Message author
+Ignored if a json file is used""",
               mandatory: false,
             ),
             CommandOption(
               name: colorArgName,
               abbr: "c",
               help:
-                  "Embeded Color border (int value), check https://www.spycolor.com/",
+                  """Embeded Color border (int value), check https://www.spycolor.com/
+Ignored if a json file is used""",
               mandatory: false,
             ),
+            CommandOption(
+              name: fileArgName,
+              abbr: "f",
+              help:
+                  "Use a json file rather than the separate arguments. If set, other message parameters are ignored.",
+            )
           ],
         );
 }
