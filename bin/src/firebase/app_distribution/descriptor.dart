@@ -4,6 +4,8 @@ const String serviceAccountFilePathArgName = "account-service-file";
 const String projectIdArgName = "project-id";
 const String appIdArgName = "app-id";
 const String apkPathArgName = "apk";
+const String testersArgName = "testers";
+const String testGroupsArgName = "test-groups";
 
 class _AppDistributionDescriptor extends CommandDescriptor {
   _AppDistributionDescriptor()
@@ -32,7 +34,16 @@ class _AppDistributionDescriptor extends CommandDescriptor {
                 name: projectIdArgName,
                 mandatory: true,
                 help: "Firebase project id",
-              )
+              ),
+              CommandOption(
+                name: testersArgName,
+                help: "comma separated list of targeted tester's emails",
+              ),
+              CommandOption(
+                name: testGroupsArgName,
+                help:
+                    "comma separated list of targeted test groups\nExample: group1,group2,...",
+              ),
             ],
             flags: [
               verboseFlag(),

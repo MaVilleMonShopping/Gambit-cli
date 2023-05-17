@@ -16,9 +16,10 @@ Usage: gambit firebase distribute [arguments]
     --apk (mandatory)                     apk path.
     --app-id (mandatory)                  Firebase app id.
     --project-id (mandatory)              Firebase project id
+    --testers                             comma separated list of targeted tester's emails
+    --test-groups                         comma separated list of targeted test groups
+                                          Example: group1,groupe2,...
 -v, --verbose                             Verbose mode, use only for debug
-
-Run "gambit help" to see global options.
 ```
 
 Example:
