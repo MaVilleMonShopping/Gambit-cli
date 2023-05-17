@@ -55,13 +55,16 @@ class AppDistributionCMD extends GambitCommand {
         apkPath = argResults![apkPathArgName];
         appId = argResults![appIdArgName];
         projectId = argResults![projectIdArgName];
-        testers = ((argResults![testersArgName])?.split(",") as List<String>)
-            .where((e) => e.isNotEmpty)
-            .toList();
+        final rawTesters = argResults![testersArgName];
+        testers = ((argResults![testersArgName])?.split(",") as List<String>?)
+                ?.where((e) => e.isNotEmpty)
+                .toList() ??
+            [];
         testGroups =
-            ((argResults![testGroupsArgName])?.split(",") as List<String>)
-                .where((e) => e.isNotEmpty)
-                .toList();
+            ((argResults![testGroupsArgName])?.split(",") as List<String>?)
+                    ?.where((e) => e.isNotEmpty)
+                    .toList() ??
+                [];
         return right(unit);
       });
 
