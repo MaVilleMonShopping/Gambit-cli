@@ -30,8 +30,9 @@ workflows:
       scripts:
         - name: Publish to github
           script: |
-            #!/usr/bin/env zsh
-            set -ex
+            set -x
+
+            tar -zcvf linux.tar.gz linux
 
             gh release create "${CM_TAG}" \
             --title "${CM_TAG}" \
@@ -70,11 +71,10 @@ workflows:
       scripts:
         - name: Publish to github
           script: |
-            #!/usr/bin/env zsh
+            set -x
+            tar -zcvf linux.tar.gz linux
 
-            set -ex
-            curr=$(gh release view "${CM_TAG}")
-            echo $curr
+            gh release view "${CM_TAG}"
 
             gh release upload "${CM_TAG}" \
             linux
