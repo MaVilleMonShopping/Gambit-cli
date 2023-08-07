@@ -24,7 +24,7 @@ workflows:
         script: dart compile exe ./bin/gambit.dart -o macos/gambit
 
     artifacts:
-      - macos/gambit
+      - macos
 
     publishing:
       scripts:
@@ -33,7 +33,7 @@ workflows:
             #!/usr/bin/env zsh
             gh release create -d "${CM_TAG}" \
             --title "${CM_TAG}" \
-            macos/gambit
+            macos
 
   compile-linux:
     instance_type: linux_x2
@@ -62,7 +62,7 @@ workflows:
         script: dart compile exe ./bin/gambit.dart -o linux/gambit
 
     artifacts:
-      - linux/gambit
+      - linux
   
     publishing:
       scripts:
@@ -73,4 +73,4 @@ workflows:
             sleep 2m
 
             gh release upload "${CM_TAG}" \
-            linux/gambit
+            linux
