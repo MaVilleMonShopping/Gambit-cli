@@ -9,7 +9,8 @@ workflows:
       events:
         - tag
       tag_patterns:
-        - pattern: "*"
+        - pattern: '*'
+        include: true
       # cancel_previous_builds: true
 
     scripts:
@@ -44,7 +45,8 @@ workflows:
       events:
         - tag
       tag_patterns:
-        - pattern: "*"
+        - pattern: '*'
+        include: true
       #     include: true
       # cancel_previous_builds: true
 
