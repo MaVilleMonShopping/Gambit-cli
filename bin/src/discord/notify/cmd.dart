@@ -63,8 +63,8 @@ class DiscordNotifyCMD extends GambitCommand {
         try {
           await dio.post("", data: message.toJson());
           return right("Message sent !");
-        } on DioException catch (err) {
-          return left(CommandFailure(cause: err.message ?? "$err"));
+        } on DioError catch (err) {
+          return left(CommandFailure(cause: err.message));
         }
       });
 }
