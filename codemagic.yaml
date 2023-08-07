@@ -33,7 +33,7 @@ workflows:
             set -x
 
             tar -zcvf macos.tar.gz macos
-            release=`gh release view "${CM_TAG}"`
+            release=`gh release view ${CM_TAG}`
             echo "$release"
             gh release create "${CM_TAG}" \
             --title "${CM_TAG}" \
@@ -75,7 +75,7 @@ workflows:
             set -x
             tar -zcvf linux.tar.gz linux
 
-            release=$(gh release view '${CM_TAG}')
+            release=$(gh release view ${CM_TAG})
             echo $release
 
             gh release upload "${CM_TAG}" \
