@@ -8,10 +8,10 @@ workflows:
     triggering:
       events:
         - tag
-      tag_patterns:
-        - pattern: "*"
-          include: true
-      cancel_previous_builds: true
+      # tag_patterns:
+      #   - pattern: "*"
+      #     include: true
+      # cancel_previous_builds: true
 
     scripts:
       - name: Install dependencies
@@ -35,10 +35,10 @@ workflows:
     triggering:
       events:
         - tag
-      tag_patterns:
-        - pattern: "*"
-          include: true
-      cancel_previous_builds: true
+      # tag_patterns:
+      #   - pattern: "*"
+      #     include: true
+      # cancel_previous_builds: true
 
     scripts:
       - name: Install dependencies
