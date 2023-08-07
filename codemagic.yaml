@@ -10,7 +10,7 @@ workflows:
         - tag
       tag_patterns:                 # Include or exclude watched tag labels
         - pattern: '*'
-        include: true
+          include: true
       # cancel_previous_builds: true
 
     scripts:
@@ -46,7 +46,7 @@ workflows:
         - tag
       tag_patterns:                 # Include or exclude watched tag labels
         - pattern: '*'
-        include: true
+          include: true
       #     include: true
       # cancel_previous_builds: true
 
