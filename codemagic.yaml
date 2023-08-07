@@ -75,8 +75,8 @@ workflows:
             set -x
             tar -zcvf linux.tar.gz linux
 
-            release=`gh release view "${CM_TAG}"`
-            echo "$release"
+            release=$(gh release view '${CM_TAG}')
+            echo $release
 
             gh release upload "${CM_TAG}" \
             linux.tar.gz
