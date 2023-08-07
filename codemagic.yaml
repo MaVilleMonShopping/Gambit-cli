@@ -32,11 +32,11 @@ workflows:
           script: |
             set -x
 
-            tar -zcvf linux.tar.gz linux
+            tar -zcvf linux.tar.gz macos
 
             gh release create "${CM_TAG}" \
             --title "${CM_TAG}" \
-            macos
+            macos.tar.gz
 
   compile-linux:
     instance_type: linux_x2
@@ -74,7 +74,8 @@ workflows:
             set -x
             tar -zcvf linux.tar.gz linux
 
-            gh release view "${CM_TAG}"
-
+            release=$(gh release view "${CM_TAG}")
+            echo "$release"
+            
             gh release upload "${CM_TAG}" \
-            linux
+            linux.tar.gz
