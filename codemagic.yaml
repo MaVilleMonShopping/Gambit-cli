@@ -31,6 +31,8 @@ workflows:
         - name: Publish to github
           script: |
             #!/usr/bin/env zsh
+            set -ex
+
             gh release create "${CM_TAG}" \
             --title "${CM_TAG}" \
             macos
@@ -70,7 +72,9 @@ workflows:
           script: |
             #!/usr/bin/env zsh
 
-            sleep 2m
+            set -ex
+            curr=$(gh release view "${CM_TAG}")
+            echo $curr
 
             gh release upload "${CM_TAG}" \
             linux
