@@ -31,7 +31,7 @@ workflows:
         - name: Publish to github
           script: |
             #!/usr/bin/env zsh
-            gh release create -d "${CM_TAG}" \
+            gh release create "${CM_TAG}" \
             --title "${CM_TAG}" \
             macos
 
