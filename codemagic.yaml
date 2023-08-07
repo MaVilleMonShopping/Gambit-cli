@@ -31,14 +31,9 @@ workflows:
         - name: Publish to github
           script: |
             #!/usr/bin/env zsh
-            present=$(gh release view "${CM_TAG}")
-            if [ "$present" = "release not found" ]; then
-              gh release create -d "${CM_TAG}" \
-              --title "${CM_TAG}" \
-              macos/gambit
-            else 
-              gh release upload "${CM_TAG}" \
-              macos/gambit
+            gh release create -d "${CM_TAG}" \
+            --title "${CM_TAG}" \
+            macos/gambit
 
   compile-linux:
     instance_type: linux_x2
@@ -74,11 +69,8 @@ workflows:
         - name: Publish to github
           script: |
             #!/usr/bin/env zsh
-            present=$(gh release view "${CM_TAG}")
-            if [ "$present" = "release not found" ]; then
-              gh release create -d "${CM_TAG}" \
-              --title "${CM_TAG}" \
-              linux/gambit
-            else 
-              gh release upload "${CM_TAG}" \
-              linux/gambit
+
+            sleep 2m
+
+            gh release upload "${CM_TAG}" \
+            linux/gambit
