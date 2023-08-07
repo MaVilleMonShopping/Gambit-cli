@@ -26,13 +26,13 @@ workflows:
       - macos/gambit
 
     publishing:
-    scripts:
-      - name: Publish to github
-        script: |
-          #!/usr/bin/env zsh
-          gh release create -d "${CM_TAG}" \
-            --title "${CM_TAG}" \
-            macos/gambit
+      scripts:
+        - name: Publish to github
+          script: |
+            #!/usr/bin/env zsh
+            gh release create -d "${CM_TAG}" \
+              --title "${CM_TAG}" \
+              macos/gambit
 
   compile-linux:
     instance_type: linux_x2
