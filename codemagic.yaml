@@ -8,7 +8,7 @@ workflows:
     triggering:
       events:
         - tag
-      tag_patterns:
+      tag_patterns:                 # Include or exclude watched tag labels
         - pattern: '*'
         include: true
       # cancel_previous_builds: true
@@ -44,7 +44,7 @@ workflows:
     triggering:
       events:
         - tag
-      tag_patterns:
+      tag_patterns:                 # Include or exclude watched tag labels
         - pattern: '*'
         include: true
       #     include: true
