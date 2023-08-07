@@ -31,12 +31,13 @@ workflows:
         - name: Publish to github
           script: |
             #!/usr/bin/env zsh
-            gh release create -d "${CM_TAG}" \
+            gh release create -d "${CM_TAG}-macos" \
               --title "${CM_TAG}" \
               macos/gambit
 
   compile-linux:
     instance_type: linux_x2
+    
     environment:
       flutter: 3.10.6
       groups:
@@ -68,6 +69,6 @@ workflows:
         - name: Publish to github
           script: |
             #!/usr/bin/env zsh
-            gh release upload -d "${CM_TAG}" \
+            gh release upload -d "${CM_TAG}-linux" \
               --title "${CM_TAG}" \
               linux/gambit
