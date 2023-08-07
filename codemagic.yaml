@@ -8,9 +8,8 @@ workflows:
     triggering:
       events:
         - tag
-      # tag_patterns:
-      #   - pattern: "*"
-      #     include: true
+      tag_patterns:
+        - pattern: "*"
       # cancel_previous_builds: true
 
     scripts:
@@ -26,6 +25,15 @@ workflows:
     artifacts:
       - macos/gambit
 
+    publishing:
+    scripts:
+      - name: Publish to github
+        script: |
+          #!/usr/bin/env zsh
+          gh release create -d "${CM_TAG}" \
+            --title "${CM_TAG}" \
+            macos/gambit
+
   compile-linux:
     instance_type: linux_x2
     environment:
@@ -35,8 +43,8 @@ workflows:
     triggering:
       events:
         - tag
-      # tag_patterns:
-      #   - pattern: "*"
+      tag_patterns:
+        - pattern: "*"
       #     include: true
       # cancel_previous_builds: true
 
@@ -53,12 +61,11 @@ workflows:
     artifacts:
       - linux/gambit
   
-  publishing:
-    scripts:
-      - name: Publish to github
-        script: |
-          #!/usr/bin/env zsh
-          gh release create -d "${CM_TAG}" \
-            --title "${CM_TAG}" \
-            macos/gambit \
-            linux/gambit
+    publishing:
+      scripts:
+        - name: Publish to github
+          script: |
+            #!/usr/bin/env zsh
+            gh release create -d "${CM_TAG}" \
+              --title "${CM_TAG}" \
+              linux/gambit
