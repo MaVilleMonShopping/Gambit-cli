@@ -53,12 +53,12 @@ workflows:
     artifacts:
       - linux/**
   
-    publishing:
-      scripts:
-        - name: Publish to github
-          script: |
-            #!/usr/bin/env zsh
-            gh release create -d "${CM_TAG}" \
-              --title "${CM_TAG}" \
-              macos/gambit \
-              linux/gambit
+  publishing:
+    scripts:
+      - name: Publish to github
+        script: |
+          #!/usr/bin/env zsh
+          gh release create -d "${CM_TAG}" \
+            --title "${CM_TAG}" \
+            macos/gambit \
+            linux/gambit
