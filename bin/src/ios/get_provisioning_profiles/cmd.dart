@@ -7,6 +7,7 @@ import 'package:args/command_runner.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dcli/dcli.dart';
 import 'package:dio/dio.dart';
+import 'package:path/path.dart';
 
 import '../../core/command_descriptor.dart';
 import '../../core/exceptions.dart';

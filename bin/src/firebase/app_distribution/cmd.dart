@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:dartz/dartz.dart';
 import 'package:dcli/dcli.dart';
 import 'package:dio/dio.dart';
+import 'package:path/path.dart' as p;
 
 import '../../core/command_descriptor.dart';
 import '../../core/exceptions.dart';
@@ -55,7 +56,6 @@ class AppDistributionCMD extends GambitCommand {
         apkPath = argResults![apkPathArgName];
         appId = argResults![appIdArgName];
         projectId = argResults![projectIdArgName];
-        final rawTesters = argResults![testersArgName];
         testers = ((argResults![testersArgName])?.split(",") as List<String>?)
                 ?.where((e) => e.isNotEmpty)
                 .toList() ??
@@ -124,7 +124,7 @@ class AppDistributionCMD extends GambitCommand {
               HttpHeaders.authorizationHeader:
                   "Bearer ${client.credentials.accessToken.data}",
               "X-Goog-Upload-Protocol": "raw",
-              "X-Goog-Upload-File-Name": basename(apk.path),
+              "X-Goog-Upload-File-Name": p.basename(apk.path),
             },
           ),
         );

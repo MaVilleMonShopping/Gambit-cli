@@ -1,0 +1,63 @@
+workflow:
+  compile-mac:
+    instance_type: mac_mini_m1
+    environment:
+      flutter: 3.10.6
+      groups:
+        - mvms
+    triggering:
+      events:
+        - tag
+      tag_patterns:
+        - pattern: "*"
+          include: true
+      cancel_previous_builds: true
+
+    scripts:
+      - name: Install dependencies
+        script: dat pub get
+      
+      - name: Create target Dir
+        script: mkdir macos
+      
+      - name: Compile
+        script: dart compile exe ./bin/gambit.dart -o macos/compiled_executable
+
+      - artifacts:
+        - macos/**
+
+  compile-linux:
+    instance_type: linux_x2
+    environment:
+      flutter: 3.10.6
+      groups:
+        - mvms
+    triggering:
+      events:
+        - tag
+      tag_patterns:
+        - pattern: "*"
+          include: true
+      cancel_previous_builds: true
+
+    scripts:
+      - name: Install dependencies
+        script: dat pub get
+      
+      - name: Create target Dir
+        script: mkdir linux
+      
+      - name: Compile
+        script: dart compile exe ./bin/gambit.dart -o linux/compiled_executable
+
+      - artifacts:
+        - linux/**
+  
+    publishing:
+      scripts:
+        - name: Publish to github
+          script: |
+            #!/usr/bin/env zsh
+            gh release create -d "${CM_TAG}" \
+              --title "${CM_TAG}" \
+              macos/compiled_executable  

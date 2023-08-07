@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:dartz/dartz.dart';
 import 'package:dcli/dcli.dart';
+import 'package:path/path.dart';
 
 import '../../core/command_descriptor.dart';
 import '../../core/exceptions.dart';
