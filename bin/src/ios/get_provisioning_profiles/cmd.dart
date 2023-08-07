@@ -95,7 +95,7 @@ class GetProvisioninProfile extends GambitCommand {
             "filter[profileType]": profileType,
           });
           return right(profiles);
-        } on DioError catch (ex) {
+        } on DioException catch (ex) {
           return left(
             CommandFailure(
                 cause: "Can't retrieve profiles: ${ex.response}", exitCode: 1),
