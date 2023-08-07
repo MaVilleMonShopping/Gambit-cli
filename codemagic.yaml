@@ -33,11 +33,16 @@ workflows:
             set -x
 
             tar -zcvf macos.tar.gz macos
-            release=`gh release view ${CM_TAG}`
+            release=$(gh release view ${CM_TAG})
             echo "$release"
-            gh release create "${CM_TAG}" \
-            --title "${CM_TAG}" \
-            macos.tar.gz
+            if [ "$release" == "release not found" ]; then
+              gh release create "${CM_TAG}" \
+              --title "${CM_TAG}" \
+              macos.tar.gz
+            else
+              gh release upload "${CM_TAG}" \
+              macos.tar.gz
+            fi
 
   compile-linux:
     instance_type: linux_x2
@@ -76,7 +81,12 @@ workflows:
             tar -zcvf linux.tar.gz linux
 
             release=$(gh release view ${CM_TAG})
-            echo $release
-
-            gh release upload "${CM_TAG}" \
-            linux.tar.gz
+            echo "$release"
+            if [ "$release" == "release not found" ]; then
+              gh release create "${CM_TAG}" \
+              --title "${CM_TAG}" \
+              linux.tar.gz
+            else
+              gh release upload "${CM_TAG}" \
+              linux.tar.gz
+            fi
