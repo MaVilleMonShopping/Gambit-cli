@@ -24,7 +24,7 @@ workflows:
         script: dart compile exe ./bin/gambit.dart -o macos/gambit
 
     artifacts:
-      - macos/**
+      - macos/gambit
 
   compile-linux:
     instance_type: linux_x2
@@ -51,7 +51,7 @@ workflows:
         script: dart compile exe ./bin/gambit.dart -o linux/gambit
 
     artifacts:
-      - linux/**
+      - linux/gambit
   
   publishing:
     scripts:
