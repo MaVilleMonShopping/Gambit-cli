@@ -35,7 +35,7 @@ workflows:
             tar -zcvf macos.tar.gz macos
             release=$(gh release view ${CM_TAG})
             echo "$release"
-            if [ "$release" == "release not found" ]; then
+            if [ -z "$release" ]; then
               gh release create "${CM_TAG}" \
               --title "${CM_TAG}" \
               macos.tar.gz
@@ -82,7 +82,7 @@ workflows:
 
             release=$(gh release view ${CM_TAG})
             echo "$release"
-            if [ "$release" == "release not found" ]; then
+            if [ -z "$release" ]; then
               gh release create "${CM_TAG}" \
               --title "${CM_TAG}" \
               linux.tar.gz
