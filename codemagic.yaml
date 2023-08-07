@@ -21,10 +21,10 @@ workflows:
         script: mkdir macos
       
       - name: Compile
-        script: dart compile exe ./bin/gambit.dart -o macos/compiled_executable
+        script: dart compile exe ./bin/gambit.dart -o macos/gambit
 
-      - artifacts:
-        - macos/**
+    artifacts:
+      - macos/**
 
   compile-linux:
     instance_type: linux_x2
@@ -48,10 +48,10 @@ workflows:
         script: mkdir linux
       
       - name: Compile
-        script: dart compile exe ./bin/gambit.dart -o linux/compiled_executable
+        script: dart compile exe ./bin/gambit.dart -o linux/gambit
 
-      - artifacts:
-        - linux/**
+    artifacts:
+      - linux/**
   
     publishing:
       scripts:
@@ -60,4 +60,5 @@ workflows:
             #!/usr/bin/env zsh
             gh release create -d "${CM_TAG}" \
               --title "${CM_TAG}" \
-              macos/compiled_executable  
+              macos/gambit \
+              linux/gambit
