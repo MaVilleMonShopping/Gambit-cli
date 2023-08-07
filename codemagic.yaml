@@ -15,7 +15,7 @@ workflows:
 
     scripts:
       - name: Install dependencies
-        script: dat pub get
+        script: dart pub get
       
       - name: Create target Dir
         script: mkdir macos
@@ -42,7 +42,7 @@ workflows:
 
     scripts:
       - name: Install dependencies
-        script: dat pub get
+        script: dart pub get
       
       - name: Create target Dir
         script: mkdir linux
