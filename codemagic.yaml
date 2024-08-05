@@ -48,7 +48,7 @@ workflows:
     instance_type: linux_x2
     
     environment:
-      flutter: 3.10.6
+      flutter: 3.22.4
       groups:
         - mvms
     triggering:
