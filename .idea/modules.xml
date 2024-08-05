@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/packages/example/melos_example.iml" filepath="$PROJECT_DIR$/packages/example/melos_example.iml" />
+      <module fileurl="file://$PROJECT_DIR$/packages/gambit_cli/melos_gambit_cli.iml" filepath="$PROJECT_DIR$/packages/gambit_cli/melos_gambit_cli.iml" />
+      <module fileurl="file://$PROJECT_DIR$/melos_gambit.iml" filepath="$PROJECT_DIR$/melos_gambit.iml" />
+    </modules>
+  </component>
+</project>
