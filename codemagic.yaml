@@ -1,17 +1,22 @@
+definitions:
+  env_versions: &env_versions
+    flutter: 3.22.4
+    groups:
+        - mvms
+  triggering_options: &triggering_options
+    events:
+      - tag
+    tag_patterns:                 # Include or exclude watched tag labels
+      - pattern: 'gambit_cli-v*'
+      include: true
+
 workflows:
   compile-mac:
     instance_type: mac_mini_m1
     environment:
-      flutter: 3.22.4
-      groups:
-        - mvms
+      <<: *env_versions
     triggering:
-      events:
-        - tag
-      tag_patterns:                 # Include or exclude watched tag labels
-        - pattern: 'gambit_cli-v*'
-          include: true
-      # cancel_previous_builds: true
+      <<: *triggering_options
 
     scripts:
       - name: Install dependencies
@@ -48,17 +53,9 @@ workflows:
     instance_type: linux_x2
     
     environment:
-      flutter: 3.22.4
-      groups:
-        - mvms
+      <<: *env_versions
     triggering:
-      events:
-        - tag
-      tag_patterns:                 # Include or exclude watched tag labels
-        - pattern: 'gambit_cli-v*'
-          include: true
-      #     include: true
-      # cancel_previous_builds: true
+      <<: *triggering_options
 
     scripts:
       - name: Install dependencies
