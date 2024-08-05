@@ -55,7 +55,7 @@ workflows:
       events:
         - tag
       tag_patterns:                 # Include or exclude watched tag labels
-        - pattern: '*'
+        - pattern: 'gambit_cli-v*'
           include: true
       #     include: true
       # cancel_previous_builds: true
