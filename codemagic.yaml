@@ -25,6 +25,10 @@ workflows:
       - name: Create target Dir
         script: mkdir macos
       
+      - &melos_bs
+        name: melos bs
+        script: melos bootstrap
+      
       - name: Compile
         script: dart compile exe ./packages/gambit_cli/bin/gambit_cli.dart -o macos/gambit
 
@@ -63,6 +67,8 @@ workflows:
       
       - name: Create target Dir
         script: mkdir linux
+
+      - *melos_bs
       
       - name: Compile
         script: dart compile exe ./packages/gambit_cli/bin/gambit_cli.dart -o linux/gambit
