@@ -2,7 +2,7 @@ workflows:
   compile-mac:
     instance_type: mac_mini_m1
     environment:
-      flutter: 3.10.6
+      flutter: 3.22.4
       groups:
         - mvms
     triggering:
