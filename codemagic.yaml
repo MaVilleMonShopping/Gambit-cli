@@ -30,6 +30,7 @@ workflows:
         script: |
           dart pub global activate melos
           dart pub global activate dcli
+          melos bs
 
       - name: Compile
         script: dart compile exe ./packages/gambit_cli/bin/gambit_cli.dart -o macos/gambit
