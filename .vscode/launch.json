@@ -5,10 +5,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Gambit-cli",
+            "name": "testflight-last-build-number",
             "request": "launch",
             "type": "dart",
-            "program": "${workspaceFolder}/bin/gambit.dart",
+            "program": "${workspaceFolder}/packages/gambit_cli/bin/gambit_cli.dart",
             "args": ["ios",
             "testflight-last-build-number",
             "--issuer-id","69a6de94-0aeb-47e3-e053-5b8c7c11a4d1",
