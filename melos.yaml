@@ -1,4 +1,11 @@
 name: gambit
+repository: https://github.com/MaVilleMonShopping/Gambit-cli
 
 packages:
   - packages/**
+
+version:
+  message: |
+    chore: New release !
+    {new_packages_versions}
+  branch: main
