@@ -25,10 +25,12 @@ workflows:
       - name: Create target Dir
         script: mkdir macos
       
-      - &melos_bs
-        name: melos bs
-        script: melos bootstrap
-      
+      - &install_env
+        name: install env
+        script: |
+          dart pub global activate melos
+          dart pub global activate dcli
+
       - name: Compile
         script: dart compile exe ./packages/gambit_cli/bin/gambit_cli.dart -o macos/gambit
 
