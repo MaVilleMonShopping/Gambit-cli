@@ -26,7 +26,7 @@ workflows:
         script: mkdir macos
       
       - name: Compile
-        script: dart compile exe ./bin/gambit.dart -o macos/gambit
+        script: dart compile exe ./packages/gambit_cli/bin/gambit_cli.dart -o macos/gambit
 
     artifacts:
       - macos
@@ -65,7 +65,7 @@ workflows:
         script: mkdir linux
       
       - name: Compile
-        script: dart compile exe ./bin/gambit.dart -o linux/gambit
+        script: dart compile exe ./packages/gambit_cli/bin/gambit_cli.dart -o linux/gambit
 
     artifacts:
       - linux
