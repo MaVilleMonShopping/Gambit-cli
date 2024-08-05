@@ -8,7 +8,7 @@ definitions:
       - tag
     tag_patterns:                 # Include or exclude watched tag labels
       - pattern: 'gambit_cli-v*'
-      include: true
+        include: true
 
 workflows:
   compile-mac:
