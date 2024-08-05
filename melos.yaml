@@ -1,0 +1,4 @@
+name: gambit
+
+packages:
+  - packages/**
