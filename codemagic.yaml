@@ -1,6 +1,6 @@
 definitions:
   env_versions: &env_versions
-    dart: 3.4.4
+    flutter: 3.22.3
     groups:
         - mvms
   triggering_options: &triggering_options
