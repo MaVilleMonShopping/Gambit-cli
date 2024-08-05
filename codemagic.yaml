@@ -70,7 +70,7 @@ workflows:
       - name: Create target Dir
         script: mkdir linux
 
-      - *melos_bs
+      - *install_env
       
       - name: Compile
         script: dart compile exe ./packages/gambit_cli/bin/gambit_cli.dart -o linux/gambit
