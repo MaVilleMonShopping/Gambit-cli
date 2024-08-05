@@ -6,29 +6,30 @@ part of 'ios_build.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_IOSBuild _$$_IOSBuildFromJson(Map<String, dynamic> json) => _$_IOSBuild(
+_$IOSBuildImpl _$$IOSBuildImplFromJson(Map<String, dynamic> json) =>
+    _$IOSBuildImpl(
       attributes: IOSBuildAttributes.fromJson(
           json['attributes'] as Map<String, dynamic>),
       id: json['id'] as String,
       type: json['type'] as String,
     );
 
-Map<String, dynamic> _$$_IOSBuildToJson(_$_IOSBuild instance) =>
+Map<String, dynamic> _$$IOSBuildImplToJson(_$IOSBuildImpl instance) =>
     <String, dynamic>{
       'attributes': instance.attributes,
       'id': instance.id,
       'type': instance.type,
     };
 
-_$_IOSBuildAttributes _$$_IOSBuildAttributesFromJson(
+_$IOSBuildAttributesImpl _$$IOSBuildAttributesImplFromJson(
         Map<String, dynamic> json) =>
-    _$_IOSBuildAttributes(
+    _$IOSBuildAttributesImpl(
       version: json['version'] as String,
       processingState: json['processingState'] as String,
     );
 
-Map<String, dynamic> _$$_IOSBuildAttributesToJson(
-        _$_IOSBuildAttributes instance) =>
+Map<String, dynamic> _$$IOSBuildAttributesImplToJson(
+        _$IOSBuildAttributesImpl instance) =>
     <String, dynamic>{
       'version': instance.version,
       'processingState': instance.processingState,

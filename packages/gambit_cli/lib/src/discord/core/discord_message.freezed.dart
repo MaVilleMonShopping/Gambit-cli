@@ -12,7 +12,7 @@ part of 'discord_message.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 DiscordMessage _$DiscordMessageFromJson(Map<String, dynamic> json) {
   return _DiscordMessage.fromJson(json);
@@ -27,8 +27,12 @@ mixin _$DiscordMessage {
   bool? get tts => throw _privateConstructorUsedError;
   List<DiscordMessageEmbed>? get embeds => throw _privateConstructorUsedError;
 
+  /// Serializes this DiscordMessage to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of DiscordMessage
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $DiscordMessageCopyWith<DiscordMessage> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -57,6 +61,8 @@ class _$DiscordMessageCopyWithImpl<$Res, $Val extends DiscordMessage>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of DiscordMessage
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -92,11 +98,11 @@ class _$DiscordMessageCopyWithImpl<$Res, $Val extends DiscordMessage>
 }
 
 /// @nodoc
-abstract class _$$_DiscordMessageCopyWith<$Res>
+abstract class _$$DiscordMessageImplCopyWith<$Res>
     implements $DiscordMessageCopyWith<$Res> {
-  factory _$$_DiscordMessageCopyWith(
-          _$_DiscordMessage value, $Res Function(_$_DiscordMessage) then) =
-      __$$_DiscordMessageCopyWithImpl<$Res>;
+  factory _$$DiscordMessageImplCopyWith(_$DiscordMessageImpl value,
+          $Res Function(_$DiscordMessageImpl) then) =
+      __$$DiscordMessageImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -108,13 +114,15 @@ abstract class _$$_DiscordMessageCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_DiscordMessageCopyWithImpl<$Res>
-    extends _$DiscordMessageCopyWithImpl<$Res, _$_DiscordMessage>
-    implements _$$_DiscordMessageCopyWith<$Res> {
-  __$$_DiscordMessageCopyWithImpl(
-      _$_DiscordMessage _value, $Res Function(_$_DiscordMessage) _then)
+class __$$DiscordMessageImplCopyWithImpl<$Res>
+    extends _$DiscordMessageCopyWithImpl<$Res, _$DiscordMessageImpl>
+    implements _$$DiscordMessageImplCopyWith<$Res> {
+  __$$DiscordMessageImplCopyWithImpl(
+      _$DiscordMessageImpl _value, $Res Function(_$DiscordMessageImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of DiscordMessage
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -124,7 +132,7 @@ class __$$_DiscordMessageCopyWithImpl<$Res>
     Object? tts = freezed,
     Object? embeds = freezed,
   }) {
-    return _then(_$_DiscordMessage(
+    return _then(_$DiscordMessageImpl(
       content: null == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
@@ -151,8 +159,8 @@ class __$$_DiscordMessageCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_DiscordMessage implements _DiscordMessage {
-  const _$_DiscordMessage(
+class _$DiscordMessageImpl implements _DiscordMessage {
+  const _$DiscordMessageImpl(
       {this.content = "",
       this.username,
       @JsonKey(name: "avatar_url") this.avatarUrl,
@@ -160,8 +168,8 @@ class _$_DiscordMessage implements _DiscordMessage {
       final List<DiscordMessageEmbed>? embeds})
       : _embeds = embeds;
 
-  factory _$_DiscordMessage.fromJson(Map<String, dynamic> json) =>
-      _$$_DiscordMessageFromJson(json);
+  factory _$DiscordMessageImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DiscordMessageImplFromJson(json);
 
   @override
   @JsonKey()
@@ -189,10 +197,10 @@ class _$_DiscordMessage implements _DiscordMessage {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DiscordMessage &&
+            other is _$DiscordMessageImpl &&
             (identical(other.content, content) || other.content == content) &&
             (identical(other.username, username) ||
                 other.username == username) &&
@@ -202,20 +210,23 @@ class _$_DiscordMessage implements _DiscordMessage {
             const DeepCollectionEquality().equals(other._embeds, _embeds));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, content, username, avatarUrl,
       tts, const DeepCollectionEquality().hash(_embeds));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DiscordMessage
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DiscordMessageCopyWith<_$_DiscordMessage> get copyWith =>
-      __$$_DiscordMessageCopyWithImpl<_$_DiscordMessage>(this, _$identity);
+  _$$DiscordMessageImplCopyWith<_$DiscordMessageImpl> get copyWith =>
+      __$$DiscordMessageImplCopyWithImpl<_$DiscordMessageImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DiscordMessageToJson(
+    return _$$DiscordMessageImplToJson(
       this,
     );
   }
@@ -227,10 +238,10 @@ abstract class _DiscordMessage implements DiscordMessage {
       final String? username,
       @JsonKey(name: "avatar_url") final String? avatarUrl,
       final bool? tts,
-      final List<DiscordMessageEmbed>? embeds}) = _$_DiscordMessage;
+      final List<DiscordMessageEmbed>? embeds}) = _$DiscordMessageImpl;
 
   factory _DiscordMessage.fromJson(Map<String, dynamic> json) =
-      _$_DiscordMessage.fromJson;
+      _$DiscordMessageImpl.fromJson;
 
   @override
   String get content;
@@ -243,8 +254,11 @@ abstract class _DiscordMessage implements DiscordMessage {
   bool? get tts;
   @override
   List<DiscordMessageEmbed>? get embeds;
+
+  /// Create a copy of DiscordMessage
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_DiscordMessageCopyWith<_$_DiscordMessage> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$DiscordMessageImplCopyWith<_$DiscordMessageImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

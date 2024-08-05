@@ -12,7 +12,7 @@ part of 'ios_build.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 IOSBuild _$IOSBuildFromJson(Map<String, dynamic> json) {
   return _IOSBuild.fromJson(json);
@@ -24,8 +24,12 @@ mixin _$IOSBuild {
   String get id => throw _privateConstructorUsedError;
   String get type => throw _privateConstructorUsedError;
 
+  /// Serializes this IOSBuild to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of IOSBuild
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $IOSBuildCopyWith<IOSBuild> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -50,6 +54,8 @@ class _$IOSBuildCopyWithImpl<$Res, $Val extends IOSBuild>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of IOSBuild
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -73,6 +79,8 @@ class _$IOSBuildCopyWithImpl<$Res, $Val extends IOSBuild>
     ) as $Val);
   }
 
+  /// Create a copy of IOSBuild
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $IOSBuildAttributesCopyWith<$Res> get attributes {
@@ -83,10 +91,11 @@ class _$IOSBuildCopyWithImpl<$Res, $Val extends IOSBuild>
 }
 
 /// @nodoc
-abstract class _$$_IOSBuildCopyWith<$Res> implements $IOSBuildCopyWith<$Res> {
-  factory _$$_IOSBuildCopyWith(
-          _$_IOSBuild value, $Res Function(_$_IOSBuild) then) =
-      __$$_IOSBuildCopyWithImpl<$Res>;
+abstract class _$$IOSBuildImplCopyWith<$Res>
+    implements $IOSBuildCopyWith<$Res> {
+  factory _$$IOSBuildImplCopyWith(
+          _$IOSBuildImpl value, $Res Function(_$IOSBuildImpl) then) =
+      __$$IOSBuildImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({IOSBuildAttributes attributes, String id, String type});
@@ -96,13 +105,15 @@ abstract class _$$_IOSBuildCopyWith<$Res> implements $IOSBuildCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_IOSBuildCopyWithImpl<$Res>
-    extends _$IOSBuildCopyWithImpl<$Res, _$_IOSBuild>
-    implements _$$_IOSBuildCopyWith<$Res> {
-  __$$_IOSBuildCopyWithImpl(
-      _$_IOSBuild _value, $Res Function(_$_IOSBuild) _then)
+class __$$IOSBuildImplCopyWithImpl<$Res>
+    extends _$IOSBuildCopyWithImpl<$Res, _$IOSBuildImpl>
+    implements _$$IOSBuildImplCopyWith<$Res> {
+  __$$IOSBuildImplCopyWithImpl(
+      _$IOSBuildImpl _value, $Res Function(_$IOSBuildImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of IOSBuild
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -110,7 +121,7 @@ class __$$_IOSBuildCopyWithImpl<$Res>
     Object? id = null,
     Object? type = null,
   }) {
-    return _then(_$_IOSBuild(
+    return _then(_$IOSBuildImpl(
       attributes: null == attributes
           ? _value.attributes
           : attributes // ignore: cast_nullable_to_non_nullable
@@ -129,12 +140,12 @@ class __$$_IOSBuildCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_IOSBuild implements _IOSBuild {
-  const _$_IOSBuild(
+class _$IOSBuildImpl implements _IOSBuild {
+  const _$IOSBuildImpl(
       {required this.attributes, required this.id, required this.type});
 
-  factory _$_IOSBuild.fromJson(Map<String, dynamic> json) =>
-      _$$_IOSBuildFromJson(json);
+  factory _$IOSBuildImpl.fromJson(Map<String, dynamic> json) =>
+      _$$IOSBuildImplFromJson(json);
 
   @override
   final IOSBuildAttributes attributes;
@@ -149,29 +160,31 @@ class _$_IOSBuild implements _IOSBuild {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_IOSBuild &&
+            other is _$IOSBuildImpl &&
             (identical(other.attributes, attributes) ||
                 other.attributes == attributes) &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.type, type) || other.type == type));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, attributes, id, type);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of IOSBuild
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_IOSBuildCopyWith<_$_IOSBuild> get copyWith =>
-      __$$_IOSBuildCopyWithImpl<_$_IOSBuild>(this, _$identity);
+  _$$IOSBuildImplCopyWith<_$IOSBuildImpl> get copyWith =>
+      __$$IOSBuildImplCopyWithImpl<_$IOSBuildImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_IOSBuildToJson(
+    return _$$IOSBuildImplToJson(
       this,
     );
   }
@@ -181,9 +194,10 @@ abstract class _IOSBuild implements IOSBuild {
   const factory _IOSBuild(
       {required final IOSBuildAttributes attributes,
       required final String id,
-      required final String type}) = _$_IOSBuild;
+      required final String type}) = _$IOSBuildImpl;
 
-  factory _IOSBuild.fromJson(Map<String, dynamic> json) = _$_IOSBuild.fromJson;
+  factory _IOSBuild.fromJson(Map<String, dynamic> json) =
+      _$IOSBuildImpl.fromJson;
 
   @override
   IOSBuildAttributes get attributes;
@@ -191,9 +205,12 @@ abstract class _IOSBuild implements IOSBuild {
   String get id;
   @override
   String get type;
+
+  /// Create a copy of IOSBuild
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_IOSBuildCopyWith<_$_IOSBuild> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$IOSBuildImplCopyWith<_$IOSBuildImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -206,8 +223,12 @@ mixin _$IOSBuildAttributes {
   String get version => throw _privateConstructorUsedError;
   String get processingState => throw _privateConstructorUsedError;
 
+  /// Serializes this IOSBuildAttributes to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of IOSBuildAttributes
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $IOSBuildAttributesCopyWith<IOSBuildAttributes> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -231,6 +252,8 @@ class _$IOSBuildAttributesCopyWithImpl<$Res, $Val extends IOSBuildAttributes>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of IOSBuildAttributes
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -251,31 +274,33 @@ class _$IOSBuildAttributesCopyWithImpl<$Res, $Val extends IOSBuildAttributes>
 }
 
 /// @nodoc
-abstract class _$$_IOSBuildAttributesCopyWith<$Res>
+abstract class _$$IOSBuildAttributesImplCopyWith<$Res>
     implements $IOSBuildAttributesCopyWith<$Res> {
-  factory _$$_IOSBuildAttributesCopyWith(_$_IOSBuildAttributes value,
-          $Res Function(_$_IOSBuildAttributes) then) =
-      __$$_IOSBuildAttributesCopyWithImpl<$Res>;
+  factory _$$IOSBuildAttributesImplCopyWith(_$IOSBuildAttributesImpl value,
+          $Res Function(_$IOSBuildAttributesImpl) then) =
+      __$$IOSBuildAttributesImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String version, String processingState});
 }
 
 /// @nodoc
-class __$$_IOSBuildAttributesCopyWithImpl<$Res>
-    extends _$IOSBuildAttributesCopyWithImpl<$Res, _$_IOSBuildAttributes>
-    implements _$$_IOSBuildAttributesCopyWith<$Res> {
-  __$$_IOSBuildAttributesCopyWithImpl(
-      _$_IOSBuildAttributes _value, $Res Function(_$_IOSBuildAttributes) _then)
+class __$$IOSBuildAttributesImplCopyWithImpl<$Res>
+    extends _$IOSBuildAttributesCopyWithImpl<$Res, _$IOSBuildAttributesImpl>
+    implements _$$IOSBuildAttributesImplCopyWith<$Res> {
+  __$$IOSBuildAttributesImplCopyWithImpl(_$IOSBuildAttributesImpl _value,
+      $Res Function(_$IOSBuildAttributesImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of IOSBuildAttributes
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? version = null,
     Object? processingState = null,
   }) {
-    return _then(_$_IOSBuildAttributes(
+    return _then(_$IOSBuildAttributesImpl(
       version: null == version
           ? _value.version
           : version // ignore: cast_nullable_to_non_nullable
@@ -290,12 +315,12 @@ class __$$_IOSBuildAttributesCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_IOSBuildAttributes implements _IOSBuildAttributes {
-  const _$_IOSBuildAttributes(
+class _$IOSBuildAttributesImpl implements _IOSBuildAttributes {
+  const _$IOSBuildAttributesImpl(
       {required this.version, required this.processingState});
 
-  factory _$_IOSBuildAttributes.fromJson(Map<String, dynamic> json) =>
-      _$$_IOSBuildAttributesFromJson(json);
+  factory _$IOSBuildAttributesImpl.fromJson(Map<String, dynamic> json) =>
+      _$$IOSBuildAttributesImplFromJson(json);
 
   @override
   final String version;
@@ -308,29 +333,31 @@ class _$_IOSBuildAttributes implements _IOSBuildAttributes {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_IOSBuildAttributes &&
+            other is _$IOSBuildAttributesImpl &&
             (identical(other.version, version) || other.version == version) &&
             (identical(other.processingState, processingState) ||
                 other.processingState == processingState));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, version, processingState);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of IOSBuildAttributes
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_IOSBuildAttributesCopyWith<_$_IOSBuildAttributes> get copyWith =>
-      __$$_IOSBuildAttributesCopyWithImpl<_$_IOSBuildAttributes>(
+  _$$IOSBuildAttributesImplCopyWith<_$IOSBuildAttributesImpl> get copyWith =>
+      __$$IOSBuildAttributesImplCopyWithImpl<_$IOSBuildAttributesImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_IOSBuildAttributesToJson(
+    return _$$IOSBuildAttributesImplToJson(
       this,
     );
   }
@@ -339,17 +366,20 @@ class _$_IOSBuildAttributes implements _IOSBuildAttributes {
 abstract class _IOSBuildAttributes implements IOSBuildAttributes {
   const factory _IOSBuildAttributes(
       {required final String version,
-      required final String processingState}) = _$_IOSBuildAttributes;
+      required final String processingState}) = _$IOSBuildAttributesImpl;
 
   factory _IOSBuildAttributes.fromJson(Map<String, dynamic> json) =
-      _$_IOSBuildAttributes.fromJson;
+      _$IOSBuildAttributesImpl.fromJson;
 
   @override
   String get version;
   @override
   String get processingState;
+
+  /// Create a copy of IOSBuildAttributes
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_IOSBuildAttributesCopyWith<_$_IOSBuildAttributes> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$IOSBuildAttributesImplCopyWith<_$IOSBuildAttributesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

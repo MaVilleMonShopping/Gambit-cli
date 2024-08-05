@@ -6,15 +6,15 @@ part of 'discord_embeds.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_DiscordMessageEmbed _$$_DiscordMessageEmbedFromJson(
+_$DiscordMessageEmbedImpl _$$DiscordMessageEmbedImplFromJson(
         Map<String, dynamic> json) =>
-    _$_DiscordMessageEmbed(
+    _$DiscordMessageEmbedImpl(
       title: json['title'] as String?,
       type: json['type'] as String?,
       description: json['description'] as String?,
       url: json['url'] as String?,
-      timestamp: json['timestamp'] as int?,
-      color: json['color'] as int?,
+      timestamp: (json['timestamp'] as num?)?.toInt(),
+      color: (json['color'] as num?)?.toInt(),
       footer: json['footer'] == null
           ? null
           : EmbededFooter.fromJson(json['footer'] as Map<String, dynamic>),
@@ -38,8 +38,8 @@ _$_DiscordMessageEmbed _$$_DiscordMessageEmbedFromJson(
           .toList(),
     );
 
-Map<String, dynamic> _$$_DiscordMessageEmbedToJson(
-        _$_DiscordMessageEmbed instance) =>
+Map<String, dynamic> _$$DiscordMessageEmbedImplToJson(
+        _$DiscordMessageEmbedImpl instance) =>
     <String, dynamic>{
       'title': instance.title,
       'type': instance.type,
@@ -56,29 +56,29 @@ Map<String, dynamic> _$$_DiscordMessageEmbedToJson(
       'fields': instance.fields,
     };
 
-_$_EmbededFooter _$$_EmbededFooterFromJson(Map<String, dynamic> json) =>
-    _$_EmbededFooter(
+_$EmbededFooterImpl _$$EmbededFooterImplFromJson(Map<String, dynamic> json) =>
+    _$EmbededFooterImpl(
       text: json['text'] as String,
       iconUrl: json['icon_url'] as String?,
       proxyIconUrl: json['proxy_icon_url'] as String?,
     );
 
-Map<String, dynamic> _$$_EmbededFooterToJson(_$_EmbededFooter instance) =>
+Map<String, dynamic> _$$EmbededFooterImplToJson(_$EmbededFooterImpl instance) =>
     <String, dynamic>{
       'text': instance.text,
       'icon_url': instance.iconUrl,
       'proxy_icon_url': instance.proxyIconUrl,
     };
 
-_$_EmbededMedia _$$_EmbededMediaFromJson(Map<String, dynamic> json) =>
-    _$_EmbededMedia(
+_$EmbededMediaImpl _$$EmbededMediaImplFromJson(Map<String, dynamic> json) =>
+    _$EmbededMediaImpl(
       url: json['url'] as String,
       proxyUl: json['proxy_url'] as String?,
-      height: json['height'] as int?,
-      width: json['width'] as int?,
+      height: (json['height'] as num?)?.toInt(),
+      width: (json['width'] as num?)?.toInt(),
     );
 
-Map<String, dynamic> _$$_EmbededMediaToJson(_$_EmbededMedia instance) =>
+Map<String, dynamic> _$$EmbededMediaImplToJson(_$EmbededMediaImpl instance) =>
     <String, dynamic>{
       'url': instance.url,
       'proxy_url': instance.proxyUl,
@@ -86,27 +86,29 @@ Map<String, dynamic> _$$_EmbededMediaToJson(_$_EmbededMedia instance) =>
       'width': instance.width,
     };
 
-_$_EmbededProvider _$$_EmbededProviderFromJson(Map<String, dynamic> json) =>
-    _$_EmbededProvider(
+_$EmbededProviderImpl _$$EmbededProviderImplFromJson(
+        Map<String, dynamic> json) =>
+    _$EmbededProviderImpl(
       name: json['name'] as String?,
       url: json['url'] as String?,
     );
 
-Map<String, dynamic> _$$_EmbededProviderToJson(_$_EmbededProvider instance) =>
+Map<String, dynamic> _$$EmbededProviderImplToJson(
+        _$EmbededProviderImpl instance) =>
     <String, dynamic>{
       'name': instance.name,
       'url': instance.url,
     };
 
-_$_EmbededAuthor _$$_EmbededAuthorFromJson(Map<String, dynamic> json) =>
-    _$_EmbededAuthor(
+_$EmbededAuthorImpl _$$EmbededAuthorImplFromJson(Map<String, dynamic> json) =>
+    _$EmbededAuthorImpl(
       name: json['name'] as String,
       url: json['url'] as String?,
       iconUrl: json['icon_url'] as String?,
       proxyIconUrl: json['proxy_icon_url'] as String?,
     );
 
-Map<String, dynamic> _$$_EmbededAuthorToJson(_$_EmbededAuthor instance) =>
+Map<String, dynamic> _$$EmbededAuthorImplToJson(_$EmbededAuthorImpl instance) =>
     <String, dynamic>{
       'name': instance.name,
       'url': instance.url,
@@ -114,14 +116,14 @@ Map<String, dynamic> _$$_EmbededAuthorToJson(_$_EmbededAuthor instance) =>
       'proxy_icon_url': instance.proxyIconUrl,
     };
 
-_$_EmbededField _$$_EmbededFieldFromJson(Map<String, dynamic> json) =>
-    _$_EmbededField(
+_$EmbededFieldImpl _$$EmbededFieldImplFromJson(Map<String, dynamic> json) =>
+    _$EmbededFieldImpl(
       name: json['name'] as String,
       value: json['value'] as String,
       inline: json['inline'] as bool?,
     );
 
-Map<String, dynamic> _$$_EmbededFieldToJson(_$_EmbededField instance) =>
+Map<String, dynamic> _$$EmbededFieldImplToJson(_$EmbededFieldImpl instance) =>
     <String, dynamic>{
       'name': instance.name,
       'value': instance.value,
