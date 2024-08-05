@@ -12,7 +12,7 @@ part of 'provisioning_profile.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 AppstoreConnectApiResponse _$AppstoreConnectApiResponseFromJson(
     Map<String, dynamic> json) {
@@ -23,8 +23,12 @@ AppstoreConnectApiResponse _$AppstoreConnectApiResponseFromJson(
 mixin _$AppstoreConnectApiResponse {
   List<dynamic> get data => throw _privateConstructorUsedError;
 
+  /// Serializes this AppstoreConnectApiResponse to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AppstoreConnectApiResponse
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $AppstoreConnectApiResponseCopyWith<AppstoreConnectApiResponse>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -50,6 +54,8 @@ class _$AppstoreConnectApiResponseCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of AppstoreConnectApiResponse
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -65,33 +71,35 @@ class _$AppstoreConnectApiResponseCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_AppstoreConnectApiResponseCopyWith<$Res>
+abstract class _$$AppstoreConnectApiResponseImplCopyWith<$Res>
     implements $AppstoreConnectApiResponseCopyWith<$Res> {
-  factory _$$_AppstoreConnectApiResponseCopyWith(
-          _$_AppstoreConnectApiResponse value,
-          $Res Function(_$_AppstoreConnectApiResponse) then) =
-      __$$_AppstoreConnectApiResponseCopyWithImpl<$Res>;
+  factory _$$AppstoreConnectApiResponseImplCopyWith(
+          _$AppstoreConnectApiResponseImpl value,
+          $Res Function(_$AppstoreConnectApiResponseImpl) then) =
+      __$$AppstoreConnectApiResponseImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<dynamic> data});
 }
 
 /// @nodoc
-class __$$_AppstoreConnectApiResponseCopyWithImpl<$Res>
+class __$$AppstoreConnectApiResponseImplCopyWithImpl<$Res>
     extends _$AppstoreConnectApiResponseCopyWithImpl<$Res,
-        _$_AppstoreConnectApiResponse>
-    implements _$$_AppstoreConnectApiResponseCopyWith<$Res> {
-  __$$_AppstoreConnectApiResponseCopyWithImpl(
-      _$_AppstoreConnectApiResponse _value,
-      $Res Function(_$_AppstoreConnectApiResponse) _then)
+        _$AppstoreConnectApiResponseImpl>
+    implements _$$AppstoreConnectApiResponseImplCopyWith<$Res> {
+  __$$AppstoreConnectApiResponseImplCopyWithImpl(
+      _$AppstoreConnectApiResponseImpl _value,
+      $Res Function(_$AppstoreConnectApiResponseImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AppstoreConnectApiResponse
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_AppstoreConnectApiResponse(
+    return _then(_$AppstoreConnectApiResponseImpl(
       data: null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
@@ -102,12 +110,13 @@ class __$$_AppstoreConnectApiResponseCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_AppstoreConnectApiResponse implements _AppstoreConnectApiResponse {
-  const _$_AppstoreConnectApiResponse({required final List<dynamic> data})
+class _$AppstoreConnectApiResponseImpl implements _AppstoreConnectApiResponse {
+  const _$AppstoreConnectApiResponseImpl({required final List<dynamic> data})
       : _data = data;
 
-  factory _$_AppstoreConnectApiResponse.fromJson(Map<String, dynamic> json) =>
-      _$$_AppstoreConnectApiResponseFromJson(json);
+  factory _$AppstoreConnectApiResponseImpl.fromJson(
+          Map<String, dynamic> json) =>
+      _$$AppstoreConnectApiResponseImplFromJson(json);
 
   final List<dynamic> _data;
   @override
@@ -123,28 +132,30 @@ class _$_AppstoreConnectApiResponse implements _AppstoreConnectApiResponse {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AppstoreConnectApiResponse &&
+            other is _$AppstoreConnectApiResponseImpl &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AppstoreConnectApiResponse
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AppstoreConnectApiResponseCopyWith<_$_AppstoreConnectApiResponse>
-      get copyWith => __$$_AppstoreConnectApiResponseCopyWithImpl<
-          _$_AppstoreConnectApiResponse>(this, _$identity);
+  _$$AppstoreConnectApiResponseImplCopyWith<_$AppstoreConnectApiResponseImpl>
+      get copyWith => __$$AppstoreConnectApiResponseImplCopyWithImpl<
+          _$AppstoreConnectApiResponseImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_AppstoreConnectApiResponseToJson(
+    return _$$AppstoreConnectApiResponseImplToJson(
       this,
     );
   }
@@ -153,16 +164,19 @@ class _$_AppstoreConnectApiResponse implements _AppstoreConnectApiResponse {
 abstract class _AppstoreConnectApiResponse
     implements AppstoreConnectApiResponse {
   const factory _AppstoreConnectApiResponse(
-      {required final List<dynamic> data}) = _$_AppstoreConnectApiResponse;
+      {required final List<dynamic> data}) = _$AppstoreConnectApiResponseImpl;
 
   factory _AppstoreConnectApiResponse.fromJson(Map<String, dynamic> json) =
-      _$_AppstoreConnectApiResponse.fromJson;
+      _$AppstoreConnectApiResponseImpl.fromJson;
 
   @override
   List<dynamic> get data;
+
+  /// Create a copy of AppstoreConnectApiResponse
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_AppstoreConnectApiResponseCopyWith<_$_AppstoreConnectApiResponse>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AppstoreConnectApiResponseImplCopyWith<_$AppstoreConnectApiResponseImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -177,8 +191,12 @@ mixin _$ProvisioningProfile {
   ProvisioningProfileAttributes get attributes =>
       throw _privateConstructorUsedError;
 
+  /// Serializes this ProvisioningProfile to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ProvisioningProfile
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ProvisioningProfileCopyWith<ProvisioningProfile> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -205,6 +223,8 @@ class _$ProvisioningProfileCopyWithImpl<$Res, $Val extends ProvisioningProfile>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ProvisioningProfile
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -228,6 +248,8 @@ class _$ProvisioningProfileCopyWithImpl<$Res, $Val extends ProvisioningProfile>
     ) as $Val);
   }
 
+  /// Create a copy of ProvisioningProfile
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ProvisioningProfileAttributesCopyWith<$Res> get attributes {
@@ -239,11 +261,11 @@ class _$ProvisioningProfileCopyWithImpl<$Res, $Val extends ProvisioningProfile>
 }
 
 /// @nodoc
-abstract class _$$_ProvisioningProfileCopyWith<$Res>
+abstract class _$$ProvisioningProfileImplCopyWith<$Res>
     implements $ProvisioningProfileCopyWith<$Res> {
-  factory _$$_ProvisioningProfileCopyWith(_$_ProvisioningProfile value,
-          $Res Function(_$_ProvisioningProfile) then) =
-      __$$_ProvisioningProfileCopyWithImpl<$Res>;
+  factory _$$ProvisioningProfileImplCopyWith(_$ProvisioningProfileImpl value,
+          $Res Function(_$ProvisioningProfileImpl) then) =
+      __$$ProvisioningProfileImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -254,13 +276,15 @@ abstract class _$$_ProvisioningProfileCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ProvisioningProfileCopyWithImpl<$Res>
-    extends _$ProvisioningProfileCopyWithImpl<$Res, _$_ProvisioningProfile>
-    implements _$$_ProvisioningProfileCopyWith<$Res> {
-  __$$_ProvisioningProfileCopyWithImpl(_$_ProvisioningProfile _value,
-      $Res Function(_$_ProvisioningProfile) _then)
+class __$$ProvisioningProfileImplCopyWithImpl<$Res>
+    extends _$ProvisioningProfileCopyWithImpl<$Res, _$ProvisioningProfileImpl>
+    implements _$$ProvisioningProfileImplCopyWith<$Res> {
+  __$$ProvisioningProfileImplCopyWithImpl(_$ProvisioningProfileImpl _value,
+      $Res Function(_$ProvisioningProfileImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ProvisioningProfile
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -268,7 +292,7 @@ class __$$_ProvisioningProfileCopyWithImpl<$Res>
     Object? id = null,
     Object? attributes = null,
   }) {
-    return _then(_$_ProvisioningProfile(
+    return _then(_$ProvisioningProfileImpl(
       type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -287,13 +311,13 @@ class __$$_ProvisioningProfileCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ProvisioningProfile extends _ProvisioningProfile {
-  const _$_ProvisioningProfile(
+class _$ProvisioningProfileImpl extends _ProvisioningProfile {
+  const _$ProvisioningProfileImpl(
       {this.type, required this.id, required this.attributes})
       : super._();
 
-  factory _$_ProvisioningProfile.fromJson(Map<String, dynamic> json) =>
-      _$$_ProvisioningProfileFromJson(json);
+  factory _$ProvisioningProfileImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ProvisioningProfileImplFromJson(json);
 
   @override
   final String? type;
@@ -308,30 +332,32 @@ class _$_ProvisioningProfile extends _ProvisioningProfile {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ProvisioningProfile &&
+            other is _$ProvisioningProfileImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.attributes, attributes) ||
                 other.attributes == attributes));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, type, id, attributes);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ProvisioningProfile
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ProvisioningProfileCopyWith<_$_ProvisioningProfile> get copyWith =>
-      __$$_ProvisioningProfileCopyWithImpl<_$_ProvisioningProfile>(
+  _$$ProvisioningProfileImplCopyWith<_$ProvisioningProfileImpl> get copyWith =>
+      __$$ProvisioningProfileImplCopyWithImpl<_$ProvisioningProfileImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ProvisioningProfileToJson(
+    return _$$ProvisioningProfileImplToJson(
       this,
     );
   }
@@ -342,11 +368,11 @@ abstract class _ProvisioningProfile extends ProvisioningProfile {
           {final String? type,
           required final String id,
           required final ProvisioningProfileAttributes attributes}) =
-      _$_ProvisioningProfile;
+      _$ProvisioningProfileImpl;
   const _ProvisioningProfile._() : super._();
 
   factory _ProvisioningProfile.fromJson(Map<String, dynamic> json) =
-      _$_ProvisioningProfile.fromJson;
+      _$ProvisioningProfileImpl.fromJson;
 
   @override
   String? get type;
@@ -354,9 +380,12 @@ abstract class _ProvisioningProfile extends ProvisioningProfile {
   String get id;
   @override
   ProvisioningProfileAttributes get attributes;
+
+  /// Create a copy of ProvisioningProfile
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_ProvisioningProfileCopyWith<_$_ProvisioningProfile> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ProvisioningProfileImplCopyWith<_$ProvisioningProfileImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -370,8 +399,12 @@ mixin _$ProvisioningProfileAttributes {
   String get profileContent => throw _privateConstructorUsedError;
   String get uuid => throw _privateConstructorUsedError;
 
+  /// Serializes this ProvisioningProfileAttributes to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ProvisioningProfileAttributes
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ProvisioningProfileAttributesCopyWith<ProvisioningProfileAttributes>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -398,6 +431,8 @@ class _$ProvisioningProfileAttributesCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ProvisioningProfileAttributes
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -418,34 +453,36 @@ class _$ProvisioningProfileAttributesCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_ProvisioningProfileAttributesCopyWith<$Res>
+abstract class _$$ProvisioningProfileAttributesImplCopyWith<$Res>
     implements $ProvisioningProfileAttributesCopyWith<$Res> {
-  factory _$$_ProvisioningProfileAttributesCopyWith(
-          _$_ProvisioningProfileAttributes value,
-          $Res Function(_$_ProvisioningProfileAttributes) then) =
-      __$$_ProvisioningProfileAttributesCopyWithImpl<$Res>;
+  factory _$$ProvisioningProfileAttributesImplCopyWith(
+          _$ProvisioningProfileAttributesImpl value,
+          $Res Function(_$ProvisioningProfileAttributesImpl) then) =
+      __$$ProvisioningProfileAttributesImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String profileContent, String uuid});
 }
 
 /// @nodoc
-class __$$_ProvisioningProfileAttributesCopyWithImpl<$Res>
+class __$$ProvisioningProfileAttributesImplCopyWithImpl<$Res>
     extends _$ProvisioningProfileAttributesCopyWithImpl<$Res,
-        _$_ProvisioningProfileAttributes>
-    implements _$$_ProvisioningProfileAttributesCopyWith<$Res> {
-  __$$_ProvisioningProfileAttributesCopyWithImpl(
-      _$_ProvisioningProfileAttributes _value,
-      $Res Function(_$_ProvisioningProfileAttributes) _then)
+        _$ProvisioningProfileAttributesImpl>
+    implements _$$ProvisioningProfileAttributesImplCopyWith<$Res> {
+  __$$ProvisioningProfileAttributesImplCopyWithImpl(
+      _$ProvisioningProfileAttributesImpl _value,
+      $Res Function(_$ProvisioningProfileAttributesImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ProvisioningProfileAttributes
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? profileContent = null,
     Object? uuid = null,
   }) {
-    return _then(_$_ProvisioningProfileAttributes(
+    return _then(_$ProvisioningProfileAttributesImpl(
       profileContent: null == profileContent
           ? _value.profileContent
           : profileContent // ignore: cast_nullable_to_non_nullable
@@ -460,14 +497,14 @@ class __$$_ProvisioningProfileAttributesCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ProvisioningProfileAttributes
+class _$ProvisioningProfileAttributesImpl
     implements _ProvisioningProfileAttributes {
-  const _$_ProvisioningProfileAttributes(
+  const _$ProvisioningProfileAttributesImpl(
       {required this.profileContent, required this.uuid});
 
-  factory _$_ProvisioningProfileAttributes.fromJson(
+  factory _$ProvisioningProfileAttributesImpl.fromJson(
           Map<String, dynamic> json) =>
-      _$$_ProvisioningProfileAttributesFromJson(json);
+      _$$ProvisioningProfileAttributesImplFromJson(json);
 
   @override
   final String profileContent;
@@ -480,29 +517,32 @@ class _$_ProvisioningProfileAttributes
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ProvisioningProfileAttributes &&
+            other is _$ProvisioningProfileAttributesImpl &&
             (identical(other.profileContent, profileContent) ||
                 other.profileContent == profileContent) &&
             (identical(other.uuid, uuid) || other.uuid == uuid));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, profileContent, uuid);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ProvisioningProfileAttributes
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ProvisioningProfileAttributesCopyWith<_$_ProvisioningProfileAttributes>
-      get copyWith => __$$_ProvisioningProfileAttributesCopyWithImpl<
-          _$_ProvisioningProfileAttributes>(this, _$identity);
+  _$$ProvisioningProfileAttributesImplCopyWith<
+          _$ProvisioningProfileAttributesImpl>
+      get copyWith => __$$ProvisioningProfileAttributesImplCopyWithImpl<
+          _$ProvisioningProfileAttributesImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ProvisioningProfileAttributesToJson(
+    return _$$ProvisioningProfileAttributesImplToJson(
       this,
     );
   }
@@ -512,17 +552,21 @@ abstract class _ProvisioningProfileAttributes
     implements ProvisioningProfileAttributes {
   const factory _ProvisioningProfileAttributes(
       {required final String profileContent,
-      required final String uuid}) = _$_ProvisioningProfileAttributes;
+      required final String uuid}) = _$ProvisioningProfileAttributesImpl;
 
   factory _ProvisioningProfileAttributes.fromJson(Map<String, dynamic> json) =
-      _$_ProvisioningProfileAttributes.fromJson;
+      _$ProvisioningProfileAttributesImpl.fromJson;
 
   @override
   String get profileContent;
   @override
   String get uuid;
+
+  /// Create a copy of ProvisioningProfileAttributes
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_ProvisioningProfileAttributesCopyWith<_$_ProvisioningProfileAttributes>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ProvisioningProfileAttributesImplCopyWith<
+          _$ProvisioningProfileAttributesImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

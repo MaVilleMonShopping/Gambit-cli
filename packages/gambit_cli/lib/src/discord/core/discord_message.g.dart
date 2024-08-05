@@ -6,8 +6,8 @@ part of 'discord_message.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_DiscordMessage _$$_DiscordMessageFromJson(Map<String, dynamic> json) =>
-    _$_DiscordMessage(
+_$DiscordMessageImpl _$$DiscordMessageImplFromJson(Map<String, dynamic> json) =>
+    _$DiscordMessageImpl(
       content: json['content'] as String? ?? "",
       username: json['username'] as String?,
       avatarUrl: json['avatar_url'] as String?,
@@ -17,7 +17,8 @@ _$_DiscordMessage _$$_DiscordMessageFromJson(Map<String, dynamic> json) =>
           .toList(),
     );
 
-Map<String, dynamic> _$$_DiscordMessageToJson(_$_DiscordMessage instance) =>
+Map<String, dynamic> _$$DiscordMessageImplToJson(
+        _$DiscordMessageImpl instance) =>
     <String, dynamic>{
       'content': instance.content,
       'username': instance.username,

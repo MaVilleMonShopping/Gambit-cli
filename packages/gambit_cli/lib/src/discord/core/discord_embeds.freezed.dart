@@ -12,7 +12,7 @@ part of 'discord_embeds.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 DiscordMessageEmbed _$DiscordMessageEmbedFromJson(Map<String, dynamic> json) {
   return _DiscordMessageEmbed.fromJson(json);
@@ -34,8 +34,12 @@ mixin _$DiscordMessageEmbed {
   EmbededAuthor? get author => throw _privateConstructorUsedError;
   List<EmbededField>? get fields => throw _privateConstructorUsedError;
 
+  /// Serializes this DiscordMessageEmbed to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of DiscordMessageEmbed
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $DiscordMessageEmbedCopyWith<DiscordMessageEmbed> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -79,6 +83,8 @@ class _$DiscordMessageEmbedCopyWithImpl<$Res, $Val extends DiscordMessageEmbed>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of DiscordMessageEmbed
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -152,6 +158,8 @@ class _$DiscordMessageEmbedCopyWithImpl<$Res, $Val extends DiscordMessageEmbed>
     ) as $Val);
   }
 
+  /// Create a copy of DiscordMessageEmbed
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $EmbededFooterCopyWith<$Res>? get footer {
@@ -164,6 +172,8 @@ class _$DiscordMessageEmbedCopyWithImpl<$Res, $Val extends DiscordMessageEmbed>
     });
   }
 
+  /// Create a copy of DiscordMessageEmbed
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $EmbededMediaCopyWith<$Res>? get image {
@@ -176,6 +186,8 @@ class _$DiscordMessageEmbedCopyWithImpl<$Res, $Val extends DiscordMessageEmbed>
     });
   }
 
+  /// Create a copy of DiscordMessageEmbed
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $EmbededMediaCopyWith<$Res>? get thumbnail {
@@ -188,6 +200,8 @@ class _$DiscordMessageEmbedCopyWithImpl<$Res, $Val extends DiscordMessageEmbed>
     });
   }
 
+  /// Create a copy of DiscordMessageEmbed
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $EmbededMediaCopyWith<$Res>? get video {
@@ -200,6 +214,8 @@ class _$DiscordMessageEmbedCopyWithImpl<$Res, $Val extends DiscordMessageEmbed>
     });
   }
 
+  /// Create a copy of DiscordMessageEmbed
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $EmbededProviderCopyWith<$Res>? get provider {
@@ -212,6 +228,8 @@ class _$DiscordMessageEmbedCopyWithImpl<$Res, $Val extends DiscordMessageEmbed>
     });
   }
 
+  /// Create a copy of DiscordMessageEmbed
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $EmbededAuthorCopyWith<$Res>? get author {
@@ -226,11 +244,11 @@ class _$DiscordMessageEmbedCopyWithImpl<$Res, $Val extends DiscordMessageEmbed>
 }
 
 /// @nodoc
-abstract class _$$_DiscordMessageEmbedCopyWith<$Res>
+abstract class _$$DiscordMessageEmbedImplCopyWith<$Res>
     implements $DiscordMessageEmbedCopyWith<$Res> {
-  factory _$$_DiscordMessageEmbedCopyWith(_$_DiscordMessageEmbed value,
-          $Res Function(_$_DiscordMessageEmbed) then) =
-      __$$_DiscordMessageEmbedCopyWithImpl<$Res>;
+  factory _$$DiscordMessageEmbedImplCopyWith(_$DiscordMessageEmbedImpl value,
+          $Res Function(_$DiscordMessageEmbedImpl) then) =
+      __$$DiscordMessageEmbedImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -263,13 +281,15 @@ abstract class _$$_DiscordMessageEmbedCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_DiscordMessageEmbedCopyWithImpl<$Res>
-    extends _$DiscordMessageEmbedCopyWithImpl<$Res, _$_DiscordMessageEmbed>
-    implements _$$_DiscordMessageEmbedCopyWith<$Res> {
-  __$$_DiscordMessageEmbedCopyWithImpl(_$_DiscordMessageEmbed _value,
-      $Res Function(_$_DiscordMessageEmbed) _then)
+class __$$DiscordMessageEmbedImplCopyWithImpl<$Res>
+    extends _$DiscordMessageEmbedCopyWithImpl<$Res, _$DiscordMessageEmbedImpl>
+    implements _$$DiscordMessageEmbedImplCopyWith<$Res> {
+  __$$DiscordMessageEmbedImplCopyWithImpl(_$DiscordMessageEmbedImpl _value,
+      $Res Function(_$DiscordMessageEmbedImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of DiscordMessageEmbed
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -287,7 +307,7 @@ class __$$_DiscordMessageEmbedCopyWithImpl<$Res>
     Object? author = freezed,
     Object? fields = freezed,
   }) {
-    return _then(_$_DiscordMessageEmbed(
+    return _then(_$DiscordMessageEmbedImpl(
       title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -346,8 +366,8 @@ class __$$_DiscordMessageEmbedCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_DiscordMessageEmbed implements _DiscordMessageEmbed {
-  const _$_DiscordMessageEmbed(
+class _$DiscordMessageEmbedImpl implements _DiscordMessageEmbed {
+  const _$DiscordMessageEmbedImpl(
       {this.title,
       this.type,
       this.description,
@@ -363,8 +383,8 @@ class _$_DiscordMessageEmbed implements _DiscordMessageEmbed {
       final List<EmbededField>? fields})
       : _fields = fields;
 
-  factory _$_DiscordMessageEmbed.fromJson(Map<String, dynamic> json) =>
-      _$$_DiscordMessageEmbedFromJson(json);
+  factory _$DiscordMessageEmbedImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DiscordMessageEmbedImplFromJson(json);
 
   @override
   final String? title;
@@ -406,10 +426,10 @@ class _$_DiscordMessageEmbed implements _DiscordMessageEmbed {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DiscordMessageEmbed &&
+            other is _$DiscordMessageEmbedImpl &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.description, description) ||
@@ -429,7 +449,7 @@ class _$_DiscordMessageEmbed implements _DiscordMessageEmbed {
             const DeepCollectionEquality().equals(other._fields, _fields));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -447,16 +467,18 @@ class _$_DiscordMessageEmbed implements _DiscordMessageEmbed {
       author,
       const DeepCollectionEquality().hash(_fields));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DiscordMessageEmbed
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DiscordMessageEmbedCopyWith<_$_DiscordMessageEmbed> get copyWith =>
-      __$$_DiscordMessageEmbedCopyWithImpl<_$_DiscordMessageEmbed>(
+  _$$DiscordMessageEmbedImplCopyWith<_$DiscordMessageEmbedImpl> get copyWith =>
+      __$$DiscordMessageEmbedImplCopyWithImpl<_$DiscordMessageEmbedImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DiscordMessageEmbedToJson(
+    return _$$DiscordMessageEmbedImplToJson(
       this,
     );
   }
@@ -476,10 +498,10 @@ abstract class _DiscordMessageEmbed implements DiscordMessageEmbed {
       final EmbededMedia? video,
       final EmbededProvider? provider,
       final EmbededAuthor? author,
-      final List<EmbededField>? fields}) = _$_DiscordMessageEmbed;
+      final List<EmbededField>? fields}) = _$DiscordMessageEmbedImpl;
 
   factory _DiscordMessageEmbed.fromJson(Map<String, dynamic> json) =
-      _$_DiscordMessageEmbed.fromJson;
+      _$DiscordMessageEmbedImpl.fromJson;
 
   @override
   String? get title;
@@ -507,9 +529,12 @@ abstract class _DiscordMessageEmbed implements DiscordMessageEmbed {
   EmbededAuthor? get author;
   @override
   List<EmbededField>? get fields;
+
+  /// Create a copy of DiscordMessageEmbed
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_DiscordMessageEmbedCopyWith<_$_DiscordMessageEmbed> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$DiscordMessageEmbedImplCopyWith<_$DiscordMessageEmbedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -525,8 +550,12 @@ mixin _$EmbededFooter {
   @JsonKey(name: "proxy_icon_url")
   String? get proxyIconUrl => throw _privateConstructorUsedError;
 
+  /// Serializes this EmbededFooter to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of EmbededFooter
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $EmbededFooterCopyWith<EmbededFooter> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -553,6 +582,8 @@ class _$EmbededFooterCopyWithImpl<$Res, $Val extends EmbededFooter>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of EmbededFooter
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -578,11 +609,11 @@ class _$EmbededFooterCopyWithImpl<$Res, $Val extends EmbededFooter>
 }
 
 /// @nodoc
-abstract class _$$_EmbededFooterCopyWith<$Res>
+abstract class _$$EmbededFooterImplCopyWith<$Res>
     implements $EmbededFooterCopyWith<$Res> {
-  factory _$$_EmbededFooterCopyWith(
-          _$_EmbededFooter value, $Res Function(_$_EmbededFooter) then) =
-      __$$_EmbededFooterCopyWithImpl<$Res>;
+  factory _$$EmbededFooterImplCopyWith(
+          _$EmbededFooterImpl value, $Res Function(_$EmbededFooterImpl) then) =
+      __$$EmbededFooterImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -592,13 +623,15 @@ abstract class _$$_EmbededFooterCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_EmbededFooterCopyWithImpl<$Res>
-    extends _$EmbededFooterCopyWithImpl<$Res, _$_EmbededFooter>
-    implements _$$_EmbededFooterCopyWith<$Res> {
-  __$$_EmbededFooterCopyWithImpl(
-      _$_EmbededFooter _value, $Res Function(_$_EmbededFooter) _then)
+class __$$EmbededFooterImplCopyWithImpl<$Res>
+    extends _$EmbededFooterCopyWithImpl<$Res, _$EmbededFooterImpl>
+    implements _$$EmbededFooterImplCopyWith<$Res> {
+  __$$EmbededFooterImplCopyWithImpl(
+      _$EmbededFooterImpl _value, $Res Function(_$EmbededFooterImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of EmbededFooter
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -606,7 +639,7 @@ class __$$_EmbededFooterCopyWithImpl<$Res>
     Object? iconUrl = freezed,
     Object? proxyIconUrl = freezed,
   }) {
-    return _then(_$_EmbededFooter(
+    return _then(_$EmbededFooterImpl(
       text: null == text
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
@@ -625,14 +658,14 @@ class __$$_EmbededFooterCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_EmbededFooter implements _EmbededFooter {
-  const _$_EmbededFooter(
+class _$EmbededFooterImpl implements _EmbededFooter {
+  const _$EmbededFooterImpl(
       {required this.text,
       @JsonKey(name: "icon_url") this.iconUrl,
       @JsonKey(name: "proxy_icon_url") this.proxyIconUrl});
 
-  factory _$_EmbededFooter.fromJson(Map<String, dynamic> json) =>
-      _$$_EmbededFooterFromJson(json);
+  factory _$EmbededFooterImpl.fromJson(Map<String, dynamic> json) =>
+      _$$EmbededFooterImplFromJson(json);
 
   @override
   final String text;
@@ -649,29 +682,31 @@ class _$_EmbededFooter implements _EmbededFooter {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_EmbededFooter &&
+            other is _$EmbededFooterImpl &&
             (identical(other.text, text) || other.text == text) &&
             (identical(other.iconUrl, iconUrl) || other.iconUrl == iconUrl) &&
             (identical(other.proxyIconUrl, proxyIconUrl) ||
                 other.proxyIconUrl == proxyIconUrl));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, text, iconUrl, proxyIconUrl);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of EmbededFooter
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_EmbededFooterCopyWith<_$_EmbededFooter> get copyWith =>
-      __$$_EmbededFooterCopyWithImpl<_$_EmbededFooter>(this, _$identity);
+  _$$EmbededFooterImplCopyWith<_$EmbededFooterImpl> get copyWith =>
+      __$$EmbededFooterImplCopyWithImpl<_$EmbededFooterImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_EmbededFooterToJson(
+    return _$$EmbededFooterImplToJson(
       this,
     );
   }
@@ -682,10 +717,10 @@ abstract class _EmbededFooter implements EmbededFooter {
           {required final String text,
           @JsonKey(name: "icon_url") final String? iconUrl,
           @JsonKey(name: "proxy_icon_url") final String? proxyIconUrl}) =
-      _$_EmbededFooter;
+      _$EmbededFooterImpl;
 
   factory _EmbededFooter.fromJson(Map<String, dynamic> json) =
-      _$_EmbededFooter.fromJson;
+      _$EmbededFooterImpl.fromJson;
 
   @override
   String get text;
@@ -695,9 +730,12 @@ abstract class _EmbededFooter implements EmbededFooter {
   @override
   @JsonKey(name: "proxy_icon_url")
   String? get proxyIconUrl;
+
+  /// Create a copy of EmbededFooter
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_EmbededFooterCopyWith<_$_EmbededFooter> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$EmbededFooterImplCopyWith<_$EmbededFooterImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -713,8 +751,12 @@ mixin _$EmbededMedia {
   int? get height => throw _privateConstructorUsedError;
   int? get width => throw _privateConstructorUsedError;
 
+  /// Serializes this EmbededMedia to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of EmbededMedia
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $EmbededMediaCopyWith<EmbededMedia> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -742,6 +784,8 @@ class _$EmbededMediaCopyWithImpl<$Res, $Val extends EmbededMedia>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of EmbededMedia
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -772,11 +816,11 @@ class _$EmbededMediaCopyWithImpl<$Res, $Val extends EmbededMedia>
 }
 
 /// @nodoc
-abstract class _$$_EmbededMediaCopyWith<$Res>
+abstract class _$$EmbededMediaImplCopyWith<$Res>
     implements $EmbededMediaCopyWith<$Res> {
-  factory _$$_EmbededMediaCopyWith(
-          _$_EmbededMedia value, $Res Function(_$_EmbededMedia) then) =
-      __$$_EmbededMediaCopyWithImpl<$Res>;
+  factory _$$EmbededMediaImplCopyWith(
+          _$EmbededMediaImpl value, $Res Function(_$EmbededMediaImpl) then) =
+      __$$EmbededMediaImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -787,13 +831,15 @@ abstract class _$$_EmbededMediaCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_EmbededMediaCopyWithImpl<$Res>
-    extends _$EmbededMediaCopyWithImpl<$Res, _$_EmbededMedia>
-    implements _$$_EmbededMediaCopyWith<$Res> {
-  __$$_EmbededMediaCopyWithImpl(
-      _$_EmbededMedia _value, $Res Function(_$_EmbededMedia) _then)
+class __$$EmbededMediaImplCopyWithImpl<$Res>
+    extends _$EmbededMediaCopyWithImpl<$Res, _$EmbededMediaImpl>
+    implements _$$EmbededMediaImplCopyWith<$Res> {
+  __$$EmbededMediaImplCopyWithImpl(
+      _$EmbededMediaImpl _value, $Res Function(_$EmbededMediaImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of EmbededMedia
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -802,7 +848,7 @@ class __$$_EmbededMediaCopyWithImpl<$Res>
     Object? height = freezed,
     Object? width = freezed,
   }) {
-    return _then(_$_EmbededMedia(
+    return _then(_$EmbededMediaImpl(
       url: null == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
@@ -825,15 +871,15 @@ class __$$_EmbededMediaCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_EmbededMedia implements _EmbededMedia {
-  const _$_EmbededMedia(
+class _$EmbededMediaImpl implements _EmbededMedia {
+  const _$EmbededMediaImpl(
       {required this.url,
       @JsonKey(name: "proxy_url") this.proxyUl,
       this.height,
       this.width});
 
-  factory _$_EmbededMedia.fromJson(Map<String, dynamic> json) =>
-      _$$_EmbededMediaFromJson(json);
+  factory _$EmbededMediaImpl.fromJson(Map<String, dynamic> json) =>
+      _$$EmbededMediaImplFromJson(json);
 
   @override
   final String url;
@@ -851,29 +897,31 @@ class _$_EmbededMedia implements _EmbededMedia {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_EmbededMedia &&
+            other is _$EmbededMediaImpl &&
             (identical(other.url, url) || other.url == url) &&
             (identical(other.proxyUl, proxyUl) || other.proxyUl == proxyUl) &&
             (identical(other.height, height) || other.height == height) &&
             (identical(other.width, width) || other.width == width));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, url, proxyUl, height, width);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of EmbededMedia
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_EmbededMediaCopyWith<_$_EmbededMedia> get copyWith =>
-      __$$_EmbededMediaCopyWithImpl<_$_EmbededMedia>(this, _$identity);
+  _$$EmbededMediaImplCopyWith<_$EmbededMediaImpl> get copyWith =>
+      __$$EmbededMediaImplCopyWithImpl<_$EmbededMediaImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_EmbededMediaToJson(
+    return _$$EmbededMediaImplToJson(
       this,
     );
   }
@@ -884,10 +932,10 @@ abstract class _EmbededMedia implements EmbededMedia {
       {required final String url,
       @JsonKey(name: "proxy_url") final String? proxyUl,
       final int? height,
-      final int? width}) = _$_EmbededMedia;
+      final int? width}) = _$EmbededMediaImpl;
 
   factory _EmbededMedia.fromJson(Map<String, dynamic> json) =
-      _$_EmbededMedia.fromJson;
+      _$EmbededMediaImpl.fromJson;
 
   @override
   String get url;
@@ -898,9 +946,12 @@ abstract class _EmbededMedia implements EmbededMedia {
   int? get height;
   @override
   int? get width;
+
+  /// Create a copy of EmbededMedia
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_EmbededMediaCopyWith<_$_EmbededMedia> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$EmbededMediaImplCopyWith<_$EmbededMediaImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -913,8 +964,12 @@ mixin _$EmbededProvider {
   String? get name => throw _privateConstructorUsedError;
   String? get url => throw _privateConstructorUsedError;
 
+  /// Serializes this EmbededProvider to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of EmbededProvider
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $EmbededProviderCopyWith<EmbededProvider> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -938,6 +993,8 @@ class _$EmbededProviderCopyWithImpl<$Res, $Val extends EmbededProvider>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of EmbededProvider
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -958,31 +1015,33 @@ class _$EmbededProviderCopyWithImpl<$Res, $Val extends EmbededProvider>
 }
 
 /// @nodoc
-abstract class _$$_EmbededProviderCopyWith<$Res>
+abstract class _$$EmbededProviderImplCopyWith<$Res>
     implements $EmbededProviderCopyWith<$Res> {
-  factory _$$_EmbededProviderCopyWith(
-          _$_EmbededProvider value, $Res Function(_$_EmbededProvider) then) =
-      __$$_EmbededProviderCopyWithImpl<$Res>;
+  factory _$$EmbededProviderImplCopyWith(_$EmbededProviderImpl value,
+          $Res Function(_$EmbededProviderImpl) then) =
+      __$$EmbededProviderImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? name, String? url});
 }
 
 /// @nodoc
-class __$$_EmbededProviderCopyWithImpl<$Res>
-    extends _$EmbededProviderCopyWithImpl<$Res, _$_EmbededProvider>
-    implements _$$_EmbededProviderCopyWith<$Res> {
-  __$$_EmbededProviderCopyWithImpl(
-      _$_EmbededProvider _value, $Res Function(_$_EmbededProvider) _then)
+class __$$EmbededProviderImplCopyWithImpl<$Res>
+    extends _$EmbededProviderCopyWithImpl<$Res, _$EmbededProviderImpl>
+    implements _$$EmbededProviderImplCopyWith<$Res> {
+  __$$EmbededProviderImplCopyWithImpl(
+      _$EmbededProviderImpl _value, $Res Function(_$EmbededProviderImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of EmbededProvider
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? name = freezed,
     Object? url = freezed,
   }) {
-    return _then(_$_EmbededProvider(
+    return _then(_$EmbededProviderImpl(
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -997,11 +1056,11 @@ class __$$_EmbededProviderCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_EmbededProvider implements _EmbededProvider {
-  const _$_EmbededProvider({this.name, this.url});
+class _$EmbededProviderImpl implements _EmbededProvider {
+  const _$EmbededProviderImpl({this.name, this.url});
 
-  factory _$_EmbededProvider.fromJson(Map<String, dynamic> json) =>
-      _$$_EmbededProviderFromJson(json);
+  factory _$EmbededProviderImpl.fromJson(Map<String, dynamic> json) =>
+      _$$EmbededProviderImplFromJson(json);
 
   @override
   final String? name;
@@ -1014,27 +1073,30 @@ class _$_EmbededProvider implements _EmbededProvider {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_EmbededProvider &&
+            other is _$EmbededProviderImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.url, url) || other.url == url));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, name, url);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of EmbededProvider
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_EmbededProviderCopyWith<_$_EmbededProvider> get copyWith =>
-      __$$_EmbededProviderCopyWithImpl<_$_EmbededProvider>(this, _$identity);
+  _$$EmbededProviderImplCopyWith<_$EmbededProviderImpl> get copyWith =>
+      __$$EmbededProviderImplCopyWithImpl<_$EmbededProviderImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_EmbededProviderToJson(
+    return _$$EmbededProviderImplToJson(
       this,
     );
   }
@@ -1042,18 +1104,21 @@ class _$_EmbededProvider implements _EmbededProvider {
 
 abstract class _EmbededProvider implements EmbededProvider {
   const factory _EmbededProvider({final String? name, final String? url}) =
-      _$_EmbededProvider;
+      _$EmbededProviderImpl;
 
   factory _EmbededProvider.fromJson(Map<String, dynamic> json) =
-      _$_EmbededProvider.fromJson;
+      _$EmbededProviderImpl.fromJson;
 
   @override
   String? get name;
   @override
   String? get url;
+
+  /// Create a copy of EmbededProvider
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_EmbededProviderCopyWith<_$_EmbededProvider> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$EmbededProviderImplCopyWith<_$EmbededProviderImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1070,8 +1135,12 @@ mixin _$EmbededAuthor {
   @JsonKey(name: "proxy_icon_url")
   String? get proxyIconUrl => throw _privateConstructorUsedError;
 
+  /// Serializes this EmbededAuthor to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of EmbededAuthor
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $EmbededAuthorCopyWith<EmbededAuthor> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1099,6 +1168,8 @@ class _$EmbededAuthorCopyWithImpl<$Res, $Val extends EmbededAuthor>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of EmbededAuthor
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1129,11 +1200,11 @@ class _$EmbededAuthorCopyWithImpl<$Res, $Val extends EmbededAuthor>
 }
 
 /// @nodoc
-abstract class _$$_EmbededAuthorCopyWith<$Res>
+abstract class _$$EmbededAuthorImplCopyWith<$Res>
     implements $EmbededAuthorCopyWith<$Res> {
-  factory _$$_EmbededAuthorCopyWith(
-          _$_EmbededAuthor value, $Res Function(_$_EmbededAuthor) then) =
-      __$$_EmbededAuthorCopyWithImpl<$Res>;
+  factory _$$EmbededAuthorImplCopyWith(
+          _$EmbededAuthorImpl value, $Res Function(_$EmbededAuthorImpl) then) =
+      __$$EmbededAuthorImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -1144,13 +1215,15 @@ abstract class _$$_EmbededAuthorCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_EmbededAuthorCopyWithImpl<$Res>
-    extends _$EmbededAuthorCopyWithImpl<$Res, _$_EmbededAuthor>
-    implements _$$_EmbededAuthorCopyWith<$Res> {
-  __$$_EmbededAuthorCopyWithImpl(
-      _$_EmbededAuthor _value, $Res Function(_$_EmbededAuthor) _then)
+class __$$EmbededAuthorImplCopyWithImpl<$Res>
+    extends _$EmbededAuthorCopyWithImpl<$Res, _$EmbededAuthorImpl>
+    implements _$$EmbededAuthorImplCopyWith<$Res> {
+  __$$EmbededAuthorImplCopyWithImpl(
+      _$EmbededAuthorImpl _value, $Res Function(_$EmbededAuthorImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of EmbededAuthor
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1159,7 +1232,7 @@ class __$$_EmbededAuthorCopyWithImpl<$Res>
     Object? iconUrl = freezed,
     Object? proxyIconUrl = freezed,
   }) {
-    return _then(_$_EmbededAuthor(
+    return _then(_$EmbededAuthorImpl(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -1182,15 +1255,15 @@ class __$$_EmbededAuthorCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_EmbededAuthor implements _EmbededAuthor {
-  const _$_EmbededAuthor(
+class _$EmbededAuthorImpl implements _EmbededAuthor {
+  const _$EmbededAuthorImpl(
       {required this.name,
       this.url,
       @JsonKey(name: "icon_url") this.iconUrl,
       @JsonKey(name: "proxy_icon_url") this.proxyIconUrl});
 
-  factory _$_EmbededAuthor.fromJson(Map<String, dynamic> json) =>
-      _$$_EmbededAuthorFromJson(json);
+  factory _$EmbededAuthorImpl.fromJson(Map<String, dynamic> json) =>
+      _$$EmbededAuthorImplFromJson(json);
 
   @override
   final String name;
@@ -1209,10 +1282,10 @@ class _$_EmbededAuthor implements _EmbededAuthor {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_EmbededAuthor &&
+            other is _$EmbededAuthorImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.url, url) || other.url == url) &&
             (identical(other.iconUrl, iconUrl) || other.iconUrl == iconUrl) &&
@@ -1220,20 +1293,22 @@ class _$_EmbededAuthor implements _EmbededAuthor {
                 other.proxyIconUrl == proxyIconUrl));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, name, url, iconUrl, proxyIconUrl);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of EmbededAuthor
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_EmbededAuthorCopyWith<_$_EmbededAuthor> get copyWith =>
-      __$$_EmbededAuthorCopyWithImpl<_$_EmbededAuthor>(this, _$identity);
+  _$$EmbededAuthorImplCopyWith<_$EmbededAuthorImpl> get copyWith =>
+      __$$EmbededAuthorImplCopyWithImpl<_$EmbededAuthorImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_EmbededAuthorToJson(
+    return _$$EmbededAuthorImplToJson(
       this,
     );
   }
@@ -1245,10 +1320,10 @@ abstract class _EmbededAuthor implements EmbededAuthor {
           final String? url,
           @JsonKey(name: "icon_url") final String? iconUrl,
           @JsonKey(name: "proxy_icon_url") final String? proxyIconUrl}) =
-      _$_EmbededAuthor;
+      _$EmbededAuthorImpl;
 
   factory _EmbededAuthor.fromJson(Map<String, dynamic> json) =
-      _$_EmbededAuthor.fromJson;
+      _$EmbededAuthorImpl.fromJson;
 
   @override
   String get name;
@@ -1260,9 +1335,12 @@ abstract class _EmbededAuthor implements EmbededAuthor {
   @override
   @JsonKey(name: "proxy_icon_url")
   String? get proxyIconUrl;
+
+  /// Create a copy of EmbededAuthor
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_EmbededAuthorCopyWith<_$_EmbededAuthor> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$EmbededAuthorImplCopyWith<_$EmbededAuthorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1276,8 +1354,12 @@ mixin _$EmbededField {
   String get value => throw _privateConstructorUsedError;
   bool? get inline => throw _privateConstructorUsedError;
 
+  /// Serializes this EmbededField to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of EmbededField
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $EmbededFieldCopyWith<EmbededField> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1301,6 +1383,8 @@ class _$EmbededFieldCopyWithImpl<$Res, $Val extends EmbededField>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of EmbededField
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1326,24 +1410,26 @@ class _$EmbededFieldCopyWithImpl<$Res, $Val extends EmbededField>
 }
 
 /// @nodoc
-abstract class _$$_EmbededFieldCopyWith<$Res>
+abstract class _$$EmbededFieldImplCopyWith<$Res>
     implements $EmbededFieldCopyWith<$Res> {
-  factory _$$_EmbededFieldCopyWith(
-          _$_EmbededField value, $Res Function(_$_EmbededField) then) =
-      __$$_EmbededFieldCopyWithImpl<$Res>;
+  factory _$$EmbededFieldImplCopyWith(
+          _$EmbededFieldImpl value, $Res Function(_$EmbededFieldImpl) then) =
+      __$$EmbededFieldImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String name, String value, bool? inline});
 }
 
 /// @nodoc
-class __$$_EmbededFieldCopyWithImpl<$Res>
-    extends _$EmbededFieldCopyWithImpl<$Res, _$_EmbededField>
-    implements _$$_EmbededFieldCopyWith<$Res> {
-  __$$_EmbededFieldCopyWithImpl(
-      _$_EmbededField _value, $Res Function(_$_EmbededField) _then)
+class __$$EmbededFieldImplCopyWithImpl<$Res>
+    extends _$EmbededFieldCopyWithImpl<$Res, _$EmbededFieldImpl>
+    implements _$$EmbededFieldImplCopyWith<$Res> {
+  __$$EmbededFieldImplCopyWithImpl(
+      _$EmbededFieldImpl _value, $Res Function(_$EmbededFieldImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of EmbededField
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1351,7 +1437,7 @@ class __$$_EmbededFieldCopyWithImpl<$Res>
     Object? value = null,
     Object? inline = freezed,
   }) {
-    return _then(_$_EmbededField(
+    return _then(_$EmbededFieldImpl(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -1370,11 +1456,12 @@ class __$$_EmbededFieldCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_EmbededField implements _EmbededField {
-  const _$_EmbededField({required this.name, required this.value, this.inline});
+class _$EmbededFieldImpl implements _EmbededField {
+  const _$EmbededFieldImpl(
+      {required this.name, required this.value, this.inline});
 
-  factory _$_EmbededField.fromJson(Map<String, dynamic> json) =>
-      _$$_EmbededFieldFromJson(json);
+  factory _$EmbededFieldImpl.fromJson(Map<String, dynamic> json) =>
+      _$$EmbededFieldImplFromJson(json);
 
   @override
   final String name;
@@ -1389,28 +1476,30 @@ class _$_EmbededField implements _EmbededField {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_EmbededField &&
+            other is _$EmbededFieldImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.value, value) || other.value == value) &&
             (identical(other.inline, inline) || other.inline == inline));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, name, value, inline);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of EmbededField
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_EmbededFieldCopyWith<_$_EmbededField> get copyWith =>
-      __$$_EmbededFieldCopyWithImpl<_$_EmbededField>(this, _$identity);
+  _$$EmbededFieldImplCopyWith<_$EmbededFieldImpl> get copyWith =>
+      __$$EmbededFieldImplCopyWithImpl<_$EmbededFieldImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_EmbededFieldToJson(
+    return _$$EmbededFieldImplToJson(
       this,
     );
   }
@@ -1420,10 +1509,10 @@ abstract class _EmbededField implements EmbededField {
   const factory _EmbededField(
       {required final String name,
       required final String value,
-      final bool? inline}) = _$_EmbededField;
+      final bool? inline}) = _$EmbededFieldImpl;
 
   factory _EmbededField.fromJson(Map<String, dynamic> json) =
-      _$_EmbededField.fromJson;
+      _$EmbededFieldImpl.fromJson;
 
   @override
   String get name;
@@ -1431,8 +1520,11 @@ abstract class _EmbededField implements EmbededField {
   String get value;
   @override
   bool? get inline;
+
+  /// Create a copy of EmbededField
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_EmbededFieldCopyWith<_$_EmbededField> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$EmbededFieldImplCopyWith<_$EmbededFieldImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
