@@ -53,7 +53,10 @@ class TestflightPublish extends GambitCommand {
         print(yellow("Initializing"));
         apiKeyId = argResults![apiKeyIdArgName];
         apiPrivateKey = argResults![apiPrivateKeyArgName];
-        ipaPath = argResults![ipPathArgName];
+
+        // need to escape space in path for unix command
+        // ignore: unnecessary_string_escapes
+        ipaPath = argResults![ipPathArgName].replaceAll(" ", "\ ");
         maxRetry = int.tryParse(argResults![maxTryArgName]) ?? 1;
 
         altoolValidateArgs["--apiIssuer"] = argResults![issuerIdArgName];
@@ -65,8 +68,8 @@ class TestflightPublish extends GambitCommand {
         altoolValidateArgs["--apiKey"] = apiKeyId;
         altoolUploadArgs["--apiKey"] = apiKeyId;
 
-        altoolValidateArgs["--file"] = '"$ipaPath"';
-        altoolUploadArgs["--file"] = '"$ipaPath"';
+        altoolValidateArgs["--file"] = ipaPath;
+        altoolUploadArgs["--file"] = ipaPath;
 
         printDebug(green("Initialization done !"));
         return right(unit);
@@ -76,10 +79,10 @@ class TestflightPublish extends GambitCommand {
       Task<GCTaskResult<Unit>>(() async {
         print(yellow("Saving api private key"));
         apiPrivateKeyFilename = "AuthKey_$apiKeyId.p8";
+        final privateKeyDir = Directory("$HOME/.appstoreconnect/private_keys");
         privateKey = File(
           join(
-            Directory.current.absolute.path,
-            "private_keys",
+            privateKeyDir.path,
             apiPrivateKeyFilename,
           ),
         );
@@ -98,20 +101,27 @@ class TestflightPublish extends GambitCommand {
       });
   Task<GCTaskResult<Unit>> _validate(_) => Task<GCTaskResult<Unit>>(() async {
         print(yellow("Validating ipa..."));
-        String xcodeCommand = "xcrun altool --validate-app";
+        List<String> argsXCrun = ["altool", "--validate-app"];
 
         if (verboseEnabled) {
-          xcodeCommand += "  --show-progress";
+          argsXCrun.add("--show-progress");
         }
 
         for (var entry in altoolValidateArgs.entries
             .where((element) => element.value != null)) {
-          xcodeCommand += " ${entry.key} ${entry.value}";
+          argsXCrun.add(entry.key);
+          argsXCrun.add(entry.value);
         }
         try {
-          xcodeCommand.run;
+          final result = await Process.run("xcrun", argsXCrun);
+          printDebug(result.stdout);
+          if (result.exitCode != 0) {
+            printDebug(result.stderr);
+            return left(CommandFailure(cause: "Validation failed"));
+          }
           return right(unit);
         } catch (ex) {
+          printDebug(ex.toString());
           return left(CommandFailure(cause: "Validation failed"));
         }
       });
@@ -141,21 +151,28 @@ class TestflightPublish extends GambitCommand {
       });
 
   Future<bool> _uploadIpa() async {
-    String xcodeCommand = "xcrun altool --upload-app";
+    List<String> argsXCrun = ["altool", "--upload-app"];
 
     if (verboseEnabled) {
-      xcodeCommand += "  --show-progress";
+      argsXCrun.add("--show-progress");
     }
 
     for (var entry
         in altoolUploadArgs.entries.where((element) => element.value != null)) {
-      xcodeCommand += " ${entry.key} ${entry.value}";
+      argsXCrun.add(entry.key);
+      argsXCrun.add(entry.value);
     }
 
     try {
-      xcodeCommand.run;
+      final result = await Process.run("xcrun", argsXCrun);
+      printDebug(result.stdout);
+      if (result.exitCode != 0) {
+        printDebug(result.stderr);
+        return false;
+      }
       return true;
     } catch (ex) {
+      printDebug(ex.toString());
       return false;
     }
   }
