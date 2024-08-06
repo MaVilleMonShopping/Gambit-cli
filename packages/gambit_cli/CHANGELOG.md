@@ -1,3 +1,7 @@
+## 1.3.2
+
+ - **FIX**(testflight-publish): fix xcrun command error and ipa file path with spaces.
+
 ## 1.3.1
 
  - **REFACTOR**(freezed): regen freezed.
