@@ -1,6 +1,6 @@
 name: gambit_cli
 description: A sample command-line application.
-version: 1.3.2
+version: 1.3.3
 publish_to: 'none'
 # repository: https://github.com/my_org/my_repo
 

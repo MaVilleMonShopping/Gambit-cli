@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2024-08-19
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`example` - `v1.0.4`](#example---v104)
+ - [`gambit_cli` - `v1.3.3`](#gambit_cli---v133)
+
+---
+
+#### `example` - `v1.0.4`
+
+ - **FIX**(testflight-last-build-number): fix parsing error.
+
+#### `gambit_cli` - `v1.3.3`
+
+ - **FIX**(testflight-last-build-number): fix parsing error.
+
+
 ## 2024-08-06
 
 ### Changes
