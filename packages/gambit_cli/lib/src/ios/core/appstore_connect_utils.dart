@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:gambit_cli/src/core/dio_content_type_response_interceptor.dart';
 import 'package:jose/jose.dart';
 
 import 'ios_build.dart';
@@ -81,8 +80,6 @@ class AppStoreConnectClient {
     if (preReleaseVersion != null) {
       queryParameters["filter[preReleaseVersion.version]"] = preReleaseVersion;
     }
-
-    _dio.interceptors.add(ContentTypeFixInterceptor());
     final response = await _dio.get(
       "/builds",
       queryParameters: queryParameters,
